@@ -1,6 +1,7 @@
 // Variables
 //
 // Color system
+$white: #fff;
 $teal-dark: #0a6073;
 $teal-light: #4ba8b0;
 $blue-dark: #095c80;
@@ -16,6 +17,7 @@ $colors: () !default;
 // prettier-ignore
 $colors: map-merge(
   (
+    "white":          $white,
     "teal-drk":       $teal-dark,
     "teal-lt":        $teal-light,
     "blue-drk":       $blue-dark,

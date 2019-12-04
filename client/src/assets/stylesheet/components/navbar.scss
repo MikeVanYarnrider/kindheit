@@ -1,8 +1,10 @@
+@import "../variables";
+
 $nav-heigth: 5rem;
 
 .nav {
   height: $nav-heigth;
-  background-color: #fff;
+  background-color: $white;
 
   &-container {
     height: 100%;
