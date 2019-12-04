@@ -1,0 +1,9 @@
+@import "../variables";
+
+.start {
+  background: $white;
+  border-radius: 2rem;
+  text-align: center;
+  padding: 3rem 1rem;
+  box-shadow: 0 6px 15px 0 rgba(85, 92, 107, 0.15);
+}
