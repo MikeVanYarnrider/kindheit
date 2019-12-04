@@ -17,10 +17,16 @@ const Button = props => {
       return <span>1</span>;
     }
     if (props.variant.includes("select")) {
-      return <span>Select</span>;
+      return <span>+</span>;
     }
     if (props.variant.includes("checked")) {
       return <span>Checked</span>;
+    } else {
+      return (
+        <>
+          {props.children} <span>icon</span>
+        </>
+      );
     }
   };
 

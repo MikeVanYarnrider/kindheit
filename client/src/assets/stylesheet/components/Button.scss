@@ -1,7 +1,7 @@
 @import "../variables";
 @import "../root";
 
-button {
+.btn-rnd {
   border: none;
   margin: 1em;
   border-radius: 50%;
@@ -9,6 +9,27 @@ button {
   height: 70px;
   font-weight: bold;
 }
+
+.btn-pill {
+  background-color: #ddd;
+  width: 200px;
+  height: 70px;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  border-radius: 50px;
+}
+
+.start {
+  border: 4px solid white;
+  color: white;
+  background-color: $yellow-dark;
+  box-shadow: 0 0 1em $yellow-dark;
+}
+
 .back {
   border: 4px solid $teal-dark;
   box-shadow: 0 0 1em $teal-dark;
@@ -35,7 +56,7 @@ button {
 .select {
   border: 4px solid white;
   color: white;
-  background-color: $yellow-dark;
+  background-color: $green-dark;
   box-shadow: 0 0 1em $green-dark;
 }
 .checked {
