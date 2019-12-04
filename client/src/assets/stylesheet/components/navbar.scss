@@ -1,0 +1,22 @@
+$nav-heigth: 5rem;
+
+.nav {
+  height: $nav-heigth;
+  background-color: #fff;
+
+  &-container {
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-logo {
+    width: 15rem;
+  }
+
+  &bar {
+    &-link {
+      padding-left: 1rem;
+    }
+  }
+}
