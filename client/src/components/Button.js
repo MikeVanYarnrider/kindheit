@@ -1,40 +1,45 @@
 import React from "react";
+import "../assets/stylesheet/components/Button.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlay,
+  faLongArrowAltLeft,
+  faPlus,
+  faCheck,
+  faDice
+} from "@fortawesome/free-solid-svg-icons";
 
 const Button = props => {
   // console.log(props);
 
   const variant = () => {
     if (props.variant.includes("back")) {
-      return <span>Back</span>;
+      return <FontAwesomeIcon icon={faLongArrowAltLeft} />;
     }
     if (props.variant.includes("play")) {
-      return <span>Play</span>;
+      return <FontAwesomeIcon icon={faPlay} />;
     }
     if (props.variant.includes("overview")) {
-      return <span>Overview</span>;
+      return <FontAwesomeIcon icon={faDice} />;
     }
     if (props.variant.includes("number")) {
       return <span>1</span>;
     }
     if (props.variant.includes("select")) {
-      return <span>+</span>;
+      return <FontAwesomeIcon icon={faPlus} />;
     }
     if (props.variant.includes("checked")) {
-      return <span>Checked</span>;
+      return <FontAwesomeIcon icon={faCheck} />;
     } else {
       return (
         <>
-          {props.children} <span>icon</span>
+          {props.children} <FontAwesomeIcon icon={faPlay} />
         </>
       );
     }
   };
 
-  return (
-    <div>
-      <button className={props.variant}>{variant()}</button>
-    </div>
-  );
+  return <button className={props.variant}>{variant()}</button>;
 };
 
 export default Button;
