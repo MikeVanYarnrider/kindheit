@@ -16,7 +16,7 @@ const GameList = props => {
         <GameItem
           key={index}
           class={"game-item"}
-          title={game.type}
+          title={game.title}
           link={`/play/${type}/${game.link}`}
         />
       );
