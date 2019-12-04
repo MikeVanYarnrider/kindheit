@@ -1,0 +1,10 @@
+@import "./mixins/_grid.scss";
+
+.container {
+  @include make-container();
+}
+
+.container-flex {
+  @include make-container();
+  @include make-container-flex();
+}

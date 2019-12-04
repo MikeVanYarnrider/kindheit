@@ -20,3 +20,9 @@ $colors: map-merge(
 $font-family-sans-serif:     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 // prettier-ignore
 $font-family-base:           $font-family-sans-serif !default;
+
+// Grid columns
+// prettier-ignore
+$grid-content-width:         1024px;
+// prettier-ignore
+$grid-indent-width:          1rem;
