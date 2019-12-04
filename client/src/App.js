@@ -1,4 +1,5 @@
 import React from "react";
+import Puzzle from "./components/Games/Puzzle/Puzzle";
 import Navbar from "./components/Navbar";
 import Button from "./components/Button";
 
@@ -6,6 +7,7 @@ function App() {
   return (
     <div>
       <Navbar />
+      <Puzzle />
     </div>
   );
 }
