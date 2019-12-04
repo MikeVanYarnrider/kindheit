@@ -5,7 +5,7 @@ export const GameContainer = styled.div`
   height: 95vh;
   max-height: 600px;
   width: 100%;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 1);
  ${'' /*  margin: 0 auto; */}
   border-radius: 30px;
   display: flex;

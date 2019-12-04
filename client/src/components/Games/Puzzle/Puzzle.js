@@ -64,9 +64,9 @@ export default () => {
 
   return (
     <Game bg={images["bg.png"]} size="400px" min-height="100vw" filter="1">
-      <div
+      <div class="wrapper"
         style={{
-          width: "100%",
+          width: "80%",
           display: "flex",
           flexDirection: "flex",
           justifyContent: "center",

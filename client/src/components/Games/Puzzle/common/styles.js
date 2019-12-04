@@ -5,19 +5,17 @@ export { Roof } from "./Roof";
 
 export const Game = styled.div`
   justify-content: center;
-  height: 100%;
-  min-height: 100vh;
+  height: 690px;
   width: 100%;
   background-image: ${({ filter }) => {
       return filter
-        ? " linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,.5)), "
+        ? " linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0)), "
         : "";
     }}
     url(${({ bg }) => bg});
   background-size: ${({ size }) => size};
   display: flex;
-  ${"" /*   flex-direction: column; */}
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 `;
 
