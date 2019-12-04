@@ -9,7 +9,7 @@ const Navbar = () => {
     <div className="nav">
       <div className="container-flex nav-container">
         <img src={logo} className="nav-logo" alt="Logo Kindheit" />
-        <nav class="navbar">
+        <nav className="navbar">
           <Link className="navbar-link" to="/">
             Home
           </Link>
