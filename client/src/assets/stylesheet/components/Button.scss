@@ -1,0 +1,46 @@
+@import "../variables";
+@import "../root";
+
+button {
+  border: none;
+  margin: 1em;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  font-weight: bold;
+}
+.back {
+  border: 4px solid $teal-dark;
+  box-shadow: 0 0 1em $teal-dark;
+}
+
+.play {
+  border: 4px solid white;
+  color: white;
+  background-color: $red-dark;
+  box-shadow: 0 0 1em $red-dark;
+}
+.overview {
+  border: 4px solid white;
+  color: white;
+  background-color: $green-light;
+  box-shadow: 0 0 1em $green-light;
+}
+.number {
+  border: 4px solid white;
+  color: white;
+  background-color: $yellow-dark;
+  box-shadow: 0 0 1em $yellow-dark;
+}
+.select {
+  border: 4px solid white;
+  color: white;
+  background-color: $yellow-dark;
+  box-shadow: 0 0 1em $green-dark;
+}
+.checked {
+  border: 4px solid white;
+  color: white;
+  background-color: $teal-dark;
+  box-shadow: 0 0 1em $teal-dark;
+}
