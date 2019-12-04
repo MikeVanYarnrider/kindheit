@@ -6,7 +6,7 @@ export const GameContainer = styled.div`
   max-height: 600px;
   width: 100%;
   background: rgba(255, 255, 255, 0.9);
-  margin: 0 auto;
+ ${'' /*  margin: 0 auto; */}
   border-radius: 30px;
   display: flex;
   flex-direction: column;

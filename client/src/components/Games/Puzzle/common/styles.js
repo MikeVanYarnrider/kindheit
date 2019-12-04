@@ -8,7 +8,7 @@ export const Game = styled.div`
   height: 100%;
   min-height: 100vh;
   width: 100%;
-  background-image: ${({ filter}) => {
+  background-image: ${({ filter }) => {
       return filter
         ? " linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,.5)), "
         : "";
@@ -16,7 +16,7 @@ export const Game = styled.div`
     url(${({ bg }) => bg});
   background-size: ${({ size }) => size};
   display: flex;
-${'' /*   flex-direction: column; */}
+  ${"" /*   flex-direction: column; */}
   justify-content: space-between;
   align-items: center;
 `;

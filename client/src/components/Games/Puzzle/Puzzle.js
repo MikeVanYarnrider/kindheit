@@ -68,7 +68,7 @@ export default () => {
         style={{
           width: "100%",
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "flex",
           justifyContent: "center",
           alignItems: "center"
         }}
