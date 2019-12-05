@@ -6,6 +6,9 @@
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "^4.4.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "lodash-es": "^4.17.15",
     "lodash-move": "^1.1.1",
     "node-sass": "^4.13.0",

@@ -1,9 +1,7 @@
 @import "../variables";
 
-$nav-heigth: 5rem;
-
 .nav {
-  height: $nav-heigth;
+  height: $grid-nav-heigth;
   background-color: $white;
 
   &-container {
@@ -19,6 +17,7 @@ $nav-heigth: 5rem;
   &bar {
 display: flex;
     &-link {
+      color: $blue-dark;
       padding-left: 1rem;
     }
   }

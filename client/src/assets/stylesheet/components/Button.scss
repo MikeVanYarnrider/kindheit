@@ -1,44 +1,69 @@
 @import "../variables";
 @import "../root";
 
-button {
+button .btn-rnd {
+  font-family: $font-family-patrick-hand;
   border: none;
-  margin: 1em;
+  margin: 0.5em;
   border-radius: 50%;
   width: 70px;
   height: 70px;
-  font-weight: bold;
-}
-.back {
-  border: 4px solid $teal-dark;
-  box-shadow: 0 0 1em $teal-dark;
+  font-size: 2em;
 }
 
-.play {
-  border: 4px solid white;
-  color: white;
-  background-color: $red-dark;
-  box-shadow: 0 0 1em $red-dark;
+button .btn-pill {
+  font-family: $font-family-patrick-hand;
+  background-color: #ddd;
+  width: 200px;
+  height: 70px;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 50px;
+  font-size: 2em;
 }
-.overview {
-  border: 4px solid white;
-  color: white;
-  background-color: $green-light;
-  box-shadow: 0 0 1em $green-light;
-}
-.number {
+
+button .start {
   border: 4px solid white;
   color: white;
   background-color: $yellow-dark;
   box-shadow: 0 0 1em $yellow-dark;
 }
-.select {
+
+button .back {
+  border: 4px solid $teal-dark;
+  box-shadow: 0 0 1em $teal-dark;
+  color: $teal-dark;
+}
+
+button .play {
+  border: 4px solid white;
+  color: white;
+  background-color: $red-dark;
+  box-shadow: 0 0 1em $red-dark;
+  text-align: center;
+}
+button .overview {
+  border: 4px solid white;
+  color: white;
+  background-color: $green-light;
+  box-shadow: 0 0 1em $green-light;
+}
+button .number {
   border: 4px solid white;
   color: white;
   background-color: $yellow-dark;
+  box-shadow: 0 0 1em $yellow-dark;
+}
+button .select {
+  border: 4px solid white;
+  color: white;
+  background-color: $green-dark;
   box-shadow: 0 0 1em $green-dark;
 }
-.checked {
+button .checked {
   border: 4px solid white;
   color: white;
   background-color: $teal-dark;

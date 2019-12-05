@@ -43,6 +43,9 @@ const Navbar = props => {
               <Link className="navbar-link" to="/parentlogin">
                 Parentlogin
               </Link>
+              <Link className="navbar-link" to="/login">
+            Child Login
+          </Link>
             </React.Fragment>
           )}
         </nav>

@@ -1,0 +1,18 @@
+@import "../variables";
+@import "../mixins/components/game";
+
+$size: 15rem;
+$radius: 10em;
+
+.game {
+  justify-content: center;
+  align-items: center;
+
+  &-type {
+    @include make-game-item();
+  }
+
+  &-item {
+    @include make-game-item($radius / 10, $size * 2);
+  }
+}
