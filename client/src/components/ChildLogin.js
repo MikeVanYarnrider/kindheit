@@ -6,7 +6,7 @@ const GameLogin = () => {
   return <div>Здесь будет логин :)</div>;
 };
 
-export default class Login extends Component {
+export default class ChildLogin extends Component {
   render() {
     return (
       <Welcome>
@@ -15,3 +15,5 @@ export default class Login extends Component {
     );
   }
 }
+
+
