@@ -15,7 +15,11 @@ const GameStart = () => {
 };
 
 const Start = () => {
-  return <Welcome content={<GameStart />} />;
+  return (
+    <Welcome>
+      <GameStart />
+    </Welcome>
+  );
 };
 
 export default Start;

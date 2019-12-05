@@ -15,6 +15,7 @@
   }
 
   &bar {
+display: flex;
     &-link {
       color: $blue-dark;
       padding-left: 1rem;
