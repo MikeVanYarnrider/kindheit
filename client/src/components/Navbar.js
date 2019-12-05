@@ -28,6 +28,11 @@ const Navbar = props => {
               <Link className="navbar-link" to="/">
                 Home
               </Link>
+              {props.user.type === "parent" && (
+                <Link className="navbar-link" to="/childsignup">
+                  Child Signup
+                </Link>
+              )}
               <Link className="navbar-link" to="/logout" onClick={handleLogout}>
                 Logout
               </Link>
@@ -37,15 +42,16 @@ const Navbar = props => {
               <Link className="navbar-link" to="/">
                 Home
               </Link>
+
               <Link className="navbar-link" to="/signup">
                 Signup
               </Link>
               <Link className="navbar-link" to="/parentlogin">
                 Parentlogin
               </Link>
-              <Link className="navbar-link" to="/login">
-            Child Login
-          </Link>
+              <Link className="navbar-link" to="/childlogin">
+                Child Login
+              </Link>
             </React.Fragment>
           )}
         </nav>
