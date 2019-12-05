@@ -14,6 +14,14 @@ import passwordImg2 from "./assets/images/authentification/signupChildren/2.png"
 import passwordImg3 from "./assets/images/authentification/signupChildren/3.png";
 import passwordImg4 from "./assets/images/authentification/signupChildren/4.png";
 
+import profileImgDragon from "./assets/images/authentification/defaultProfileimages/dragon.png";
+import profileImgPrincess from "./assets/images/authentification/defaultProfileimages/princess.png";
+import profileImgBoy from "./assets/images/authentification/defaultProfileimages/boy.png";
+import profileImgCrocodile from "./assets/images/authentification/defaultProfileimages/crocodile.png";
+import profileImgCow from "./assets/images/authentification/defaultProfileimages/cow.png";
+import profileImgPig from "./assets/images/authentification/defaultProfileimages/pig.png";
+
+
 export {
   logo,
   lego,
@@ -25,5 +33,11 @@ export {
   passwordImg1,
   passwordImg2,
   passwordImg3,
-  passwordImg4
+  passwordImg4,
+  profileImgDragon,
+  profileImgPrincess,
+  profileImgBoy,
+  profileImgCrocodile,
+  profileImgCow,
+  profileImgPig
 };
