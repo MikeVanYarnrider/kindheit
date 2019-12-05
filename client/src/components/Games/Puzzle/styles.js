@@ -6,7 +6,7 @@ export const GameContainer = styled.div`
   max-height: 600px;
   width: 100%;
   background: rgba(255, 255, 255, 1);
- ${'' /*  margin: 0 auto; */}
+  ${"" /*  margin: 0 auto; */}
   border-radius: 30px;
   display: flex;
   flex-direction: column;
@@ -25,15 +25,15 @@ export const GameContainer = styled.div`
     align-self: center;
     display: flex;
     justify-content: space-around;
-${'' /*     height: 15%; */}
+    ${"" /*     height: 15%; */}
     width: 100%;
     padding: 0 10%;
     max-height: 100px;
     @media screen and (max-height: 846px) and (orientation: portrait) {
       max-height: 70px;
-      //      margin-bottom: 10%;
+      //margin-bottom: 10%;
     }
-    //    margin-bottom: 3%;
+    //margin-bottom: 3%;
     > img {
       height: 100%;
       border: 2px solid #ffffff;
@@ -84,7 +84,7 @@ export const WinContainer = styled.div`
   background: lightblue;
   > img {
     width: 100%;
-   // height: 100%;
+   //height: 100%;
     background: lightblue;
   }
   &::before {

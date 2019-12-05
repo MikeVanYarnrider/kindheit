@@ -1,10 +1,11 @@
 import React from "react";
 
 import GameItem from "./GameItem";
+import Button from "../Button";
 
 import "../../assets/stylesheet/components/game.scss";
 
-import { games } from "../../data/games";
+import games from "../../data/games";
 
 const GameList = props => {
   const { type } = props.match.params;
@@ -22,7 +23,11 @@ const GameList = props => {
       );
     });
 
-  return <div className="container-flex">{list}</div>;
+  return (
+    <div className="container-flex">
+      {list} <Button variant="btn-rnd back" href="/play" />
+    </div>
+  );
 };
 
 export default GameList;

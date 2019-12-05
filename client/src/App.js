@@ -1,17 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import Game from "./components/game/Game";
 import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import ParentLogin from "./components/ParentLogin";
 import ChildSignup from "./components/ChildSignup";
 import ChildLogin from "./components/ChildLogin";
+import Game from "./components/game/Game";
 import GameStart from "./components/Start";
 import GameType from "./components/game/GameType";
 import GameList from "./components/game/GameList";
 
-
-class App extends React.Component {
+export default class App extends Component {
   state = {
     user: this.props.user
   };
@@ -52,5 +51,3 @@ class App extends React.Component {
     );
   }
 }
-
-export default App;
