@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Game from "./components/game/Game";
 import Navbar from "./components/Navbar";
-import { Route } from "react-router-dom";
 import Signup from "./components/Signup";
 import ParentLogin from "./components/ParentLogin";
 import Login from "./components/Login";
