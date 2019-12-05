@@ -3,20 +3,37 @@ import { signupChild } from "./services/auth";
 import { Alert, Form, Button } from "react-bootstrap";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "../assets/stylesheet/components/sliderProfile.scss";
 
 import {
   passwordImg1,
   passwordImg2,
   passwordImg3,
-  passwordImg4
+  passwordImg4,
+  profileImgDragon,
+  profileImgPrincess,
+  profileImgBoy,
+  profileImgCrocodile,
+  profileImgCow,
+  profileImgPig
 } from "../images";
+
+const profileImgArr = [
+  profileImgDragon,
+  profileImgPrincess,
+  profileImgBoy,
+  profileImgCrocodile,
+  profileImgCow,
+  profileImgPig
+];
 
 class ChildSignup extends Component {
   state = {
     childname: "",
     password: "",
     birthDate: "",
-    profileImgUrl: "",
+    profileImgUrl: profileImgArr[0],
+    chosenProfileImg: 0,
     parent: this.props.parentUser._id,
     passwordImages: [],
     changeImage: 0
@@ -77,191 +94,284 @@ class ChildSignup extends Component {
     this.setState({ changeImage: changeImageNum });
   };
 
+  selectProfileImage = event => {
+    this.setState({
+      chosenProfileImg: event,
+      profileImgUrl: profileImgArr[event]
+    });
+  };
+
   render() {
+    console.log(this.state.profileImgUrl);
     let imageState = this.state.passwordImages;
 
     let styles = {
       margin: "auto",
-      width: "500px",
-      backgroundColor: "white"
+      width: "500px"
+      /*     backgroundColor: "white" */
     };
 
+    let passwordImageSize = "50px";
+
     return (
-      <div>
-        <h2>Child Signup</h2>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
-            <Form.Label htmlFor="childname">Childname: </Form.Label>
-            <Form.Control
-              type="text"
-              name="childname"
-              id="childname"
-              value={this.state.childname}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
+      <div style={{ textAlign: "center" }}>
+        <h1 style={{ color: "white" }}>Child Signup</h1>
+        <Form
+          onSubmit={this.handleSubmit}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            alignItems: "center",
+            height: "75vh"
+          }}
+        >
+          <div>
+            {" "}
+            <Form.Group>
+              <Form.Label style={{ color: "white" }} htmlFor="childname">
+                Childname:{" "}
+              </Form.Label>
+              <Form.Control
+                type="text"
+                name="childname"
+                id="childname"
+                value={this.state.childname}
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <div style={(styles, { margin: "30px 0 0 0" })}>
+              <Carousel
+                autoPlay={false}
+                interval={10000}
+                showThumbs={true}
+                showArrows={false}
+                infiniteLoop={true}
+                showStatus={false}
+                onClickItem={this.selectProfileImage}
+                onClickThumb={this.selectProfileImage}
+                dynamicHeight={true}
+                centerSlidePercentage={50}
+                height={100}
+                selectedItem={this.state.chosenProfileImg}
+              >
+                <div>
+                  <img
+                    src={profileImgDragon}
+                    style={{ borderRadius: "50%" }}
+                    alt="dragon"
+                  />
+                  {/*               <p className="legend">Hong Kong</p> */}
+                </div>
+                <div>
+                  <img
+                    src={profileImgPrincess}
+                    style={{ borderRadius: "50%" }}
+                    alt="princess"
+                  />
+                  {/*               <p className="legend">hjhjhjh</p> */}
+                </div>
+                <div>
+                  <img
+                    src={profileImgBoy}
+                    style={{ borderRadius: "50%" }}
+                    alt="boy"
+                  />
+                  {/*    <p className="legend">Japan</p> */}
+                </div>
+                <div>
+                  <img
+                    src={profileImgCrocodile}
+                    style={{ borderRadius: "50%" }}
+                    alt="crocodile"
+                  />
+                  {/*          <p className="legend">Las Vegas</p> */}
+                </div>
+                <div>
+                  <img
+                    src={profileImgCow}
+                    style={{ borderRadius: "50%" }}
+                    alt="cow"
+                  />
+                  {/*          <p className="legend">Las Vegas</p> */}
+                </div>
+                <div>
+                  <img
+                    src={profileImgPig}
+                    style={{ borderRadius: "50%" }}
+                    alt="pig"
+                  />
+                  {/*       <p className="legend">Las Vegas</p> */}
+                </div>
+              </Carousel>
+            </div>
+          </div>
+
+          <div>
+            <Form.Group>
+              <button
+                type="button"
+                style={{
+                  border: "2px solid rgba(0,0,0,0)",
+                  backgroundColor: "rgba(0,0,0,0)",
+                  borderRadius: "50%"
+                }}
+              >
+                <img
+                  height={passwordImageSize}
+                  width={passwordImageSize}
+                  src={passwordImg1}
+                  alt=""
+                  onClick={this.signupImageSelect}
+                />
+              </button>
+              <button
+                type="button"
+                style={{
+                  border: "2px solid rgba(0,0,0,0)",
+                  backgroundColor: "rgba(0,0,0,0)",
+                  borderRadius: "50%"
+                }}
+              >
+                <img
+                  height={passwordImageSize}
+                  width={passwordImageSize}
+                  src={passwordImg2}
+                  alt=""
+                  onClick={this.signupImageSelect}
+                />
+              </button>
+              <button
+                type="button"
+                style={{
+                  border: "2px solid rgba(0,0,0,0)",
+                  backgroundColor: "rgba(0,0,0,0)",
+                  borderRadius: "50%"
+                }}
+              >
+                <img
+                  height={passwordImageSize}
+                  width={passwordImageSize}
+                  src={passwordImg3}
+                  alt=""
+                  onClick={this.signupImageSelect}
+                />
+              </button>
+              <button
+                type="button"
+                style={{
+                  border: "2px solid rgba(0,0,0,0)",
+                  backgroundColor: "rgba(0,0,0,0)",
+                  borderRadius: "50%"
+                }}
+              >
+                <img
+                  height={passwordImageSize}
+                  width={passwordImageSize}
+                  src={passwordImg4}
+                  alt=""
+                  onClick={this.signupImageSelect}
+                />
+              </button>
+            </Form.Group>
+
+            <Form.Group style={{ display: "flex" }}>
+              <button
+                id="1"
+                type="button"
+                style={{
+                  border: "2px solid yellow",
+                  backgroundColor: "white",
+                  borderRadius: "50%"
+                }}
+                onClick={this.signupImageChange}
+              >
+                <div
+                  style={{
+                    height: passwordImageSize,
+                    width: passwordImageSize,
+                    borderRadius: "50%",
+                    backgroundColor: "white",
+                    backgroundImage: `url(${imageState[0]})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center"
+                  }}
+                ></div>
+              </button>
+
+              <button
+                type="button"
+                id="2"
+                style={{
+                  border: "2px solid yellow",
+                  backgroundColor: "white",
+                  borderRadius: "50%"
+                }}
+                onClick={this.signupImageChange}
+              >
+                <div
+                  style={{
+                    height: passwordImageSize,
+                    width: passwordImageSize,
+                    borderRadius: "50%",
+                    backgroundColor: "white",
+                    backgroundImage: `url(${imageState[1]})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center"
+                  }}
+                ></div>
+              </button>
+              <button
+                id="3"
+                type="button"
+                style={{
+                  border: "2px solid yellow",
+                  backgroundColor: "white",
+                  borderRadius: "50%"
+                }}
+                onClick={this.signupImageChange}
+              >
+                <div
+                  style={{
+                    height: passwordImageSize,
+                    width: passwordImageSize,
+                    borderRadius: "50%",
+                    backgroundColor: "white",
+                    backgroundImage: `url(${imageState[2]})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center"
+                  }}
+                ></div>
+              </button>
+              <button
+                id="4"
+                type="button"
+                style={{
+                  border: "2px solid yellow",
+                  backgroundColor: "white",
+                  borderRadius: "50%"
+                }}
+                onClick={this.signupImageChange}
+              >
+                <div
+                  style={{
+                    height: passwordImageSize,
+                    width: passwordImageSize,
+                    borderRadius: "50%",
+                    backgroundColor: "white",
+                    backgroundImage: `url(${imageState[3]})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center"
+                  }}
+                ></div>
+              </button>
+            </Form.Group>
+          </div>
 
           <Form.Group>
-            <button
-              type="button"
-              style={{
-                border: "2px solid blue",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-            >
-              <img
-                height="100px"
-                width="100px"
-                src={passwordImg1}
-                alt=""
-                onClick={this.signupImageSelect}
-              />
-            </button>
-            <button
-              type="button"
-              style={{
-                border: "2px solid blue",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-            >
-              <img
-                height="100px"
-                width="100px"
-                src={passwordImg2}
-                alt=""
-                onClick={this.signupImageSelect}
-              />
-            </button>
-            <button
-              type="button"
-              style={{
-                border: "2px solid blue",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-            >
-              <img
-                height="100px"
-                width="100px"
-                src={passwordImg3}
-                alt=""
-                onClick={this.signupImageSelect}
-              />
-            </button>
-            <button
-              type="button"
-              style={{
-                border: "2px solid blue",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-            >
-              <img
-                height="100px"
-                width="100px"
-                src={passwordImg4}
-                alt=""
-                onClick={this.signupImageSelect}
-              />
-            </button>
-          </Form.Group>
-
-          <Form.Group style={{ display: "flex" }}>
-            <button
-              id="1"
-              type="button"
-              style={{
-                border: "2px solid yellow",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-              onClick={this.signupImageChange}
-            >
-              <div
-                style={{
-                  height: "100px",
-                  width: "100px",
-                  borderRadius: "50%",
-                  backgroundColor: "white",
-                  backgroundImage: `url(${imageState[0]})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center"
-                }}
-              ></div>
-            </button>
-
-            <button
-              type="button"
-              id="2"
-              style={{
-                border: "2px solid yellow",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-              onClick={this.signupImageChange}
-            >
-              <div
-                style={{
-                  height: "100px",
-                  width: "100px",
-                  borderRadius: "50%",
-                  backgroundColor: "white",
-                  backgroundImage: `url(${imageState[1]})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center"
-                }}
-              ></div>
-            </button>
-            <button
-              id="3"
-              type="button"
-              style={{
-                border: "2px solid yellow",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-              onClick={this.signupImageChange}
-            >
-              <div
-                style={{
-                  height: "100px",
-                  width: "100px",
-                  borderRadius: "50%",
-                  backgroundColor: "white",
-                  backgroundImage: `url(${imageState[2]})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center"
-                }}
-              ></div>
-            </button>
-            <button
-              id="4"
-              type="button"
-              style={{
-                border: "2px solid yellow",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-              onClick={this.signupImageChange}
-            >
-              <div
-                style={{
-                  height: "100px",
-                  width: "100px",
-                  borderRadius: "50%",
-                  backgroundColor: "white",
-                  backgroundImage: `url(${imageState[3]})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center"
-                }}
-              ></div>
-            </button>
-          </Form.Group>
-
-          <Form.Group>
-            <Form.Label htmlFor="birthdate">Birthdate: </Form.Label>
+            <Form.Label style={{ color: "white" }} htmlFor="birthdate">
+              Birthdate:{" "}
+            </Form.Label>
             <Form.Control
               type="date"
               name="birthDate"
@@ -274,57 +384,19 @@ class ChildSignup extends Component {
           {this.state.error && (
             <Alert variant="danger">{this.state.error}</Alert>
           )}
-          <Button type="submit">Child Sign Up</Button>
+          <Button
+            style={{
+              color: "white",
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              padding: "20px",
+              borderRadius: "20px",
+              border: "2px solid white"
+            }}
+            type="submit"
+          >
+            Child Sign Up
+          </Button>
         </Form>
-
-        <div style={styles}>
-          <Carousel>
-            <div>
-              <img src={passwordImg4} alt="Hong Kong" />
-              <p className="legend">Hong Kong</p>
-            </div>
-            <div>
-              <img src={passwordImg3} alt="Singapore" />
-              <p className="legend">hjhjhjh</p>
-            </div>
-            <div>
-              <img src={passwordImg4} alt="Japan" />
-              <p className="legend">Japan</p>
-            </div>
-            <div>
-              <img src={passwordImg4} alt="Las Vegas" />
-              <p className="legend">Las Vegas</p>
-            </div>
-          </Carousel>
-        </div>
-
-        {/*   <Carousel >
-                <div>
-                    <img src={passwordImg4} />
-                    <p className="legend">Legend 1</p>
-                </div>
-                <div>
-                    <img src={passwordImg4} />
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div>
-                    <img src="assets/3.jpeg" />
-                    <p className="legend">Legend 3</p>
-                </div>
-                <div>
-                    <img src="assets/4.jpeg" />
-                    <p className="legend">Legend 4</p>
-                </div>
-                <div>
-                    <img src="assets/5.jpeg" />
-                    <p className="legend">Legend 5</p>
-                </div>
-                <div>
-                    <img src="assets/6.jpeg" />
-                    <p className="legend">Legend 6</p>
-                </div>
-            </Carousel>
- */}
       </div>
     );
   }

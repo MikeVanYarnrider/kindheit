@@ -31,7 +31,7 @@ router.post("/signup", (req, res) => {
       .json({ message: "Bitte geben Sie einen Nutzernamen ein!" });
   }
   if (password.length < 8) {
-    return res.status(400).json({ mesage: "Ihr Passwort ist zu kurz!" });
+    return res.status(400).json({ message: "Ihr Passwort ist zu kurz!" });
   }
   ParentUser.findOne({ username: username })
     .then(found => {
