@@ -21,7 +21,6 @@ class ChildSignup extends Component {
   };
 
   handleChange = event => {
-    console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -51,7 +50,6 @@ class ChildSignup extends Component {
 
   signupImageSelect = event => {
     let url = event.target.src;
-    console.log(url);
     let imageState = this.state.passwordImages;
     let imageToBeChanged = this.state.changeImage - 1;
 
@@ -64,8 +62,7 @@ class ChildSignup extends Component {
     } else if (imageState.length < 4) {
       this.state.passwordImages.push(url);
     }
-    let selectNum = imageState.map(el => el.match(/(\d)./)["1"]);
-
+    let selectNum = imageState.map(el => el.match(/media[/](\d)/)[1]);
     this.setState({
       passwordImages: this.state.passwordImages,
       password: selectNum.join(""),
@@ -260,6 +257,7 @@ class ChildSignup extends Component {
               type="date"
               name="birthDate"
               id="birthDate"
+              style={{ backgroundColor: "white" }}
               value={this.state.birthDate}
               onChange={this.handleChange}
             />
