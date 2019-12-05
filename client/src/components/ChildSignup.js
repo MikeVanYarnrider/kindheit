@@ -75,7 +75,7 @@ class ChildSignup extends Component {
 
   signupImageChange = event => {
     let changeImageNum = event.currentTarget.id;
-    this.setState({ #changeImage: changeImageNum });
+    this.setState({ changeImage: changeImageNum });
   };
 
   render() {
