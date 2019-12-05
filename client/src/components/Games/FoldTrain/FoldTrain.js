@@ -6,14 +6,14 @@ import Slide from "../../Slide";
 export default class FoldTrain extends Component {
   state = {
     images: [
-      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg",
-      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/canyon.jpg",
-      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/city.jpg",
-      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/desert.jpg",
-      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/mountains.jpg",
-      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/redsky.jpg",
-      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/sandy-shores.jpg",
-      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/tree-of-life.jpg"
+      "https://www.wikihow.com/images/thumb/e/ef/Draw-a-Train-Step-8.jpg/aid2543931-v4-900px-Draw-a-Train-Step-8.jpg",
+      "https://www.wikihow.com/images/thumb/2/2e/Draw-a-Train-Step-9.jpg/aid2543931-v4-900px-Draw-a-Train-Step-9.jpg",
+      "https://www.wikihow.com/images/thumb/d/d7/Draw-a-Train-Step-10.jpg/aid2543931-v4-900px-Draw-a-Train-Step-10.jpg",
+      "https://www.wikihow.com/images/thumb/a/aa/Draw-a-Train-Step-11.jpg/aid2543931-v4-900px-Draw-a-Train-Step-11.jpg",
+      "https://www.wikihow.com/images/thumb/d/d0/Draw-a-Train-Step-12.jpg/aid2543931-v4-900px-Draw-a-Train-Step-12.jpg",
+      "https://www.wikihow.com/images/thumb/d/d4/Draw-a-Train-Step-13.jpg/aid2543931-v4-900px-Draw-a-Train-Step-13.jpg",
+      "https://www.wikihow.com/images/thumb/1/17/Draw-a-Train-Step-14.jpg/aid2543931-v4-900px-Draw-a-Train-Step-14.jpg",
+      "https://www.wikihow.com/images/thumb/0/09/Draw-a-Train-Step-15.jpg/aid2543931-v4-900px-Draw-a-Train-Step-15.jpg"
     ],
     currentIndex: 0,
     translateValue: 0
@@ -62,13 +62,19 @@ export default class FoldTrain extends Component {
             ))}
           </div>
         </div>
-        <div>
+        <div className="flex">
           {this.state.currentIndex > 0 && (
             <Button
               variant="btn-rnd back"
               onClick={() => this.handleClick("left")}
             />
           )}
+
+          <span>
+            {" "}
+            <h4>Description</h4>Lorem, ipsum dolor sit amet consectetur
+            adipisicing elit. Necessitatibus vero fugiat sapiente,
+          </span>
 
           <Button
             variant="btn-rnd forward"
