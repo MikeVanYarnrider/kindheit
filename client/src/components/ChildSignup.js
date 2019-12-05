@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { signupChild } from "./services/auth";
 import { Alert, Form, Button } from "react-bootstrap";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import {
   passwordImg1,
@@ -77,6 +79,13 @@ class ChildSignup extends Component {
 
   render() {
     let imageState = this.state.passwordImages;
+
+    let styles = {
+      margin: "auto",
+      width: "500px",
+      backgroundColor: "white"
+    };
+
     return (
       <div>
         <h2>Child Signup</h2>
@@ -267,6 +276,55 @@ class ChildSignup extends Component {
           )}
           <Button type="submit">Child Sign Up</Button>
         </Form>
+
+        <div style={styles}>
+          <Carousel>
+            <div>
+              <img src={passwordImg4} alt="Hong Kong" />
+              <p className="legend">Hong Kong</p>
+            </div>
+            <div>
+              <img src={passwordImg3} alt="Singapore" />
+              <p className="legend">hjhjhjh</p>
+            </div>
+            <div>
+              <img src={passwordImg4} alt="Japan" />
+              <p className="legend">Japan</p>
+            </div>
+            <div>
+              <img src={passwordImg4} alt="Las Vegas" />
+              <p className="legend">Las Vegas</p>
+            </div>
+          </Carousel>
+        </div>
+
+        {/*   <Carousel >
+                <div>
+                    <img src={passwordImg4} />
+                    <p className="legend">Legend 1</p>
+                </div>
+                <div>
+                    <img src={passwordImg4} />
+                    <p className="legend">Legend 2</p>
+                </div>
+                <div>
+                    <img src="assets/3.jpeg" />
+                    <p className="legend">Legend 3</p>
+                </div>
+                <div>
+                    <img src="assets/4.jpeg" />
+                    <p className="legend">Legend 4</p>
+                </div>
+                <div>
+                    <img src="assets/5.jpeg" />
+                    <p className="legend">Legend 5</p>
+                </div>
+                <div>
+                    <img src="assets/6.jpeg" />
+                    <p className="legend">Legend 6</p>
+                </div>
+            </Carousel>
+ */}
       </div>
     );
   }
