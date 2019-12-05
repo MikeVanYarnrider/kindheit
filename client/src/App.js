@@ -4,11 +4,12 @@ import Game from "./components/game/Game";
 import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import ParentLogin from "./components/ParentLogin";
+// import Button from "./components/Button";
 import Login from "./components/Login";
 import GameStart from "./components/Start";
 import GameType from "./components/game/GameType";
 import GameList from "./components/game/GameList";
-
+import Slider from "./components/Slider";
 
 class App extends React.Component {
   state = {
@@ -39,11 +40,15 @@ class App extends React.Component {
         <Route exact path="/login" component={Login} />
         <Route exact path="/play" component={GameType} />
         <Route exact path="/play/:type" component={GameList} />
-        <Route exact path="/play/:type/:gameId" component={Game} />
+       <Route exact path="/play/:type/:gameId" component={Game} />
+        <Route
+          exact
+          path="/play/handgames/foldtrain"
+          render={props => <Slider {...props} />}
+        />
       </Switch>
-      </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;
