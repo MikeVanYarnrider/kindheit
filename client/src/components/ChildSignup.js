@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import { signupChild } from "./services/auth";
 import { Alert, Form, Button } from "react-bootstrap";
 
+import {
+  passwordImg1,
+  passwordImg2,
+  passwordImg3,
+  passwordImg4
+} from "../images";
+
 class ChildSignup extends Component {
   state = {
     childname: "",
@@ -44,7 +51,7 @@ class ChildSignup extends Component {
 
   signupImageSelect = event => {
     let url = event.target.src;
-
+    console.log(url);
     let imageState = this.state.passwordImages;
     let imageToBeChanged = this.state.changeImage - 1;
 
@@ -57,7 +64,7 @@ class ChildSignup extends Component {
     } else if (imageState.length < 4) {
       this.state.passwordImages.push(url);
     }
-    let selectNum = imageState.map(el => el.match(/(\d).png/)["1"]);
+    let selectNum = imageState.map(el => el.match(/(\d)./)["1"]);
 
     this.setState({
       passwordImages: this.state.passwordImages,
@@ -68,9 +75,7 @@ class ChildSignup extends Component {
 
   signupImageChange = event => {
     let changeImageNum = event.currentTarget.id;
-    this.setState({
-      changeImage: changeImageNum
-    });
+    this.setState({ #changeImage: changeImageNum });
   };
 
   render() {
@@ -102,7 +107,7 @@ class ChildSignup extends Component {
               <img
                 height="100px"
                 width="100px"
-                src="../images/signupChildren/1.png"
+                src={passwordImg1}
                 alt=""
                 onClick={this.signupImageSelect}
               />
@@ -118,7 +123,7 @@ class ChildSignup extends Component {
               <img
                 height="100px"
                 width="100px"
-                src="../images/signupChildren/2.png"
+                src={passwordImg2}
                 alt=""
                 onClick={this.signupImageSelect}
               />
@@ -134,7 +139,7 @@ class ChildSignup extends Component {
               <img
                 height="100px"
                 width="100px"
-                src="../images/signupChildren/3.png"
+                src={passwordImg3}
                 alt=""
                 onClick={this.signupImageSelect}
               />
@@ -150,7 +155,7 @@ class ChildSignup extends Component {
               <img
                 height="100px"
                 width="100px"
-                src="../images/signupChildren/4.png"
+                src={passwordImg4}
                 alt=""
                 onClick={this.signupImageSelect}
               />

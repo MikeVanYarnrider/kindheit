@@ -9,6 +9,11 @@ import pathImage3 from "./assets/images/games/puzzle/3.png";
 import pathImage4 from "./assets/images/games/puzzle/4.png";
 import pathBGImage from "./assets/images/games/puzzle/bg.png";
 
+import passwordImg1 from "./assets/images/authentification/signupChildren/1.png";
+import passwordImg2 from "./assets/images/authentification/signupChildren/2.png";
+import passwordImg3 from "./assets/images/authentification/signupChildren/3.png";
+import passwordImg4 from "./assets/images/authentification/signupChildren/4.png";
+
 export {
   logo,
   lego,
@@ -16,5 +21,9 @@ export {
   pathImage2,
   pathImage3,
   pathImage4,
-  pathBGImage
+  pathBGImage,
+  passwordImg1,
+  passwordImg2,
+  passwordImg3,
+  passwordImg4
 };
