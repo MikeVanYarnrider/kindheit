@@ -49,7 +49,8 @@ router.post("/signup", (req, res) => {
           return ParentUser.create({
             username: username,
             password: hash,
-            email: email
+            email: email,
+            type: "parent"
           });
         })
         .then(newUser => {
@@ -86,8 +87,9 @@ router.post("/parentlogin", (req, res, next) => {
 
 //SIGNUP CHILD
 
-router.post("/signup-child", (req, res) => {
+router.post("/childsignup", (req, res) => {
   const { childname, password, birthDate, profileImgUrl, parent } = req.body;
+  console.log("userid", req);
 
   if (!childname) {
     return res
@@ -115,7 +117,8 @@ router.post("/signup-child", (req, res) => {
             password: hash,
             birthDate: birthDate,
             profileImgUrl: profileImgUrl,
-            parent: parent
+            parent: parent,
+            type: "child"
           });
         })
         .then(newChild => {
