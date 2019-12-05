@@ -17,6 +17,7 @@ $nav-heigth: 5rem;
   }
 
   &bar {
+display: flex;
     &-link {
       padding-left: 1rem;
     }

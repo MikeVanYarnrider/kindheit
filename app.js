@@ -47,7 +47,7 @@ app.locals.title = "Backend";
 // Enable authentication using session + passport
 app.use(
   session({
-    secret: "irongenerator",
+    secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
@@ -55,11 +55,13 @@ app.use(
 );
 app.use(flash());
 require("./passport")(app);
+/* app.use(passport.initialize()); */
+/* app.use(passport.session()); */
 
 const index = require("./routes/index");
 app.use("/", index);
 
 const authRoutes = require("./routes/auth");
-app.use("/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 
 module.exports = app;

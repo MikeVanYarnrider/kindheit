@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { disablePageScroll, enablePageScroll } from "scroll-lock";
+/* import { disablePageScroll, enablePageScroll } from "scroll-lock"; */
 
 import { Game, Nav } from "./common/styles";
 import { GameContainer, WinContainer } from "./styles";
@@ -24,12 +24,12 @@ export default () => {
   const [currentImage, setCurrentImage] = useState(null);
   const [completed, setCompleted] = useState(false);
 
-  useEffect(() => {
+/*   useEffect(() => {
     disablePageScroll();
     return () => {
       enablePageScroll();
     };
-  }, []);
+  }, []); */
 
   useEffect(() => {
     if (Object.keys(images).length > 0) {
