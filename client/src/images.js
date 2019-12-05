@@ -26,7 +26,6 @@ import profileImgCrocodile from "./assets/images/authentification/defaultProfile
 import profileImgCow from "./assets/images/authentification/defaultProfileimages/cow.png";
 import profileImgPig from "./assets/images/authentification/defaultProfileimages/pig.png";
 
-
 export {
   logo,
   lego,
@@ -38,7 +37,7 @@ export {
   memoryImage1,
   memoryImage2,
   memoryImage3,
-  memoryImage4
+  memoryImage4,
   passwordImg1,
   passwordImg2,
   passwordImg3,
