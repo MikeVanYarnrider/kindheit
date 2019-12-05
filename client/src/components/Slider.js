@@ -3,7 +3,7 @@ import "../assets/stylesheet/components/slider.scss";
 import Button from "./Button";
 import Slide from "./Slide";
 
-export default class Slider extends React.Component {
+export default class Slider extends Component {
   state = {
     images: [
       "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg",
