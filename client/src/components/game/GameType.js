@@ -2,6 +2,7 @@ import React from "react";
 
 import Welcome from "../Welcome";
 import GameItem from "./GameItem";
+import Button from "../Button";
 
 import "../../assets/stylesheet/components/game.scss";
 
@@ -26,6 +27,7 @@ const GameType = () => {
   return (
     <Welcome>
       <GameSelect />
+      <Button variant="btn-rnd back" href="/" />
     </Welcome>
   );
 };

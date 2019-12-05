@@ -41,6 +41,8 @@ app.use(cookieParser());
 // Express View engine setup
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
+app.use(express.static(path.join(__dirname, "/client/build")));
+
 // default value for title local
 app.locals.title = "Backend";
 
@@ -58,10 +60,15 @@ require("./passport")(app);
 /* app.use(passport.initialize()); */
 /* app.use(passport.session()); */
 
-const index = require("./routes/index");
-app.use("/", index);
+// const index = require("./routes/index");
+// app.use("/", index);
 
 const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
+
+app.use((req, res) => {
+  // If no routes match, send them the React HTML.
+  res.sendFile(__dirname + "/client/build/index.html");
+});
 
 module.exports = app;

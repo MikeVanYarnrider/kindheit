@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Button = props => {
-  console.log(props);
+  // console.log(props);
   const { onClick, href } = props;
   // console.log(onClick);
 

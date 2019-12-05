@@ -4,6 +4,7 @@ const Schema   = mongoose.Schema;
 const parentUserSchema = new Schema({
   username: String,
   password: String,
+  type: String,
   email: String,
   children: [
     {
