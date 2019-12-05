@@ -9,6 +9,11 @@ import pathImage3 from "./assets/images/games/puzzle/3.png";
 import pathImage4 from "./assets/images/games/puzzle/4.png";
 import pathBGImage from "./assets/images/games/puzzle/bg.png";
 
+import memoryImage1 from "./assets/images/games/memory/1.png";
+import memoryImage2 from "./assets/images/games/memory/2.png";
+import memoryImage3 from "./assets/images/games/memory/3.png";
+import memoryImage4 from "./assets/images/games/memory/4.png";
+
 import passwordImg1 from "./assets/images/authentification/signupChildren/1.png";
 import passwordImg2 from "./assets/images/authentification/signupChildren/2.png";
 import passwordImg3 from "./assets/images/authentification/signupChildren/3.png";
@@ -30,6 +35,10 @@ export {
   pathImage3,
   pathImage4,
   pathBGImage,
+  memoryImage1,
+  memoryImage2,
+  memoryImage3,
+  memoryImage4
   passwordImg1,
   passwordImg2,
   passwordImg3,
