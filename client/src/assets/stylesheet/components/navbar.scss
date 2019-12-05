@@ -1,0 +1,23 @@
+@import "../variables";
+
+.nav {
+  height: $grid-nav-heigth;
+  background-color: $white;
+
+  &-container {
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-logo {
+    width: 15rem;
+  }
+
+  &bar {
+    &-link {
+      color: $blue-dark;
+      padding-left: 1rem;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@import "variables";
+@import "root";
+@import "grid";
+@import "../stylesheet/components/Button.scss";
+
+body {
+  margin: 0;
+  font-family: $font-family-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #63e0e6;
+}
+
+a,
+button {
+  text-decoration: none;
+  cursor: pointer;
+}

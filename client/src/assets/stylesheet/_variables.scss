@@ -1,0 +1,52 @@
+// Variables
+//
+// Color system
+$white: #fff;
+$teal-dark: #0a6073;
+$teal-light: #4ba8b0;
+$blue-dark: #095c80;
+$blue-light: #53b9d2;
+$red-dark: #5d1736;
+$red-light: #b30957;
+$green-dark: #72863c;
+$green-light: #b7b825;
+$yellow-dark: #ee8121;
+$yellow-light: #f7ab29;
+
+$colors: () !default;
+// prettier-ignore
+$colors: map-merge(
+  (
+    "white":          $white,
+    "teal-drk":       $teal-dark,
+    "teal-lt":        $teal-light,
+    "blue-drk":       $blue-dark,
+    "blue-lt":        $blue-light,
+    "red-drk":        $red-dark,
+    "red-lt":         $red-light,
+    "green-drk":      $green-dark,
+    "green-lt":       $green-light,
+    "yellow-drk":     $yellow-dark,
+    "yellow-lt":      $yellow-light,
+  ),
+  $colors
+);
+
+// Typography
+@import url("https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap");
+$font-family-patrick-hand: "Patrick Hand";
+
+// Font, line-height, and color for body text, headings, and more.
+
+// prettier-ignore
+$font-family-sans-serif:     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+// prettier-ignore
+$font-family-base:           $font-family-patrick-hand !default;
+
+// Grid
+// prettier-ignore
+$grid-content-width:         1024px;
+// prettier-ignore
+$grid-indent-width:          1rem;
+// prettier-ignore
+$grid-nav-heigth:                 5rem;

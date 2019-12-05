@@ -1,0 +1,14 @@
+@mixin make-container($indent: $grid-indent-width) {
+  width: 100%;
+  max-width: $grid-content-width;
+  padding-right: $indent;
+  padding-left: $indent;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+}
+
+@mixin make-container-flex() {
+  display: flex;
+  flex-wrap: wrap;
+}
