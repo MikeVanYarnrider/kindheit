@@ -20,6 +20,10 @@ export default class FoldTrain extends Component {
   };
 
   handleClick = direction => {
+    console.log(
+      "i: " + this.state.currentIndex,
+      "val: " + this.state.translateValue
+    );
     direction === "left"
       ? this.setState(prevState => ({
           currentIndex: prevState.currentIndex - 1,
@@ -59,10 +63,13 @@ export default class FoldTrain extends Component {
           </div>
         </div>
         <div>
-          <Button
-            variant="btn-rnd back"
-            onClick={() => this.handleClick("left")}
-          />
+          {this.state.currentIndex > 0 && (
+            <Button
+              variant="btn-rnd back"
+              onClick={() => this.handleClick("left")}
+            />
+          )}
+
           <Button
             variant="btn-rnd forward"
             onClick={() => this.handleClick("right")}
