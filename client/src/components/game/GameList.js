@@ -4,7 +4,7 @@ import GameItem from "./GameItem";
 
 import "../../assets/stylesheet/components/game.scss";
 
-import { games } from "../../data/games";
+import games from "../../data/games";
 
 const GameList = props => {
   const { type } = props.match.params;

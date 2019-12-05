@@ -26,18 +26,11 @@ export default () => {
   const [currentImage, setCurrentImage] = useState(null);
   const [completed, setCompleted] = useState(false);
 
-/*   useEffect(() => {
-    disablePageScroll();
-    return () => {
-      enablePageScroll();
-    };
-  }, []); */
-
   useEffect(() => {
     if (Object.keys(images).length > 0) {
       setCurrentImage(images["1.png"]);
     }
-  }, []);
+  }, [images]);
 
   let content = (
     <DraggableList

@@ -1,13 +1,13 @@
+// eslint-disable-next-line
 import React, { Component } from "react";
-import Puzzle from "../Games/Puzzle/Puzzle";
 
-//import { games } from "../../data/games";
+import games from "../../data/games";
 
-export default class Game extends Component {
-  render() {
-    //const { gameId } = this.props.match.params;
-    //const game = games.find(game => game.link === gameId);
+function Game(props) {
+  const { gameId } = props.match.params;
+  const game = games.find(game => game.link === gameId);
 
-    return <Puzzle />;
-  }
+  return game.component;
 }
+
+export default Game;

@@ -23,7 +23,11 @@ const GameSelect = () => {
 };
 
 const GameType = () => {
-  return <Welcome content={<GameSelect />} />;
+  return (
+    <Welcome>
+      <GameSelect />
+    </Welcome>
+  );
 };
 
 export default GameType;
