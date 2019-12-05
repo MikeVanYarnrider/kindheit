@@ -8,6 +8,10 @@ const GameLogin = () => {
 
 export default class Login extends Component {
   render() {
-    return <Welcome content={<GameLogin />} />;
+    return (
+      <Welcome>
+        <GameLogin />
+      </Welcome>
+    );
   }
 }
