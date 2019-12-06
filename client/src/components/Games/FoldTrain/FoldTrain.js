@@ -36,11 +36,9 @@ export default class FoldTrain extends Component {
 
   componentWillUnmount = () => {
     console.log("did unmount");
+
     const gameEndTime = new Date();
     const gameTime = (gameEndTime - this.state.gameStartTime) / 1000;
-    // console.log(gameTime);
-    // console.log(this.state.gameTime);
-    console.log("axios post");
     axios
       .post("/child/play/handsgames/foldtrain", {
         gameTime: gameTime,
@@ -75,7 +73,6 @@ export default class FoldTrain extends Component {
   };
 
   render() {
-    console.log(this.props.user);
     return (
       <div>
         <div className="slider" id="train">
