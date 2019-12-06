@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../../../../src/assets/stylesheet/components/slider.scss";
 import Button from "../../Button";
 import Slide from "../../Slide";
+import axios from "axios";
 
 export default class FoldTrain extends Component {
   state = {
@@ -16,14 +17,39 @@ export default class FoldTrain extends Component {
       "https://www.wikihow.com/images/thumb/0/09/Draw-a-Train-Step-15.jpg/aid2543931-v4-900px-Draw-a-Train-Step-15.jpg"
     ],
     currentIndex: 0,
-    translateValue: 0
+    translateValue: 0,
+    gameStartTime: "",
+    gameTime: 0
+  };
+
+  componentDidMount = () => {
+    console.log("did mount");
+    this.setState(
+      {
+        gameStartTime: new Date()
+      },
+      () => {
+        // console.log(this.state.gameStartTime);
+      }
+    );
+  };
+
+  componentWillUnmount = () => {
+    console.log("did unmount");
+    const gameEndTime = new Date();
+    const gameTime = (gameEndTime - this.state.gameStartTime) / 1000;
+    // console.log(gameTime);
+    // console.log(this.state.gameTime);
+    console.log("axios post");
+    axios
+      .post("/child/play/handsgames/foldtrain", { gameTime: gameTime })
+      .then(response => {
+        console.log("ROUTE??", response);
+      })
+      .catch(err => console.log(err));
   };
 
   handleClick = direction => {
-    console.log(
-      "i: " + this.state.currentIndex,
-      "val: " + this.state.translateValue
-    );
     direction === "left"
       ? this.setState(prevState => ({
           currentIndex: prevState.currentIndex - 1,
@@ -46,10 +72,10 @@ export default class FoldTrain extends Component {
   };
 
   render() {
-    console.log("PROPS FROM SLIDER", this.props);
+    // console.log(this.props);
     return (
       <div>
-        <div className="slider">
+        <div className="slider" id="train">
           <div
             className="slider-wrapper"
             style={{
