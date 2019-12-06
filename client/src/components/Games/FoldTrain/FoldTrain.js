@@ -42,7 +42,10 @@ export default class FoldTrain extends Component {
     // console.log(this.state.gameTime);
     console.log("axios post");
     axios
-      .post("/child/play/handsgames/foldtrain", { gameTime: gameTime })
+      .post("/child/play/handsgames/foldtrain", {
+        gameTime: gameTime,
+        user: this.props.user
+      })
       .then(response => {
         console.log("ROUTE??", response);
       })
@@ -72,7 +75,7 @@ export default class FoldTrain extends Component {
   };
 
   render() {
-    // console.log(this.props);
+    console.log(this.props.user);
     return (
       <div>
         <div className="slider" id="train">
