@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import { Card } from "./components/Card";
+import { Modal } from "../../modal/Modal";
 
 import "../../../assets/stylesheet/components/memory.scss";
 
+import { shuffle } from "./assets/utils";
 import {
   memoryImage1,
   memoryImage2,
@@ -16,62 +19,22 @@ const cards = [
   { name: "monkey", img: memoryImage4 }
 ];
 
-class Card extends Component {
-  handleClick = card => {
-    this.props.onClick(card);
-  };
-
-  render() {
-    return (
-      <div
-        className={`card ${this.props.flipped && "turned"}`}
-        onClick={() => this.handleClick(this.props.card.name)}
-      >
-        <div className="card-back"></div>
-        <div className="card-front">
-          <img src={this.props.card.img} alt={this.props.card.name} />
-        </div>
-      </div>
-    );
-  }
-}
-
-class Memory extends Component {
+class Game extends Component {
   state = {
-    cards: cards,
-    shuffledCards: this.shuffleCards(cards),
+    shuffledCards: shuffle(cards),
     pickedCards: [],
-    flippedCards: []
+    flippedCards: [],
+    isFinished: false
   };
-
-  shuffleCards(arr) {
-    const mixed = Array(2)
-      .fill(arr)
-      .flat();
-
-    let currentIndex = mixed.length,
-      tempValue,
-      randomIndex;
-
-    while (currentIndex) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      tempValue = mixed[currentIndex];
-      mixed[currentIndex] = mixed[randomIndex];
-      mixed[randomIndex] = tempValue;
-    }
-
-    return mixed;
-  }
 
   pickCard(card) {
-    let flipped = this.state.shuffledCards.find((el, index) => index === card);
+    const { shuffledCards, pickedCards, flippedCards } = this.state;
+    let flipped = shuffledCards.find((el, index) => index === card);
 
     this.setState(
       {
-        pickedCards: [...this.state.pickedCards, card],
-        flippedCards: [...this.state.flippedCards, flipped.name]
+        pickedCards: [...pickedCards, card],
+        flippedCards: [...flippedCards, flipped.name]
       },
       () => {
         this.checkPair();
@@ -80,39 +43,74 @@ class Memory extends Component {
   }
 
   checkPair = _ => {
-    if (this.state.flippedCards.length === 2) {
-      if (this.state.flippedCards[0] === this.state.flippedCards[1]) {
+    const { shuffledCards, pickedCards, flippedCards } = this.state;
+
+    if (flippedCards.length === 2) {
+      if (flippedCards[0] === flippedCards[1]) {
         this.setState({
           flippedCards: []
         });
+
+        pickedCards.length === shuffledCards.length && this.finishGame();
       } else {
-        setTimeout(() => {
-          const arr = this.state.pickedCards.slice(0, -2);
-          this.setState({
-            flippedCards: [],
-            pickedCards: arr
-          });
-        }, 750);
+        this.resetCards();
       }
     }
   };
 
+  finishGame = _ => {
+    setTimeout(() => {
+      this.setState({
+        isFinished: true
+      });
+    }, 750);
+  };
+
+  resetCards = _ => {
+    setTimeout(() => {
+      const arr = this.state.pickedCards.slice(0, -2);
+      this.setState({
+        flippedCards: [],
+        pickedCards: arr
+      });
+    }, 750);
+  };
+
+  restartGame = _ => {
+    this.setState({
+      shuffledCards: shuffle(cards),
+      pickedCards: [],
+      flippedCards: [],
+      isFinished: false
+    });
+  };
+
   render() {
     return (
-      <div>
-        {this.state.shuffledCards.map((card, index, arr) => {
-          return (
-            <Card
-              key={index}
-              card={card}
-              flipped={this.state.pickedCards.includes(index)}
-              onClick={() => this.pickCard(index)}
-            />
-          );
-        })}
+      <div className="container-flex game memory">
+        <div className="game-wrapper wrapper">
+          {this.state.shuffledCards.map((card, index) => {
+            return (
+              <Card
+                key={index}
+                card={card}
+                flipped={this.state.pickedCards.includes(index)}
+                onClick={() => this.pickCard(index)}
+              />
+            );
+          })}
+        </div>
+        <Modal
+          show={this.state.isFinished}
+          btnAction="Restart"
+          variant="btn-pill btn-start"
+          onBtnClick={() => this.restartGame()}
+        >
+          <h1>Finished!</h1>
+        </Modal>
       </div>
     );
   }
 }
 
-export default Memory;
+export default Game;

@@ -1,18 +1,24 @@
 @import "../variables";
-@import "../mixins/components/game";
-
-$size: 15rem;
-$radius: 10em;
+@import "../mixins/card";
 
 .game {
   justify-content: center;
   align-items: center;
 
+  @include make-container-full-height();
+
   &-type {
-    @include make-game-item();
+    @include make-round-item();
   }
 
   &-item {
-    @include make-game-item($radius / 10, $size * 2);
+    @include make-round-item($radius / 10, $size * 2);
+  }
+
+  &-wrapper {
+    max-width: 745px;
+    padding: 0 2rem;
+
+    @include make-round-item(30px, 100%, auto, 0);
   }
 }
