@@ -2,9 +2,7 @@
 @import "../mixins/card";
 
 .game {
-  justify-content: center;
-  align-items: center;
-
+  @include make-container-flex-center();
   @include make-container-full-height();
 
   &-type {
@@ -12,13 +10,20 @@
   }
 
   &-item {
-    @include make-round-item($radius / 10, $size * 2);
+    @include make-round-item($radius / 10, $size + 5rem, $size - 3rem);
   }
 
   &-wrapper {
     max-width: 745px;
-    padding: 0 2rem;
+    padding: 0 $grid-indent-width * 2;
 
     @include make-round-item(30px, 100%, auto, 0);
+  }
+
+  &-list {
+    width: 100%;
+    justify-content: space-evenly;
+
+    @include make-container-flex();
   }
 }

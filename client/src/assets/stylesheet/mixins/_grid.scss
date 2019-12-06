@@ -19,5 +19,5 @@
 }
 
 @mixin make-container-full-height {
-  height: calc(100vh - #{$grid-nav-heigth});
+  min-height: calc(100vh - #{$grid-nav-heigth});
 }

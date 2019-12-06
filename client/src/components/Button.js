@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../assets/stylesheet/components/Button.scss";
+import "../assets/stylesheet/components/button.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -8,13 +8,12 @@ import {
   faLongArrowAltRight,
   faPlus,
   faCheck,
-  faDice
+  faDice,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 
 const Button = props => {
-  // console.log(props);
   const { onClick, href } = props;
-  // console.log(onClick);
 
   const variant = () => {
     if (props.variant.includes("back")) {
@@ -25,6 +24,9 @@ const Button = props => {
     }
     if (props.variant.includes("play")) {
       return <FontAwesomeIcon icon={faPlay} />;
+    }
+    if (props.variant.includes("close")) {
+      return <FontAwesomeIcon icon={faTimes} />;
     }
     if (props.variant.includes("overview")) {
       return <FontAwesomeIcon icon={faDice} />;
@@ -47,15 +49,13 @@ const Button = props => {
   };
 
   const button = href ? (
-    <Link to={href}>
-      <span role="button" className={props.variant} onClick={onClick}>
-        {variant()}
-      </span>
+    <Link to={href} className={`btn ${props.variant}`}>
+      {variant()}
     </Link>
   ) : (
-    <span role="button" className={props.variant} onClick={onClick}>
+    <button className={`btn ${props.variant}`} onClick={onClick}>
       {variant()}
-    </span>
+    </button>
   );
 
   return button;

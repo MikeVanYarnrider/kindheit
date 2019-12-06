@@ -1,10 +1,19 @@
+@import "./variables";
 @import "./mixins/_grid.scss";
 
 .container {
   @include make-container();
-}
 
-.container-flex {
-  @include make-container();
-  @include make-container-flex();
+  &-ratio {
+    position: relative;
+  }
+
+  &-flex {
+    @extend .container;
+    @include make-container-flex();
+  }
+
+  &-indent {
+    padding: $grid-nav-heigth $grid-nav-heigth + 2;
+  }
 }
