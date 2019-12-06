@@ -22,19 +22,6 @@ export default class FoldTrain extends Component {
     gameTime: 0
   };
 
-  componentDidMount = () => {
-    console.log("did mount");
-    this.setState(
-      {
-        gameStartTime: new Date()
-      },
-      () => {
-        // console.log(this.state.gameStartTime);
-      }
-    );
-    window.addEventListener("beforeunload", this.postGameTime);
-  };
-
   postGameTime = () => {
     console.log("did unmount");
 
@@ -49,6 +36,19 @@ export default class FoldTrain extends Component {
         console.log("ROUTE??", response);
       })
       .catch(err => console.log(err));
+  };
+
+  componentDidMount = () => {
+    console.log("did mount");
+    this.setState(
+      {
+        gameStartTime: new Date()
+      },
+      () => {
+        // console.log(this.state.gameStartTime);
+      }
+    );
+    window.addEventListener("beforeunload", this.postGameTime);
   };
 
   componentWillUnmount = () => {
