@@ -12,7 +12,7 @@ const GameSelect = () => {
     return (
       <GameItem
         key={index}
-        class={"game-type"}
+        classProp={"game-type"}
         title={game.type}
         link={`/play/${game.link}`}
       />

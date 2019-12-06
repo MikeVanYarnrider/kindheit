@@ -14,34 +14,23 @@
   }
 
   &.overview {
-    border: 4px solid white;
-    color: white;
-    background-color: $green-light;
-    box-shadow: 0 0 1em $green-light;
+    @include make-button($green-light, $green-light);
   }
+
   &.number {
-    border: 4px solid white;
-    color: white;
-    background-color: $yellow-dark;
-    box-shadow: 0 0 1em $yellow-dark;
+    @include make-button($yellow-dark, $yellow-dark);
   }
+
   &.select {
-    border: 4px solid white;
-    color: white;
-    background-color: $green-dark;
-    box-shadow: 0 0 1em $green-dark;
+    @include make-button($green-dark, $green-dark);
   }
+
   &.checked {
-    border: 4px solid white;
-    color: white;
-    background-color: $teal-dark;
-    box-shadow: 0 0 1em $teal-dark;
+    @include make-button($teal-dark, $teal-dark);
   }
+
   &.close {
-    border: 4px solid white;
-    color: white;
-    background-color: $red-light;
-    box-shadow: 0 0 1em $red-light;
+    @include make-button($red-light, $red-light);
   }
 
   &-start {
@@ -49,29 +38,19 @@
   }
 
   &-rnd {
-    font-family: $font-family-patrick-hand;
-    border: none;
-    margin: 0.5em;
-    border-radius: 50%;
     width: 70px;
     height: 70px;
-    font-size: 2em;
-    text-align: center;
     line-height: 70px;
-    display: inline-block;
+    margin: 0.5em;
+
+    @include make-button-type(50%);
   }
 
   &-pill {
-    display: inline-block;
-    font-family: $font-family-patrick-hand;
     width: 200px;
-    border: none;
     padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 50px;
-    font-size: 2em;
+
+    @include make-button-type(50px);
   }
 
   &-ratio {
@@ -93,5 +72,5 @@
 }
 
 .transparent {
-  opacity: 0
+  opacity: 0;
 }

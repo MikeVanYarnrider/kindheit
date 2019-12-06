@@ -13,10 +13,12 @@ const GameList = props => {
   const list = games
     .filter(game => game.type === type)
     .map((game, index) => {
+      console.log(game);
       return (
         <GameItem
           key={index}
-          class={"game-item"}
+          classProp={"game-item"}
+          instructions={game.instructions}
           title={game.title}
           link={`/play/${type}/${game.link}`}
         />
