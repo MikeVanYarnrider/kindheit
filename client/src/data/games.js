@@ -8,19 +8,19 @@ const games = [
     title: "Fold a train",
     link: "foldtrain",
     type: "handsgames",
-    component: <FoldTrain />
+    component: FoldTrain
   },
   {
     title: "Puzzle",
     link: "puzzle",
     type: "device",
-    component: <Puzzle />
+    component: Puzzle
   },
   {
     title: "Memory Game",
     link: "memory",
     type: "device",
-    component: <MemoryGame />
+    component: MemoryGame
   }
 ];
 
