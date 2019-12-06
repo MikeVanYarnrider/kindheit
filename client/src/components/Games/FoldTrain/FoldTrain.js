@@ -32,9 +32,10 @@ export default class FoldTrain extends Component {
         // console.log(this.state.gameStartTime);
       }
     );
+    window.addEventListener("beforeunload", this.postGameTime);
   };
 
-  componentWillUnmount = () => {
+  postGameTime = () => {
     console.log("did unmount");
 
     const gameEndTime = new Date();
@@ -48,6 +49,11 @@ export default class FoldTrain extends Component {
         console.log("ROUTE??", response);
       })
       .catch(err => console.log(err));
+  };
+
+  componentWillUnmount = () => {
+    this.postGameTime();
+    window.removeEventListener("beforeunload", this.postGameTime);
   };
 
   handleClick = direction => {
