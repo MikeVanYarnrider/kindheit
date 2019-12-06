@@ -85,6 +85,7 @@ router.post("/parentlogin", (req, res, next) => {
   })(req, res, next);
 });
 
+
 //SIGNUP CHILD
 
 router.post("/childsignup", (req, res) => {
@@ -147,5 +148,7 @@ router.get("/loggedin", (req, res) => {
   console.log(req.user);
   res.json(req.user);
 });
+
+
 
 module.exports = router;
