@@ -30,7 +30,7 @@ export default () => {
     if (Object.keys(images).length > 0) {
       setCurrentImage(images["1.png"]);
     }
-  }, [images]);
+  }, []);
 
   let content = (
     <DraggableList

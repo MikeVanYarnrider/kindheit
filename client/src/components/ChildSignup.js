@@ -1,27 +1,29 @@
 import React, { Component } from "react";
 import { signupChild } from "./services/auth";
-import { Alert, Form, Button } from "react-bootstrap";
+import { Alert, Form /* Button  */ } from "react-bootstrap";
+import CarouselProfileimages from "../components/Signup_Children/CarouselProfileImages";
+import ChildrenPassword from "../components/Signup_Children/ChildrenPassword";
+import Button from "../../src/components/Button";
+import "../assets/stylesheet/components/ChildrenSignup/signupForm.scss";
 
-import {
-  passwordImg1,
-  passwordImg2,
-  passwordImg3,
-  passwordImg4
-} from "../images";
+import { profileImgDragon } from "../images";
+
+const profileImgArr = [profileImgDragon];
 
 class ChildSignup extends Component {
   state = {
     childname: "",
     password: "",
     birthDate: "",
-    profileImgUrl: "",
+    page: 0,
+    profileImgUrl: profileImgArr[0],
+    chosenProfileImg: 0,
     parent: this.props.parentUser._id,
     passwordImages: [],
     changeImage: 0
   };
 
   handleChange = event => {
-    console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -29,7 +31,6 @@ class ChildSignup extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
     signupChild(
       this.state.childname,
       this.state.password,
@@ -49,226 +50,117 @@ class ChildSignup extends Component {
     });
   };
 
-  signupImageSelect = event => {
-    let url = event.target.src;
-    console.log(url);
-    let imageState = this.state.passwordImages;
-    let imageToBeChanged = this.state.changeImage - 1;
-
-    if (this.state.changeImage > 0) {
-      imageState[imageToBeChanged] = url;
-      this.setState({
-        passwordImages: this.state.passwordImages,
-        changeImage: 0
-      });
-    } else if (imageState.length < 4) {
-      this.state.passwordImages.push(url);
-    }
-    let selectNum = imageState.map(el => el.match(/(\d)./)["1"]);
-
-    this.setState({
-      passwordImages: this.state.passwordImages,
-      password: selectNum.join(""),
-      changeImage: 0
-    });
+  setPassword = password => {
+    this.setState({ password: password });
+  };
+  setPasswordImage = passwordImages => {
+    this.setState({ passwordImages: passwordImages });
+  };
+  setChangePassword = changeImage => {
+    this.setState({ changeImage: changeImage });
+  };
+  setProfileImage = profileImage => {
+    this.setState({ profileImgUrl: profileImage });
+  };
+  setChosenProfileImage = num => {
+    this.setState({ chosenProfileImg: num });
   };
 
-  signupImageChange = event => {
-    let changeImageNum = event.currentTarget.id;
-    this.setState({ changeImage: changeImageNum });
+  backwardClick = event => {
+    if (this.state.page > 0) {
+      this.setState({
+        page: this.state.page - 1
+      });
+    }
+  };
+
+  forwardClick = event => {
+    if (this.state.page < 3) {
+      this.setState({
+        page: this.state.page + 1
+      });
+    }
   };
 
   render() {
-    let imageState = this.state.passwordImages;
     return (
-      <div>
-        <h2>Child Signup</h2>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
-            <Form.Label htmlFor="childname">Childname: </Form.Label>
-            <Form.Control
-              type="text"
-              name="childname"
-              id="childname"
-              value={this.state.childname}
-              onChange={this.handleChange}
+      <div className="mainWrapper">
+        <div className="header">
+          <h1>SIGNUP YOUR CHILD</h1>
+        </div>
+
+        <div className="wrapperDiv">
+          {this.state.page === 0 ? (
+            <Button
+              variant="btn-rnd transparent back"
+              onClick={this.backwardClick}
             />
-          </Form.Group>
-
-          <Form.Group>
-            <button
-              type="button"
-              style={{
-                border: "2px solid blue",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-            >
-              <img
-                height="100px"
-                width="100px"
-                src={passwordImg1}
-                alt=""
-                onClick={this.signupImageSelect}
-              />
-            </button>
-            <button
-              type="button"
-              style={{
-                border: "2px solid blue",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-            >
-              <img
-                height="100px"
-                width="100px"
-                src={passwordImg2}
-                alt=""
-                onClick={this.signupImageSelect}
-              />
-            </button>
-            <button
-              type="button"
-              style={{
-                border: "2px solid blue",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-            >
-              <img
-                height="100px"
-                width="100px"
-                src={passwordImg3}
-                alt=""
-                onClick={this.signupImageSelect}
-              />
-            </button>
-            <button
-              type="button"
-              style={{
-                border: "2px solid blue",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-            >
-              <img
-                height="100px"
-                width="100px"
-                src={passwordImg4}
-                alt=""
-                onClick={this.signupImageSelect}
-              />
-            </button>
-          </Form.Group>
-
-          <Form.Group style={{ display: "flex" }}>
-            <button
-              id="1"
-              type="button"
-              style={{
-                border: "2px solid yellow",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-              onClick={this.signupImageChange}
-            >
-              <div
-                style={{
-                  height: "100px",
-                  width: "100px",
-                  borderRadius: "50%",
-                  backgroundColor: "white",
-                  backgroundImage: `url(${imageState[0]})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center"
-                }}
-              ></div>
-            </button>
-
-            <button
-              type="button"
-              id="2"
-              style={{
-                border: "2px solid yellow",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-              onClick={this.signupImageChange}
-            >
-              <div
-                style={{
-                  height: "100px",
-                  width: "100px",
-                  borderRadius: "50%",
-                  backgroundColor: "white",
-                  backgroundImage: `url(${imageState[1]})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center"
-                }}
-              ></div>
-            </button>
-            <button
-              id="3"
-              type="button"
-              style={{
-                border: "2px solid yellow",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-              onClick={this.signupImageChange}
-            >
-              <div
-                style={{
-                  height: "100px",
-                  width: "100px",
-                  borderRadius: "50%",
-                  backgroundColor: "white",
-                  backgroundImage: `url(${imageState[2]})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center"
-                }}
-              ></div>
-            </button>
-            <button
-              id="4"
-              type="button"
-              style={{
-                border: "2px solid yellow",
-                backgroundColor: "white",
-                borderRadius: "50%"
-              }}
-              onClick={this.signupImageChange}
-            >
-              <div
-                style={{
-                  height: "100px",
-                  width: "100px",
-                  borderRadius: "50%",
-                  backgroundColor: "white",
-                  backgroundImage: `url(${imageState[3]})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center"
-                }}
-              ></div>
-            </button>
-          </Form.Group>
-
-          <Form.Group>
-            <Form.Label htmlFor="birthdate">Birthdate: </Form.Label>
-            <Form.Control
-              type="date"
-              name="birthDate"
-              id="birthDate"
-              value={this.state.birthDate}
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          {this.state.error && (
-            <Alert variant="danger">{this.state.error}</Alert>
+          ) : (
+            <Button variant="btn-rnd back" onClick={this.backwardClick} />
           )}
-          <Button type="submit">Child Sign Up</Button>
-        </Form>
+
+          <Form onSubmit={this.handleSubmit} className="form">
+            {this.state.page === 0 && (
+              <Form.Group>
+                <Form.Label htmlFor="childname">Childname: </Form.Label>
+                <Form.Control
+                  type="text"
+                  name="childname"
+                  id="childname"
+                  placeholder="Name"
+                  value={this.state.childname}
+                  onChange={this.handleChange}
+                />
+              </Form.Group>
+            )}
+
+            {this.state.page === 1 && (
+              <CarouselProfileimages
+                {...this.state}
+                setProfileImg={this.setProfileImage}
+                setChosenProfileImg={this.setChosenProfileImage}
+              />
+            )}
+
+            {this.state.page === 2 && (
+              <ChildrenPassword
+                {...this.state}
+                setPassword={this.setPassword}
+                setPasswordImage={this.setPasswordImage}
+                setChangePassword={this.setChangePassword}
+              />
+            )}
+            {this.state.page === 3 && (
+              <div className="signupPage">
+                <Form.Group>
+                  <Form.Label htmlFor="birthdate">Birthdate:</Form.Label>
+                  <Form.Control
+                    type="date"
+                    name="birthDate"
+                    id="birthDate"
+                    style={{ backgroundColor: "white" }}
+                    value={this.state.birthDate}
+                    onChange={this.handleChange}
+                  />
+                </Form.Group>{" "}
+                {this.state.error && (
+                  <Alert variant="danger">{this.state.error}</Alert>
+                )}
+                <button className="submitButton" type="submit">
+                  Child Sign Up
+                </button>
+              </div>
+            )}
+          </Form>
+          {this.state.page >= 3 ? (
+            <Button
+              variant="btn-rnd transparent forward"
+              onClick={this.forwardClick}
+            />
+          ) : (
+            <Button variant="btn-rnd forward" onClick={this.forwardClick} />
+          )}
+        </div>
       </div>
     );
   }

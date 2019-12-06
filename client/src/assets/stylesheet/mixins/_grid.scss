@@ -12,3 +12,12 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+@mixin make-container-flex-center() {
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin make-container-full-height {
+  min-height: calc(100vh - #{$grid-nav-heigth});
+}

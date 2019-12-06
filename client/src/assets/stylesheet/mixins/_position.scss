@@ -1,0 +1,9 @@
+$default: absolute;
+
+@mixin make-container-positioned($pos: $default) {
+  position: $pos;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

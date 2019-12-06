@@ -1,77 +1,97 @@
 @import "../variables";
-@import "../root";
+@import "../mixins/button";
 
-.btn-rnd {
-  font-family: $font-family-patrick-hand;
-  border: none;
-  margin: 0.5em;
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  font-size: 2em;
-  text-align: center;
-  line-height: 70px;
-  display: inline-block;
+.btn {
+  &.back,
+  &.forward {
+    @include make-button($white, $teal-dark, $teal-dark, $teal-dark);
+  }
+
+  &.play {
+    text-align: center;
+
+    @include make-button($red-dark, $red-dark);
+  }
+
+  &.overview {
+    border: 4px solid white;
+    color: white;
+    background-color: $green-light;
+    box-shadow: 0 0 1em $green-light;
+  }
+  &.number {
+    border: 4px solid white;
+    color: white;
+    background-color: $yellow-dark;
+    box-shadow: 0 0 1em $yellow-dark;
+  }
+  &.select {
+    border: 4px solid white;
+    color: white;
+    background-color: $green-dark;
+    box-shadow: 0 0 1em $green-dark;
+  }
+  &.checked {
+    border: 4px solid white;
+    color: white;
+    background-color: $teal-dark;
+    box-shadow: 0 0 1em $teal-dark;
+  }
+  &.close {
+    border: 4px solid white;
+    color: white;
+    background-color: $red-light;
+    box-shadow: 0 0 1em $red-light;
+  }
+
+  &-start {
+    @include make-button($yellow-dark, $yellow-dark);
+  }
+
+  &-rnd {
+    font-family: $font-family-patrick-hand;
+    border: none;
+    margin: 0.5em;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    font-size: 2em;
+    text-align: center;
+    line-height: 70px;
+    display: inline-block;
+  }
+
+  &-pill {
+    display: inline-block;
+    font-family: $font-family-patrick-hand;
+    width: 200px;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 50px;
+    font-size: 2em;
+  }
+
+  &-ratio {
+    position: absolute;
+    z-index: 1;
+
+    &.top {
+      top: $grid-indent-width;
+    }
+
+    &.left {
+      left: $grid-indent-width;
+    }
+
+    &.right {
+      right: $grid-indent-width;
+    }
+  }
 }
 
-.btn-pill {
-  display: inline-block;
-  font-family: $font-family-patrick-hand;
-  background-color: #ddd;
-  width: 200px;
-  height: 70px;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 50px;
-  font-size: 2em;
-}
-
-.btn-start {
-  border: 4px solid white;
-  color: white;
-  background-color: $yellow-dark;
-  box-shadow: 0 0 1em $yellow-dark;
-}
-
-.back,
-.forward {
-  background-color: white;
-  border: 4px solid $teal-dark;
-  box-shadow: 0 0 1em $teal-dark;
-  color: $teal-dark;
-}
-
-.play {
-  border: 4px solid white;
-  color: white;
-  background-color: $red-dark;
-  box-shadow: 0 0 1em $red-dark;
-  text-align: center;
-}
-a .overview {
-  border: 4px solid white;
-  color: white;
-  background-color: $green-light;
-  box-shadow: 0 0 1em $green-light;
-}
-a .number {
-  border: 4px solid white;
-  color: white;
-  background-color: $yellow-dark;
-  box-shadow: 0 0 1em $yellow-dark;
-}
-a .select {
-  border: 4px solid white;
-  color: white;
-  background-color: $green-dark;
-  box-shadow: 0 0 1em $green-dark;
-}
-a .checked {
-  border: 4px solid white;
-  color: white;
-  background-color: $teal-dark;
-  box-shadow: 0 0 1em $teal-dark;
+.transparent {
+  opacity: 0
 }
