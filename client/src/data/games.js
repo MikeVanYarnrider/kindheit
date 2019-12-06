@@ -1,4 +1,3 @@
-import React from "react";
 import Puzzle from "../components/Games/Puzzle/Puzzle";
 import FoldTrain from "../components/Games/FoldTrain/FoldTrain";
 import MemoryGame from "../components/Games/Memory/Memory";
