@@ -1,5 +1,6 @@
-const passport = require('passport');
-const User = require('../models/ParentUser');
+const passport = require("passport");
+const User = require("../models/ParentUser");
+const Child = require("../models/Child");
 
 passport.serializeUser((loggedInUser, cb) => {
   cb(null, loggedInUser._id);
@@ -7,10 +8,16 @@ passport.serializeUser((loggedInUser, cb) => {
 
 passport.deserializeUser((userIdFromSession, cb) => {
   User.findById(userIdFromSession)
-  .then(userDocument => {
-    cb(null, userDocument);
-  })
-  .catch(err => {
-    cb(err);
-  })
+    .then(userDocument => {
+      if (!userDocument) {
+        return Child.findById(userIdFromSession).then(child => {
+          cb(null, child);
+        });
+      } else {
+        cb(null, userDocument);
+      }
+    })
+    .catch(err => {
+      cb(err);
+    });
 });
