@@ -1,0 +1,68 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  color: white;
+  width: 400px;
+}
+
+.form > div {
+  width: 500px
+}
+
+.header {
+  width: 100vw;
+  position: absolute;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.mainWrapper {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapperDiv {
+  width: 85vw;
+  height: 85vh;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.submitButton {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid white;
+}
+
+.buttonWrapper {
+  position: absolute;
+  width: 80vw;
+  height: 85vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#backButton {
+  visibility: hidden !important;
+}
+
+.signupPage {
+  padding-top: 50%;
+  height: 200px;
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+  align-items:  center;
+
+}

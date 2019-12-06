@@ -4,7 +4,7 @@
 }
 
 .carousel .slide img {
-  max-height: 100px !important;
+  max-height: 300px !important;
 
     /* change this to whatever you want */
   width: auto
@@ -16,12 +16,12 @@
 }
 
 .carousel .thumb {
-  width: 15%;
+  width: 30%;
 border: none
 }
 
 .carousel .thumb.selected {
-  width: 18%;
+  width: 35%;
   border-radius: 50%;
   border: 3px solid white
 }
@@ -55,3 +55,4 @@ border: none
   height: 100px !important;
   font-size: 3em
 }
+
