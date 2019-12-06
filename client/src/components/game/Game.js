@@ -1,5 +1,6 @@
 // eslint-disable-next-line
-import React, { Component } from "react";
+import React from "react";
+import Button from "../Button";
 
 import games from "../../data/games";
 
@@ -10,7 +11,12 @@ function Game(props) {
 
   // return game.component;
   const Component = game.component;
-  return <Component {...props} />;
+  return (
+    <div className="container-ratio">
+      <Button variant="btn-rnd close btn-ratio top right" href="/play" />
+      <Component {...props} />
+    </div>
+  );
 }
 
 export default Game;

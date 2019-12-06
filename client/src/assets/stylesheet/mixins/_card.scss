@@ -2,13 +2,13 @@
 
 $size: 15rem;
 $radius: 10em;
-$thickness: 5;
+$thickness: 5px;
 
 @mixin make-round-item($rad: $radius, $w: $size, $h: $size, $bw: $thickness) {
   width: $w;
   height: $h;
   background-color: $white;
-  border: #{$bw}px solid $yellow-light;
+  border: $bw solid $yellow-light;
   border-radius: $rad;
   -webkit-border-radius: $rad;
   -moz-border-radius: $rad;
