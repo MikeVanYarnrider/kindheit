@@ -22,31 +22,42 @@ export default class App extends Component {
   };
 
   render() {
-    console.log("user", this.state.user)
+    console.log("user", this.state.user);
     return (
       <div>
         <Navbar user={this.state.user} clearUser={this.setUser} />
         <Switch>
-        <Route exact path="/" component={GameStart} />
-        <Route
-          exact
-          path="/signup"
-          render={props => <Signup {...props} setUser={this.setUser} />}
-        />
-        <Route
-          exact
-          path="/parentlogin"
-          render={props => <ParentLogin {...props} setUser={this.setUser} />} />
-      <Route
-          exact
-          path="/childsignup"
-          render={props => <ChildSignup {...props} parentUser={this.state.user} setUser={this.setUser} />}
-        />
-        <Route exact path="/childlogin" component={ChildLogin} />
-        <Route exact path="/play" component={GameType} />
-        <Route exact path="/play/:type" component={GameList} />
-        <Route exact path="/play/:type/:gameId" component={Game} />
-      </Switch>
+          <Route exact path="/" component={GameStart} />
+          <Route
+            exact
+            path="/signup"
+            render={props => <Signup {...props} setUser={this.setUser} />}
+          />
+          <Route
+            exact
+            path="/parentlogin"
+            render={props => <ParentLogin {...props} setUser={this.setUser} />}
+          />
+          <Route
+            exact
+            path="/childsignup"
+            render={props => (
+              <ChildSignup
+                {...props}
+                parentUser={this.state.user}
+                setUser={this.setUser}
+              />
+            )}
+          />
+          <Route exact path="/childlogin" component={ChildLogin} />
+          <Route exact path="/play" component={GameType} />
+          <Route exact path="/play/:type" component={GameList} />
+          <Route
+            exact
+            path="/play/:type/:gameId"
+            render={props => <Game {...props} user={this.state.user} />}
+          />
+        </Switch>
       </div>
     );
   }

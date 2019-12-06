@@ -1,12 +1,14 @@
 @import "../variables";
+@import "../mixins/grid";
 
 $bg: "../../images/home/lego-welcome.png";
 
 .welcome {
-  height: calc(100vh - #{$grid-nav-heigth});
   background: url($bg) 0 100% / 40rem no-repeat;
   justify-content: flex-end;
   align-items: center;
+
+  @include make-container-full-height();
 
   &-box {
     width: 100%;

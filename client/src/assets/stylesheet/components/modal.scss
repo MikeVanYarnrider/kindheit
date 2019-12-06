@@ -1,0 +1,21 @@
+@import "../variables";
+@import "../mixins/card";
+@import "../mixins/grid";
+@import "../mixins/position";
+
+.modal {
+  display: none;
+  z-index: 9999;
+
+  @include make-container-positioned(fixed);
+  @include make-container-flex-center();
+
+  &.open {
+    display: flex;
+  }
+
+  &-inner {
+    flex-direction: column;
+    @include make-round-item($radius / 10, $size * 2);
+  }
+}
