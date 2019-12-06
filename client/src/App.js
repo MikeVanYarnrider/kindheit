@@ -52,7 +52,11 @@ export default class App extends Component {
           <Route exact path="/childlogin" component={ChildLogin} />
           <Route exact path="/play" component={GameType} />
           <Route exact path="/play/:type" component={GameList} />
-          <Route exact path="/play/:type/:gameId" component={Game} />
+          <Route
+            exact
+            path="/play/:type/:gameId"
+            render={props => <Game {...props} user={this.state.user} />}
+          />
         </Switch>
       </div>
     );

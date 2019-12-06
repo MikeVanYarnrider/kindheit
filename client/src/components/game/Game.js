@@ -5,6 +5,7 @@ import Button from "../Button";
 import games from "../../data/games";
 
 function Game(props) {
+  // console.log("game: ", props);
   const { gameId } = props.match.params;
   const game = games.find(game => game.link === gameId);
 
