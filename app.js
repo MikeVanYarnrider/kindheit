@@ -66,6 +66,9 @@ require("./passport")(app);
 const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
 
+const childRoutes = require("./routes/child");
+app.use("/child", childRoutes);
+
 app.use((req, res) => {
   // If no routes match, send them the React HTML.
   res.sendFile(__dirname + "/client/build/index.html");
