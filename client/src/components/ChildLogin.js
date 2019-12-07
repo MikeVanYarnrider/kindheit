@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { childLogin } from "./services/auth";
-import { Alert, Form, Button } from "react-bootstrap";
+// import { Alert, Form, Button } from "react-bootstrap";
 
 import Welcome from "./Welcome";
 import CarouselProfileimages from "../components/Login_Children/CarouselLoginProfileImages";
 import ChildrenPassword from "../components/Login_Children/ChildrenLoginPassword";
-import  "../../src/assets/stylesheet/components/ChildrenLogin/childrenLoginForm.scss"
-
+import "../../src/assets/stylesheet/components/ChildrenLogin/childrenLoginForm.scss";
 
 class GameLogin extends Component {
   state = {
@@ -84,7 +83,9 @@ class GameLogin extends Component {
             setChangePassword={this.setChangePassword}
           />
           {this.state.error && <p>{this.state.error}</p>}
-          <button className="loginButton" type="submit">Submit</button>
+          <button className="loginButton" type="submit">
+            Submit
+          </button>
         </div>
       </form>
     );
@@ -97,15 +98,19 @@ class ChildLogin extends Component {
   };
 
   setUser = user => {
-    this.setState({
-      user: user
-    }, ()=>{this.props.setUser(this.state.user)});
-  
+    this.setState(
+      {
+        user: user
+      },
+      () => {
+        this.props.setUser(this.state.user);
+      }
+    );
   };
 
   render() {
     return (
-      <Welcome >
+      <Welcome>
         <GameLogin {...this.props} setUser={this.setUser} />
       </Welcome>
     );

@@ -7,9 +7,10 @@ import ParentLogin from "./components/login/parent/ParentLogin";
 import ChildSignup from "./components/ChildSignup";
 import ChildLogin from "./components/ChildLogin";
 import Game from "./components/game/Game";
-import GameStart from "./components/Start";
+// import GameStart from "./components/Start";
 import GameType from "./components/game/GameType";
 import GameList from "./components/game/GameList";
+import ParentBackend from "./components/ParentsBackend";
 
 export default class App extends Component {
   state = {
@@ -58,6 +59,17 @@ export default class App extends Component {
             path="/childsignup"
             render={props => (
               <ChildSignup
+                {...props}
+                parentUser={this.state.user}
+                setUser={this.setUser}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/parent"
+            render={props => (
+              <ParentBackend
                 {...props}
                 parentUser={this.state.user}
                 setUser={this.setUser}
