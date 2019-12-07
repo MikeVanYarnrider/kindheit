@@ -25,14 +25,18 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Navbar user={this.state.user} clearUser={this.setUser} />
+        <Navbar
+          {...this.props}
+          user={this.state.user}
+          clearUser={this.setUser}
+        />
         <Switch>
           <Route
             exact
             path="/"
             render={props =>
               this.state.user ? (
-                <GameList {...props} user={this.state.user} />
+                <GameType {...props} user={this.state.user} />
               ) : (
                 <ChildLogin {...props} setUser={this.setUser} />
               )
