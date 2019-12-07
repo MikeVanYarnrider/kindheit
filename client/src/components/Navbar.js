@@ -18,13 +18,7 @@ const Navbar = props => {
         <nav className="navbar">
           {props.user ? (
             <>
-              <p
-                style={{ margin: 0, padding: 0 }}
-                className="navbar-link"
-                to="/"
-              >
-                Hi {props.user.username}
-              </p>
+              <p style={{ margin: 0, padding: 0 }}>Hi {props.user.username}</p>
               <Link className="navbar-link" to="/">
                 Home
               </Link>
@@ -41,10 +35,6 @@ const Navbar = props => {
             <React.Fragment>
               <Link className="navbar-link" to="/">
                 Home
-              </Link>
-
-              <Link className="navbar-link" to="/signup">
-                Signup
               </Link>
               <Link className="navbar-link" to="/parentlogin">
                 Parentlogin
