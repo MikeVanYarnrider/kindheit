@@ -1,0 +1,116 @@
+@import "../../variables";
+
+.carousel .thumb img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.carousel .slide img {
+  max-height: 200px !important;
+
+  /* change this to whatever you want */
+  width: auto;
+}
+
+.carousel .slide {
+  background-color: rgba(0, 0, 0, 0);
+
+  height: 100px;
+}
+
+.carousel .thumb {
+  width: 15%;
+  border: none;
+}
+
+.carousel .thumb.selected {
+  width: 20%;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.carousel .thumbs-wrapper {
+  margin-left: 0;
+}
+
+.control-dots {
+  padding: 0;
+  opacity: 0;
+}
+
+.thumbs.animated {
+  padding: 0 20px;
+}
+
+.thumbs-wrapper.axis-vertical {
+  margin: 0;
+  width: 400px;
+  padding: 0 20px;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.control-arrow > button {
+  height: 100px !important;
+  font-size: 3em;
+}
+
+li.selected {
+  width: 200px;
+}
+
+.slider-wrapper.axis-horizontal {
+  width: 400px;
+}
+
+.carousel .slide .legend {
+  top: 120%;
+  height: 50px;
+  background: $blue-light;
+  opacity: 1;
+}
+
+p.legend {
+  color: white;
+  font-family: $font-family-base;
+  font-size: 40px !important;
+  margin: 20px 0 20px -100px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel .slide .legend {
+  width: 200px;
+}
+
+.slide > div {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel > button.control-arrow.control-next {
+  background-color: $blue-light;
+  width: 40px;
+  opacity: 1 !important;
+  border-radius: 12px;
+}
+
+.carousel > button.control-arrow.control-prev {
+  background-color: $blue-light;
+  width: 40px;
+  opacity: 1 !important;
+  border-radius: 12px;
+}
+
+.carousel.carousel-slider .control-arrow:hover {
+  background: $blue-light;
+}
+.carousel.carousel-slider .control-arrow:hover {
+  background: $blue-light;
+}

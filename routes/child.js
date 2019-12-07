@@ -4,9 +4,24 @@ const Child = require("../models/Child");
 const Game = require("../models/Game");
 
 router.post("/play/:type/:id", (req, res) => {
-  console.log("test");
-  console.log(req.body);
+  const { _id } = req.body.user;
+  const { gameTime } = req.body;
   res.json(req.body);
+  Child.findByIdAndUpdate(
+    _id,
+    {
+      $push: {
+        sessionTimes: gameTime
+      }
+    },
+    { new: true }
+  )
+    .then(found => {
+      console.log("User -->", found);
+    })
+    .catch(err => {
+      console.log(err);
+    });
 });
 
 module.exports = router;

@@ -46,9 +46,28 @@ const parentLogin = (username, password) => {
     });
 };
 
-const logout = () => {
-  console.log("logoutauth")
-  axios.delete("/api/auth/logout");
+
+const childLogin = (childname, childId, password) => {
+  return axios
+    .post("/api/auth/childlogin", {
+      childname: childname,
+      childId: childId,
+      password: password
+    })
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      return err.response.data;
+    });
 };
 
-export { signup, parentLogin, logout, signupChild };
+const logout = () => {
+  console.log("logoutauth")
+  axios.delete("/api/auth/logout").then(res => {
+    console.log(res);
+  })
+  
+};
+
+export { signup, parentLogin, logout, signupChild, childLogin };
