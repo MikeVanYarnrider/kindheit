@@ -6,7 +6,7 @@ import ParentLogin from "./components/ParentLogin";
 import ChildSignup from "./components/ChildSignup";
 import ChildLogin from "./components/ChildLogin";
 import Game from "./components/game/Game";
-import GameStart from "./components/Start";
+// import GameStart from "./components/Start";
 import GameType from "./components/game/GameType";
 import GameList from "./components/game/GameList";
 import ParentBackend from "./components/ParentsBackend";

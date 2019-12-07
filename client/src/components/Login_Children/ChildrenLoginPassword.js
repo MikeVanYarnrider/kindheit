@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Alert, Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import "../../assets/stylesheet/components/ChildrenLogin/childrenLoginPasswort.scss";
 
 import {
