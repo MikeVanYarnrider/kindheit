@@ -29,6 +29,7 @@ class Signup extends Component {
           console.log(data);
           this.props.setUser(data);
           this.props.history.push("/parent");
+
         }
       }
     );

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
-import Signup from "./components/Signup";
-import ParentLogin from "./components/ParentLogin";
+import Signup from "./components/signup/parent/ParentSignup";
+import ParentLogin from "./components/login/parent/ParentLogin";
 import ChildSignup from "./components/ChildSignup";
 import ChildLogin from "./components/ChildLogin";
 import Game from "./components/game/Game";
@@ -25,14 +26,18 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Navbar user={this.state.user} clearUser={this.setUser} />
+        <Navbar
+          {...this.props}
+          user={this.state.user}
+          clearUser={this.setUser}
+        />
         <Switch>
           <Route
             exact
             path="/"
             render={props =>
               this.state.user ? (
-                <GameList {...props} user={this.state.user} />
+                <GameType {...props} user={this.state.user} />
               ) : (
                 <ChildLogin {...props} setUser={this.setUser} />
               )
