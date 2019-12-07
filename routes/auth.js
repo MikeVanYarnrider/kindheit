@@ -182,15 +182,15 @@ router.get("/getProfiles", (req, res, next) => {
 //LOGOUT
 router.delete("/logout", (req, res) => {
   console.log("LOGOUT");
-  
+
   req.session.destroy();
-  res.redirect('/');
- /*  res.json({ message: "Successfull logout!" }); */
+  res.redirect("/");
+  /*  res.json({ message: "Successfull logout!" }); */
 });
 
 //LOGIN CHECK
 router.get("/loggedin", (req, res) => {
-  console.log("loggedInUser", req.user);
+  // console.log("loggedInUser", req.user);
   res.json(req.user);
 });
 
