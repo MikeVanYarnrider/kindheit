@@ -22,12 +22,23 @@ export default class App extends Component {
   };
 
   render() {
-    console.log("user", this.state.user);
+    console.log("user APP", this.state.user);
     return (
       <div>
         <Navbar user={this.state.user} clearUser={this.setUser} />
         <Switch>
-          <Route exact path="/" component={GameStart} />
+          <Route
+            exact
+            path="/"
+            render={props =>
+              this.state.user ? (
+                <GameList {...props} user={this.state.user} />
+              ) : (
+                <ChildLogin {...props} setUser={this.setUser} />
+              )
+            }
+          />
+
           <Route
             exact
             path="/signup"
@@ -49,7 +60,11 @@ export default class App extends Component {
               />
             )}
           />
-          <Route exact path="/childlogin" component={ChildLogin} />
+          <Route
+            exact
+            path="/childlogin"
+            render={props => <ChildLogin {...props} setUser={this.setUser} />}
+          />
           <Route exact path="/play" component={GameType} />
           <Route exact path="/play/:type" component={GameList} />
           <Route

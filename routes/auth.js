@@ -85,12 +85,11 @@ router.post("/parentlogin", (req, res, next) => {
   })(req, res, next);
 });
 
-
 //SIGNUP CHILD
 
 router.post("/childsignup", (req, res) => {
   const { childname, password, birthDate, profileImgUrl, parent } = req.body;
-  console.log("userid", req);
+  // console.log("userid", req);
 
   if (!childname) {
     return res
@@ -124,6 +123,15 @@ router.post("/childsignup", (req, res) => {
         })
         .then(newChild => {
           console.log(newChild);
+          ParentUser.findByIdAndUpdate(
+            req.user._id,
+            { $push: { children: newChild._id } },
+            { new: true }
+          )
+            .populate("children")
+            .then(realFinalStuff => {
+              console.log(realFinalStuff);
+            });
           req.login(newChild, err => {
             if (err) res.status(500).json(err);
             else res.json(newChild);
@@ -135,20 +143,55 @@ router.post("/childsignup", (req, res) => {
     });
 });
 
+//LOGIN CHILD
+
+router.post("/childlogin", (req, res, next) => {
+  const { childname, childId, password } = req.body;
+
+  Child.findById({ _id: childId })
+    .then(foundChild => {
+      if (!foundChild) {
+        res
+          .status(400)
+          .json({ message: "Der Nutzername konnte nicht gefunden werden!" });
+        return;
+      }
+      if (!bcrypt.compareSync(password, foundChild.password)) {
+        res.status(400).json({ message: "Das Passwort ist leider falsch!" });
+        return;
+      }
+      req.login(foundChild, err => {
+        if (err) res.status(500).json(err);
+        res.json(foundChild);
+      });
+      console.log("CHILD USER", req.user);
+    })
+    .catch(err => next(err));
+});
+
+//GET PROFILES
+router.get("/getProfiles", (req, res, next) => {
+  Child.find({})
+    .then(foundChildren => {
+      console.log(foundChildren);
+      res.json(foundChildren);
+    })
+    .catch(err => next(err));
+});
+
 //LOGOUT
 router.delete("/logout", (req, res) => {
   console.log("LOGOUT");
-  /*   req.logout(); */
+  
   req.session.destroy();
-  res.json({ message: "Successfull logout!" });
+  res.redirect('/');
+ /*  res.json({ message: "Successfull logout!" }); */
 });
 
 //LOGIN CHECK
 router.get("/loggedin", (req, res) => {
-  console.log(req.user);
+  console.log("loggedInUser", req.user);
   res.json(req.user);
 });
-
-
 
 module.exports = router;
