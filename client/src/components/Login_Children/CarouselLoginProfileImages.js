@@ -87,7 +87,7 @@ class CarouselProfileImages extends Component {
           <Carousel
             autoPlay={false}
             interval={10000}
-            showThumbs={true}
+            showThumbs={false}
             showArrows={true}
             infiniteLoop={true}
             showStatus={false}

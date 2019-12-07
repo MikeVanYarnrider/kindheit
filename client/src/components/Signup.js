@@ -28,7 +28,7 @@ class Signup extends Component {
         } else {
           console.log(data);
           this.props.setUser(data);
-          this.props.history.push("/");
+          this.props.history.push("/play");
         }
       }
     );
