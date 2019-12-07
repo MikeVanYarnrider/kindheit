@@ -14,9 +14,16 @@ export const Modal = props => {
     >
       <div className="modal-inner">
         {props.children}
-        <Button onClick={() => handleClick()} variant={props.variant}>
-          {props.btnAction}
-        </Button>
+        {props.onBtnClick && (
+          <Button onClick={() => handleClick()} variant={props.variant}>
+            {props.btnAction}
+          </Button>
+        )}
+        {props.path && (
+          <Button href={props.path} variant={props.variant}>
+            {props.btnAction}
+          </Button>
+        )}
       </div>
     </div>
   );

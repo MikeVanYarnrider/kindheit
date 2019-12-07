@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { Card } from "./components/Card";
 import { Modal } from "../../modal/Modal";
 
@@ -24,7 +25,42 @@ class Game extends Component {
     shuffledCards: shuffle(cards),
     pickedCards: [],
     flippedCards: [],
-    isFinished: false
+    isFinished: false,
+    gameTime: 0
+  };
+
+  postGameTime = () => {
+    console.log("did unmount");
+
+    const gameEndTime = new Date();
+    const gameTime = (gameEndTime - this.state.gameStartTime) / 1000;
+    axios
+      .post("/child/play/handsgames/foldtrain", {
+        gameTime: gameTime,
+        user: this.props.user
+      })
+      .then(response => {
+        console.log("ROUTE??", response);
+      })
+      .catch(err => console.log(err));
+  };
+
+  componentDidMount = () => {
+    console.log("did mount");
+    this.setState(
+      {
+        gameStartTime: new Date()
+      },
+      () => {
+        // console.log(this.state.gameStartTime);
+      }
+    );
+    window.addEventListener("beforeunload", this.postGameTime);
+  };
+
+  componentWillUnmount = () => {
+    this.postGameTime();
+    window.removeEventListener("beforeunload", this.postGameTime);
   };
 
   pickCard(card) {

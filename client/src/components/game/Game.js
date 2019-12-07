@@ -1,16 +1,23 @@
 // eslint-disable-next-line
-import React, { Component } from "react";
+import React from "react";
+import Button from "../Button";
 
 import games from "../../data/games";
 
 function Game(props) {
-  // console.log("game: ", props);
-  const { gameId } = props.match.params;
+  const { gameId, type } = props.match.params;
   const game = games.find(game => game.link === gameId);
 
-  // return game.component;
   const Component = game.component;
-  return <Component {...props} />;
+  return (
+    <div className="container-ratio">
+      <Button
+        variant="btn-rnd close btn-ratio top right"
+        href={`/play/${type}`}
+      />
+      <Component {...props} />
+    </div>
+  );
 }
 
 export default Game;
