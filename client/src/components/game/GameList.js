@@ -13,10 +13,12 @@ const GameList = props => {
   const list = games
     .filter(game => game.type === type)
     .map((game, index) => {
+      console.log(game);
       return (
         <GameItem
           key={index}
-          class={"game-item"}
+          classProp={"game-item"}
+          instructions={game.instructions}
           title={game.title}
           link={`/play/${type}/${game.link}`}
         />
@@ -24,8 +26,9 @@ const GameList = props => {
     });
 
   return (
-    <div className="container-flex">
-      {list} <Button variant="btn-rnd back" href="/play" />
+    <div className="container-flex container-indent container-ratio">
+      <Button variant="btn-rnd back btn-ratio top left" href="/play" />
+      <div className="game-list">{list}</div>
     </div>
   );
 };

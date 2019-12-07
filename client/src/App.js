@@ -22,7 +22,6 @@ export default class App extends Component {
   };
 
   render() {
-    console.log("user APP", this.state.user);
     return (
       <div>
         <Navbar user={this.state.user} clearUser={this.setUser} />

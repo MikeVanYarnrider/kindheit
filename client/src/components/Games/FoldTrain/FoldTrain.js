@@ -22,8 +22,21 @@ export default class FoldTrain extends Component {
     gameTime: 0
   };
 
+  postGameTime = () => {
+    const gameEndTime = new Date();
+    const gameTime = (gameEndTime - this.state.gameStartTime) / 1000;
+    axios
+      .post("/child/play/handsgames/foldtrain", {
+        gameTime: gameTime,
+        user: this.props.user
+      })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => console.log(err));
+  };
+
   componentDidMount = () => {
-    console.log("did mount");
     this.setState(
       {
         gameStartTime: new Date()
@@ -32,24 +45,12 @@ export default class FoldTrain extends Component {
         // console.log(this.state.gameStartTime);
       }
     );
+    window.addEventListener("beforeunload", this.postGameTime);
   };
 
   componentWillUnmount = () => {
-    console.log("did unmount");
-    const gameEndTime = new Date();
-    const gameTime = (gameEndTime - this.state.gameStartTime) / 1000;
-    // console.log(gameTime);
-    // console.log(this.state.gameTime);
-    console.log("axios post");
-    axios
-      .post("/child/play/handsgames/foldtrain", {
-        gameTime: gameTime,
-        user: this.props.user
-      })
-      .then(response => {
-        console.log("ROUTE??", response);
-      })
-      .catch(err => console.log(err));
+    this.postGameTime();
+    window.removeEventListener("beforeunload", this.postGameTime);
   };
 
   handleClick = direction => {
@@ -75,7 +76,6 @@ export default class FoldTrain extends Component {
   };
 
   render() {
-    console.log(this.props.user);
     return (
       <div>
         <div className="slider" id="train">
