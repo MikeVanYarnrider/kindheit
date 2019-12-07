@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 /* import { disablePageScroll, enablePageScroll } from "scroll-lock"; */
+import axios from "axios";
 
 import { Game } from "./common/styles";
 import { GameContainer, WinContainer } from "./styles";
@@ -14,7 +15,9 @@ import {
   pathBGImage
 } from "../../../images";
 
-export default () => {
+export default props => {
+  let [gameStartTime, setGameStartTime] = useState("");
+
   const images = {
     "1.png": pathImage1,
     "2.png": pathImage2,
@@ -26,10 +29,35 @@ export default () => {
   const [currentImage, setCurrentImage] = useState(null);
   const [completed, setCompleted] = useState(false);
 
+  const postGameTime = () => {
+    const gameEndTime = new Date();
+    const gameTime = (gameEndTime - gameStartTime) / 1000;
+    axios
+      .post("/child/play/device/puzzle", {
+        gameTime: gameTime,
+        user: props.user
+      })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => console.log(err));
+  };
+
   useEffect(() => {
+    // screen time tracking
+    const date = new Date();
+    setGameStartTime((gameStartTime = date));
+    window.addEventListener("beforeunload", postGameTime);
+
+    // puzzle
     if (Object.keys(images).length > 0) {
       setCurrentImage(images["1.png"]);
     }
+
+    return () => {
+      postGameTime();
+      window.removeEventListener("beforeunload", postGameTime);
+    };
   }, []);
 
   let content = (
