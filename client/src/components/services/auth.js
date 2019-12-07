@@ -1,4 +1,6 @@
 import axios from "axios";
+import React, {Component} from "react";
+/* import ChildLogin from "../../components/ChildLogin"; */
 
 const signup = (username, password, email) => {
   return axios
@@ -67,7 +69,11 @@ const logout = () => {
   axios.delete("/api/auth/logout").then(res => {
     console.log(res);
   })
-  
+
+/*   return (
+    <ChildLogin />
+  )
+   */
 };
 
 export { signup, parentLogin, logout, signupChild, childLogin };
