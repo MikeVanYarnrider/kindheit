@@ -1,28 +1,37 @@
 {
   "files": {
-    "main.css": "/static/css/main.1d6ba330.chunk.css",
-    "main.js": "/static/js/main.b5ace83f.chunk.js",
-    "main.js.map": "/static/js/main.b5ace83f.chunk.js.map",
+    "main.css": "/static/css/main.16c61b97.chunk.css",
+    "main.js": "/static/js/main.b41e50fb.chunk.js",
+    "main.js.map": "/static/js/main.b41e50fb.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.8eac158a.js",
     "runtime-main.js.map": "/static/js/runtime-main.8eac158a.js.map",
-    "static/js/2.5f65cca2.chunk.js": "/static/js/2.5f65cca2.chunk.js",
-    "static/js/2.5f65cca2.chunk.js.map": "/static/js/2.5f65cca2.chunk.js.map",
+    "static/css/2.3c1ddb0a.chunk.css": "/static/css/2.3c1ddb0a.chunk.css",
+    "static/js/2.ec8a246f.chunk.js": "/static/js/2.ec8a246f.chunk.js",
+    "static/js/2.ec8a246f.chunk.js.map": "/static/js/2.ec8a246f.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.5794034efe6e3e99d8a04aa76247f4a7.js": "/precache-manifest.5794034efe6e3e99d8a04aa76247f4a7.js",
+    "precache-manifest.677ac1cdf408be6ab4d06043dad28241.js": "/precache-manifest.677ac1cdf408be6ab4d06043dad28241.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.1d6ba330.chunk.css.map": "/static/css/main.1d6ba330.chunk.css.map",
+    "static/css/2.3c1ddb0a.chunk.css.map": "/static/css/2.3c1ddb0a.chunk.css.map",
+    "static/css/main.16c61b97.chunk.css.map": "/static/css/main.16c61b97.chunk.css.map",
     "static/media/1.png": "/static/media/1.db8cd7f3.png",
     "static/media/2.png": "/static/media/2.cf076953.png",
     "static/media/3.png": "/static/media/3.751ecb7c.png",
     "static/media/4.png": "/static/media/4.7ef2a685.png",
     "static/media/bg.png": "/static/media/bg.16aa08eb.png",
+    "static/media/boy.png": "/static/media/boy.39def02d.png",
+    "static/media/cow.png": "/static/media/cow.3a988b0a.png",
+    "static/media/crocodile.png": "/static/media/crocodile.0e0f6732.png",
+    "static/media/dragon.png": "/static/media/dragon.4a6b00d5.png",
     "static/media/welcome.scss": "/static/media/lego-welcome.1b151397.png",
-    "static/media/logo.png": "/static/media/logo.92895829.png"
+    "static/media/logo.png": "/static/media/logo.92895829.png",
+    "static/media/pig.png": "/static/media/pig.c58a648e.png",
+    "static/media/princess.png": "/static/media/princess.c9f987da.png"
   },
   "entrypoints": [
     "static/js/runtime-main.8eac158a.js",
-    "static/js/2.5f65cca2.chunk.js",
-    "static/css/main.1d6ba330.chunk.css",
-    "static/js/main.b5ace83f.chunk.js"
+    "static/css/2.3c1ddb0a.chunk.css",
+    "static/js/2.ec8a246f.chunk.js",
+    "static/css/main.16c61b97.chunk.css",
+    "static/js/main.b41e50fb.chunk.js"
   ]
 }
