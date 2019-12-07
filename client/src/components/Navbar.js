@@ -21,14 +21,7 @@ const Navbar = props => {
           {/* IS USER DETECTED? */}
           {props.user ? (
             <>
-              <p
-                style={{ margin: 0, padding: 0 }}
-                className="navbar-link"
-                to="/"
-              >
-                Hi {props.user.username}
-              </p>
-              {/*HOME FOR BOTH USER-TYPES: */}
+              <p style={{ margin: 0, padding: 0 }}>Hi {props.user.username}</p>
               <Link className="navbar-link" to="/">
                 Home
               </Link>

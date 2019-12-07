@@ -1,0 +1,27 @@
+.app-fade-appear {
+  opacity: 0;
+}
+
+.app-fade-appear.app-fade-appear-active {
+  opacity: 1;
+  transition: opacity 300ms linear 300ms;
+}
+
+// .app-fade-enter {
+//   opacity: 0;
+//   position: absolute;
+// }
+
+// .app-fade-enter.app-fade-enter-active {
+//   opacity: 1;
+//   transition: opacity 300ms linear 300ms;
+// }
+
+.app-fade-exit {
+  opacity: 1;
+}
+
+.app-fade-exit.app-fade-exit-done {
+  opacity: 0;
+  transition: opacity 300ms linear;
+}
