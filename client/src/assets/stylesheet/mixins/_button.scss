@@ -6,3 +6,15 @@
   box-shadow: 0 0 1em #{$shadow};
   color: $color;
 }
+@mixin make-button-type($br) {
+  display: inline-block;
+  font-family: $font-family-patrick-hand;
+  font-size: 2em;
+  text-align: center;
+  border: none;
+  border-radius: $br;
+  -webkit-border-radius: $br;
+  -moz-border-radius: $br;
+  -ms-border-radius: $br;
+  -o-border-radius: $br;
+}

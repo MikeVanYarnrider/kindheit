@@ -23,8 +23,6 @@ export default class FoldTrain extends Component {
   };
 
   postGameTime = () => {
-    console.log("did unmount");
-
     const gameEndTime = new Date();
     const gameTime = (gameEndTime - this.state.gameStartTime) / 1000;
     axios
@@ -33,13 +31,12 @@ export default class FoldTrain extends Component {
         user: this.props.user
       })
       .then(response => {
-        console.log("ROUTE??", response);
+        console.log(response);
       })
       .catch(err => console.log(err));
   };
 
   componentDidMount = () => {
-    console.log("did mount");
     this.setState(
       {
         gameStartTime: new Date()
