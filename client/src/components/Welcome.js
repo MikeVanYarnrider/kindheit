@@ -5,7 +5,7 @@ import "../assets/stylesheet/components/welcome.scss";
 const Welcome = props => {
   const content = props.children;
   return (
-    <div className="container-flex welcome">
+    <div  className="container-flex welcome">
       <div className="welcome-box">{content}</div>
     </div>
   );

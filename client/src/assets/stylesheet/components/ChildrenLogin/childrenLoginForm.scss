@@ -1,0 +1,13 @@
+@import "../../variables";
+
+button.loginButton {
+  background: $blue-light;
+  width: 400px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  color: white;
+  font-size: 2em;
+}
