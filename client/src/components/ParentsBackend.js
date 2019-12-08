@@ -33,9 +33,9 @@ class ParentsBackend extends React.Component {
         timeSum += time;
         return (
           <div key={time}>
-            <span>
-              {game}: {time.toFixed(2)} {timeStamp.slice(4, 15)}
-            </span>
+            <p>
+              {game}: {time.toFixed(2)} on {timeStamp.slice(4, 15)}
+            </p>
           </div>
         );
       });
@@ -43,24 +43,17 @@ class ParentsBackend extends React.Component {
       console.log(time);
       const { _id, username, profileImgUrl } = child;
       return (
-        <div key={_id} className="game-item">
+        <div key={_id}>
           <img src={profileImgUrl} width="100px" alt="profile image" />
           <div>
             <p>
               <strong>Name:</strong> {username}
             </p>
-            <div>{time}</div>
+            <div>
+              <h4>Last 5 played games:</h4>
+              <span>{time.slice(0, 5)}</span>
+            </div>
             <p>Overall screen time {(timeSum / 60).toFixed(2)} min</p>
-            {/* {sessionTimes.length > 0 ? (
-              <p>
-                Screentime:
-                {sessionTimes.reduce((acc, val) => {
-                  return acc + val;
-                })}
-              </p>
-            ) : (
-              <p>Screentime: no screenTime available</p>
-            )} */}
           </div>
         </div>
       );
