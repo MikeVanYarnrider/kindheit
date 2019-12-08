@@ -27,8 +27,9 @@ class ParentLogin extends Component {
       } else {
         // no error
         // lift the data up to the App state
+        console.log("LOGIIIIIIIN");
         this.props.setUser(data);
-        // redirect to "/projects"
+        // redirect to "/parent"
         this.props.history.push("/parent");
       }
     });

@@ -10,7 +10,7 @@ import Game from "./components/game/Game";
 // import GameStart from "./components/Start";
 import GameType from "./components/game/GameType";
 import GameList from "./components/game/GameList";
-import ParentBackend from "./components/ParentsBackend";
+import ParentsBackend from "./components/ParentsBackend";
 
 export default class App extends Component {
   state = {
@@ -69,7 +69,7 @@ export default class App extends Component {
             exact
             path="/parent"
             render={props => (
-              <ParentBackend
+              <ParentsBackend
                 {...props}
                 parentUser={this.state.user}
                 setUser={this.setUser}

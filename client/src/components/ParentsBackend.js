@@ -15,48 +15,55 @@ class ParentsBackend extends React.Component {
           children: { ...res.data.children }
         },
         () => {
-          console.log(...res.data.children);
+          // console.log(...res.data.children);
         }
       );
     });
-    console.log(this.props.parentUser.username);
   }
 
   render() {
-    // const children = this.state.children;
-    const children = Object.values(this.state.children).map(child => {
-      const { _id, username, sessionTimes, profileImgUrl } = child;
+    const children = Object.values(this.state.children).map((child, index) => {
+      let timeSum = 0;
+      const time = child.sessionTimes.map(times => {
+        const { time, timeStamp, game } = times;
+        timeSum += time;
+        return (
+          <div key={time}>
+            <p>
+              {game}: {time.toFixed(2)} on {timeStamp.slice(4, 15)}
+            </p>
+          </div>
+        );
+      });
+
+      const { _id, username, profileImgUrl } = child;
       return (
-        <div key={_id} className="game-item">
-          <img src={profileImgUrl} width="100px" alt="profile image" />
+        <div key={_id}>
+          <img src={profileImgUrl} width="100px" alt="profile" />
           <div>
             <p>
               <strong>Name:</strong> {username}
             </p>
-            {sessionTimes.length > 0 ? (
-              <p>
-                Screentime:{" "}
-                {sessionTimes.reduce((acc, val) => {
-                  return acc + val;
-                })}
-              </p>
-            ) : (
-              <p>Screentime: no screenTime available</p>
-            )}
+            <div>
+              <h4>Last 5 played games:</h4>
+              <span>{time.slice(time.length - 5, time.length)}</span>
+            </div>
+            <p>Overall screen time {(timeSum / 60).toFixed(2)} min</p>
           </div>
         </div>
       );
     });
-    console.log(this.state.children.username);
 
+    console.log(this.state.children);
     return (
       <div>
         <h1>Hello {this.props.parentUser.username}</h1>
-        <div>{children}</div>
-        {this.state.children.length === 0 && (
+        {this.state.children.length === 0 || !this.state.children ? (
           <h2>
             No children available. Create <Link to="/childsignup">here</Link>
           </h2>
+        ) : (
+          <div>{children}</div>
         )}
       </div>
     );
@@ -64,14 +71,3 @@ class ParentsBackend extends React.Component {
 }
 
 export default ParentsBackend;
-
-// parent: [ 5debb1e9c6f1e7751f24aa8b ],
-//   gameStatus: [],
-//   sessionTimes: [ 2.446, 8.801 ],
-//   _id: 5debb1fdc6f1e7751f24aa8c,
-//   username: 'kid1',
-//   password: '$2b$10$IF5c875qziPmYbf3aJ7Un.W5NjHyou.FeDiHjD.kF6XKq0l/iVJse',
-//   birthDate: 0001-01-01T00:00:00.000Z,
-//   profileImgUrl: '/static/media/dragon.4a6b00d5.png',
-//   type: 'child',
-//   __v: 0

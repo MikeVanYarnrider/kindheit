@@ -14,10 +14,9 @@ import {
   profileImgPig
 } from "../../images";
 
-import Axios from "axios";
-import ChildLogin from "../ChildLogin";
-import { childLogin } from "../services/auth";
-
+// import Axios from "axios";
+// import ChildLogin from "../ChildLogin";
+// import { childLogin } from "../services/auth";
 
 const profileImgArr = [
   profileImgDragon,
@@ -91,13 +90,11 @@ class CarouselProfileImages extends Component {
     axios
       .get("/api/auth/getProfiles")
       .then(response => {
-
         if (response.data.length !== 0) {
           let profiles = response.data;
           this.setState({ profiles: profiles, chosenProfile: profiles[0] });
           this.props.setChosenProfile(this.state.chosenProfile);
         }
-
       })
       .catch(err => {
         return err;

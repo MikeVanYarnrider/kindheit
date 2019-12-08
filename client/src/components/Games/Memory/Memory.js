@@ -30,23 +30,23 @@ class Game extends Component {
   };
 
   postGameTime = () => {
-    console.log("did unmount");
-
+    const { gameId } = this.props.match.params;
     const gameEndTime = new Date();
     const gameTime = (gameEndTime - this.state.gameStartTime) / 1000;
     axios
       .post("/child/play/handsgames/foldtrain", {
         gameTime: gameTime,
-        user: this.props.user
+        user: this.props.user,
+        game: gameId
       })
       .then(response => {
-        console.log("ROUTE??", response);
+        // console.log("ROUTE??", response);
       })
       .catch(err => console.log(err));
   };
 
   componentDidMount = () => {
-    console.log("did mount");
+    // console.log("did mount");
     this.setState(
       {
         gameStartTime: new Date()
