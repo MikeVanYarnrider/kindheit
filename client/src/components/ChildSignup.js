@@ -83,7 +83,6 @@ class ChildSignup extends Component {
   };
 
   render() {
-    console.log("PASSWORT", this.state.password);
     return (
       <div className="mainWrapper">
         <div className="header">
