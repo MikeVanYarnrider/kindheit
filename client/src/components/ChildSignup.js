@@ -6,9 +6,9 @@ import ChildrenPassword from "../components/Signup_Children/ChildrenPassword";
 import Button from "../../src/components/Button";
 import "../assets/stylesheet/components/ChildrenSignup/signupForm.scss";
 
-import { profileImgDragon } from "../images";
+import {  profileImg_boy_brownHair } from "../images";
 
-const profileImgArr = [profileImgDragon];
+const profileImgArr = [ profileImg_boy_brownHair];
 
 class ChildSignup extends Component {
   state = {

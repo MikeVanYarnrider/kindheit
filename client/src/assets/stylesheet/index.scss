@@ -15,4 +15,9 @@ a,
 button {
   text-decoration: none;
   cursor: pointer;
+
+  &:hover, &:focus {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
 }

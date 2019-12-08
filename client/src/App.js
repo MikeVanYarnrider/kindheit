@@ -11,6 +11,8 @@ import Game from "./components/game/Game";
 import GameType from "./components/game/GameType";
 import GameList from "./components/game/GameList";
 import ParentBackend from "./components/ParentsBackend";
+import AnimationWindmillSpinning from "./components/lottieAnimations/AnimationWindmillSpinning";
+import { childLogin } from "./components/services/auth";
 
 export default class App extends Component {
   state = {
@@ -24,6 +26,7 @@ export default class App extends Component {
   };
 
   render() {
+    let pathName = this.props.location.pathname;
     return (
       <div>
         <Navbar
@@ -89,6 +92,18 @@ export default class App extends Component {
             render={props => <Game {...props} user={this.state.user} />}
           />
         </Switch>
+        {(pathName === "/childlogin" || pathName === "/parentlogin" || pathName === "/signup" || pathName === "/play" || pathName === "/") && (
+          <div
+            style={{
+              position: "absolute",
+              zIndex: "-1",
+              left: "30px",
+              marginTop: "-700px"
+            }}
+          >
+            <AnimationWindmillSpinning />
+          </div>
+        )}
       </div>
     );
   }
