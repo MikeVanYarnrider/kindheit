@@ -12,10 +12,10 @@ class ParentsBackend extends React.Component {
     axios.post("/parent", { parent }).then(res => {
       this.setState(
         {
-          children: res.data.children
+          children: { ...res.data.children }
         },
         () => {
-          // console.log(res.data.children);
+          console.log(...res.data.children);
         }
       );
     });
@@ -23,10 +23,10 @@ class ParentsBackend extends React.Component {
 
   render() {
     // const children = this.state.children;
-    const children = Object.keys(this.state.children).map(child => {
-      return child.username;
+    const children = Object.values(this.state.children).map((child, i) => {
+      return child[i];
     });
-    console.log(children);
+    console.log(this.state.children.username);
 
     return (
       <div>
