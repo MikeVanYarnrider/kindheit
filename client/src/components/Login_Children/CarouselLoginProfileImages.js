@@ -13,8 +13,6 @@ import {
   profileImgCow,
   profileImgPig
 } from "../../images";
-import Axios from "axios";
-import ChildLogin from "../ChildLogin";
 
 const profileImgArr = [
   profileImgDragon,
@@ -43,7 +41,7 @@ class CarouselProfileImages extends Component {
         this.setState({
           chosenProfile: this.state.profiles[this.state.chosenProfileImg]
         });
-        this.props.setChosenProfile(this.state.chosenProfile)
+        this.props.setChosenProfile(this.state.chosenProfile);
       }
     );
 
@@ -59,7 +57,6 @@ class CarouselProfileImages extends Component {
 
     this.props.setChosenProfileImg(event);
     this.props.setProfileImg(profileImgArr[event]);
-  
   };
 
   componentDidMount() {
@@ -68,7 +65,7 @@ class CarouselProfileImages extends Component {
       .then(response => {
         let profiles = response.data;
         this.setState({ profiles: profiles, chosenProfile: profiles[0] });
-        this.props.setChosenProfile(this.state.chosenProfile)
+        this.props.setChosenProfile(this.state.chosenProfile);
       })
       .catch(err => {
         return err;
@@ -76,7 +73,6 @@ class CarouselProfileImages extends Component {
   }
 
   render() {
-
     let styles = {
       margin: "auto",
       width: "200px"
@@ -87,7 +83,7 @@ class CarouselProfileImages extends Component {
           <Carousel
             autoPlay={false}
             interval={10000}
-            showThumbs={true}
+            showThumbs={false}
             showArrows={true}
             infiniteLoop={true}
             showStatus={false}

@@ -19,7 +19,13 @@ const childSchema = new Schema({
       ref: "Game"
     }
   ],
-  sessionTimes: [Number]
+  sessionTimes: [
+    {
+      timeStamp: String,
+      time: Number,
+      game: String
+    }
+  ]
 });
 
 const Child = mongoose.model("Child", childSchema);

@@ -30,12 +30,14 @@ export default props => {
   const [completed, setCompleted] = useState(false);
 
   const postGameTime = () => {
+    const { gameId } = props.match.params;
     const gameEndTime = new Date();
     const gameTime = (gameEndTime - gameStartTime) / 1000;
     axios
       .post("/child/play/device/puzzle", {
         gameTime: gameTime,
-        user: props.user
+        user: props.user,
+        game: gameId
       })
       .then(response => {
         console.log(response);

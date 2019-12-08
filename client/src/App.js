@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
-import Signup from "./components/Signup";
-import ParentLogin from "./components/ParentLogin";
+import Signup from "./components/signup/parent/ParentSignup";
+import ParentLogin from "./components/login/parent/ParentLogin";
 import ChildSignup from "./components/ChildSignup";
 import ChildLogin from "./components/ChildLogin";
 import Game from "./components/game/Game";
-import GameStart from "./components/Start";
+// import GameStart from "./components/Start";
 import GameType from "./components/game/GameType";
 import GameList from "./components/game/GameList";
+import ParentsBackend from "./components/ParentsBackend";
 
 export default class App extends Component {
   state = {
@@ -24,14 +26,18 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Navbar user={this.state.user} clearUser={this.setUser} />
+        <Navbar
+          {...this.props}
+          user={this.state.user}
+          clearUser={this.setUser}
+        />
         <Switch>
           <Route
             exact
             path="/"
             render={props =>
               this.state.user ? (
-                <GameList {...props} user={this.state.user} />
+                <GameType {...props} user={this.state.user} />
               ) : (
                 <ChildLogin {...props} setUser={this.setUser} />
               )
@@ -53,6 +59,17 @@ export default class App extends Component {
             path="/childsignup"
             render={props => (
               <ChildSignup
+                {...props}
+                parentUser={this.state.user}
+                setUser={this.setUser}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/parent"
+            render={props => (
+              <ParentsBackend
                 {...props}
                 parentUser={this.state.user}
                 setUser={this.setUser}
