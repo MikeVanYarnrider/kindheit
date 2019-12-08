@@ -6,6 +6,13 @@ import "../../assets/stylesheet/components/ChildrenLogin/sliderLoginProfile.scss
 import axios from "axios";
 
 import {
+  profileImg_boy_brownHair,
+  profileImg_boy_darkSkintone,
+  profileImg_boy_purpleHair,
+  profileImg_girl_blondeHair,
+  profileImg_girl_redHair,
+  profileImg_girl_blueHair,
+  profileImg_girl_pinkHair,
   profileImgDragon,
   profileImgPrincess,
   profileImgBoy,
@@ -14,17 +21,19 @@ import {
   profileImgPig
 } from "../../images";
 
+
 // import Axios from "axios";
 // import ChildLogin from "../ChildLogin";
 // import { childLogin } from "../services/auth";
 
 const profileImgArr = [
-  profileImgDragon,
-  profileImgPrincess,
-  profileImgBoy,
-  profileImgCrocodile,
-  profileImgCow,
-  profileImgPig
+  profileImg_boy_brownHair,
+  profileImg_girl_redHair,
+  profileImg_boy_darkSkintone,
+  profileImg_girl_pinkHair,
+  profileImg_girl_blondeHair,
+  profileImg_boy_purpleHair,
+  profileImg_girl_blueHair
 ];
 
 const defaultProfiles = [
@@ -32,7 +41,7 @@ const defaultProfiles = [
     gameStatus: [],
     parent: ["111111111111111111111111"],
     password: "pppp",
-    profileImgUrl: profileImgArr[2],
+    profileImgUrl: profileImgArr[5],
     sessionTimes: [],
     type: "child",
     username: "Max",
@@ -107,7 +116,7 @@ class CarouselProfileImages extends Component {
       width: "200px"
     };
     return (
-      <div style={(styles, { margin: "30px 0 0 0" })}>
+      <div className="loginProfiles" style={(styles, { margin: "30px 0 0 0" })}>
         <Carousel
           autoPlay={false}
           interval={10000}
@@ -126,7 +135,7 @@ class CarouselProfileImages extends Component {
           {this.state.profiles.map(profile => {
             let key = profile.profileImgUrl.match(/media[/](\w+)/)[1];
             return (
-              <div key={key}>
+              <div  key={key}>
                 <img
                   src={profile.profileImgUrl}
                   style={{ borderRadius: "50%" }}
