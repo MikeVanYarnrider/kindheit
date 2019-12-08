@@ -15,17 +15,33 @@ class ParentsBackend extends React.Component {
           children: { ...res.data.children }
         },
         () => {
-          console.log(...res.data.children);
+          // console.log(...res.data.children);
         }
       );
     });
-    console.log(this.props.parentUser.username);
+    // console.log(this.props.parentUser.username);
   }
 
   render() {
+    // console.log(this.state.children);
+    // console.log(this.state.children.username);
     // const children = this.state.children;
-    const children = Object.values(this.state.children).map(child => {
-      const { _id, username, sessionTimes, profileImgUrl } = child;
+    const children = Object.values(this.state.children).map((child, index) => {
+      let timeSum = 0;
+      const time = child.sessionTimes.map(times => {
+        const { time, timeStamp, game } = times;
+        timeSum += time;
+        return (
+          <div key={time}>
+            <span>
+              {game}: {time.toFixed(2)} {timeStamp.slice(4, 15)}
+            </span>
+          </div>
+        );
+      });
+      console.log(timeSum);
+      console.log(time);
+      const { _id, username, profileImgUrl } = child;
       return (
         <div key={_id} className="game-item">
           <img src={profileImgUrl} width="100px" alt="profile image" />
@@ -33,21 +49,24 @@ class ParentsBackend extends React.Component {
             <p>
               <strong>Name:</strong> {username}
             </p>
-            {sessionTimes.length > 0 ? (
+            <div>{time}</div>
+            <p>Overall screen time {(timeSum / 60).toFixed(2)} min</p>
+            {/* {sessionTimes.length > 0 ? (
               <p>
-                Screentime:{" "}
+                Screentime:
                 {sessionTimes.reduce((acc, val) => {
                   return acc + val;
                 })}
               </p>
             ) : (
               <p>Screentime: no screenTime available</p>
-            )}
+            )} */}
           </div>
         </div>
       );
     });
-    console.log(this.state.children.username);
+
+    // console.log(children);
 
     return (
       <div>

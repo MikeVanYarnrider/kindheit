@@ -4,7 +4,7 @@ const Child = require("../models/Child");
 const Game = require("../models/Game");
 
 router.post("/play/:type/:id", (req, res) => {
-  console.log(req.body);
+  console.log(req.body.sessionTimes);
   const { _id } = req.body.user;
   const { gameTime, game } = req.body;
   res.json(req.body);
