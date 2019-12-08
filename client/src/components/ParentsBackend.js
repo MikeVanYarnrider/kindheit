@@ -51,7 +51,7 @@ class ParentsBackend extends React.Component {
             </p>
             <div>
               <h4>Last 5 played games:</h4>
-              <span>{time.slice(0, 5)}</span>
+              <span>{time.slice(time.length - 5, time.length)}</span>
             </div>
             <p>Overall screen time {(timeSum / 60).toFixed(2)} min</p>
           </div>
