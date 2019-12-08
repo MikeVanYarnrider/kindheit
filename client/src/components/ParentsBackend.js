@@ -26,19 +26,24 @@ class ParentsBackend extends React.Component {
     const children = Object.values(this.state.children).map(child => {
       const { _id, username, sessionTimes, profileImgUrl } = child;
       return (
-        <div key={_id}>
+        <div
+          key={_id}
+          className="container-flex container-indent container-ratio"
+        >
+          <img src={profileImgUrl} width="100px" alt="profile image" />
           <div>
-            <img src={profileImgUrl} width="100px" alt="profile image" />
             <p>
               <strong>Name:</strong> {username}
             </p>
-            {sessionTimes.length > 0 && (
+            {sessionTimes.length > 0 ? (
               <p>
                 Screentime:{" "}
                 {sessionTimes.reduce((acc, val) => {
                   return acc + val;
                 })}
               </p>
+            ) : (
+              <p>Screentime: no screenTime available</p>
             )}
           </div>
         </div>
