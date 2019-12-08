@@ -19,6 +19,7 @@ class ParentsBackend extends React.Component {
         }
       );
     });
+    console.log(this.props.parentUser.username);
   }
 
   render() {
@@ -26,10 +27,7 @@ class ParentsBackend extends React.Component {
     const children = Object.values(this.state.children).map(child => {
       const { _id, username, sessionTimes, profileImgUrl } = child;
       return (
-        <div
-          key={_id}
-          className="container-flex container-indent container-ratio"
-        >
+        <div key={_id} className="game-item">
           <img src={profileImgUrl} width="100px" alt="profile image" />
           <div>
             <p>
@@ -53,7 +51,7 @@ class ParentsBackend extends React.Component {
 
     return (
       <div>
-        <h1>Hello</h1>
+        <h1>Hello {this.props.parentUser.username}</h1>
         <div>{children}</div>
         {this.state.children.length === 0 && (
           <h2>
