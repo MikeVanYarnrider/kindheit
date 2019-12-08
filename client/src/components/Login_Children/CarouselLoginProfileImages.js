@@ -21,6 +21,11 @@ import {
   profileImgPig
 } from "../../images";
 
+
+// import Axios from "axios";
+// import ChildLogin from "../ChildLogin";
+// import { childLogin } from "../services/auth";
+
 const profileImgArr = [
   profileImg_boy_brownHair,
   profileImg_girl_redHair,
