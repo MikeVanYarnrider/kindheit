@@ -16,6 +16,6 @@
 
   &-inner {
     flex-direction: column;
-    @include make-round-item($radius / 10, $size * 2);
+    @include make-round-item($radius / 10, $size * 3, $size * 2);
   }
 }
