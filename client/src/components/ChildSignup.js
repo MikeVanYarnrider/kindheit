@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { signupChild } from "./services/auth";
-import { Alert, Form /* Button  */ } from "react-bootstrap";
 import CarouselProfileimages from "../components/Signup_Children/CarouselProfileImages";
 import ChildrenPassword from "../components/Signup_Children/ChildrenPassword";
 import Button from "../../src/components/Button";
