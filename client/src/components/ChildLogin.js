@@ -60,7 +60,7 @@ class GameLogin extends Component {
       <form onSubmit={this.handleSubmit}>
         <div
           style={{
-            backgroundColor: "white",
+            backgroundColor: "rgba(255,255,255, 0.7)",
             height: "600px",
             borderRadius: "40px",
             display: "flex",
@@ -84,7 +84,7 @@ class GameLogin extends Component {
           />
           {this.state.error && <p>{this.state.error}</p>}
           <button className="loginButton" type="submit">
-            Submit
+            Login
           </button>
         </div>
       </form>

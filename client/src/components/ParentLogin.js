@@ -30,7 +30,7 @@ class ParentLogin extends Component {
         console.log("LOGIIIIIIIN");
         this.props.setUser(data);
         // redirect to "/parent"
-        this.props.history.push("/");
+        this.props.history.push("/parent");
       }
     });
   };
