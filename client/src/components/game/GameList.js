@@ -13,7 +13,7 @@ const GameList = props => {
   const list = games
     .filter(game => game.type === type)
     .map((game, index) => {
-      console.log(game);
+      // console.log(game);
       return (
         <GameItem
           key={index}
