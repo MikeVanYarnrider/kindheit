@@ -11,6 +11,11 @@ import GameType from "./components/game/GameType";
 import GameList from "./components/game/GameList";
 import Welcome from "./components/Welcome";
 
+import AnimationWindmillSpinning from "./components/lottieAnimations/AnimationWindmillSpinning";
+
+// import { childLogin } from "./components/services/auth";
+import ParentsBackend from "./components/ParentsBackend";
+
 export default class App extends Component {
   state = {
     user: this.props.user
@@ -23,16 +28,21 @@ export default class App extends Component {
   };
 
   render() {
+    let pathName = this.props.location.pathname;
     return (
       <div>
-        <Navbar user={this.state.user} clearUser={this.setUser} />
+        <Navbar
+          {...this.props}
+          user={this.state.user}
+          clearUser={this.setUser}
+        />
         <Switch>
           <Route
             exact
             path="/"
             render={props =>
               this.state.user ? (
-                <GameList {...props} user={this.state.user} />
+                <GameType {...props} user={this.state.user} />
               ) : (
                 <ChildLogin {...props} setUser={this.setUser} />
               )
@@ -66,6 +76,17 @@ export default class App extends Component {
           />
           <Route
             exact
+            path="/parent"
+            render={props => (
+              <ParentsBackend
+                {...props}
+                parentUser={this.state.user}
+                setUser={this.setUser}
+              />
+            )}
+          />
+          <Route
+            exact
             path="/childlogin"
             render={props => (
               <Welcome>
@@ -81,6 +102,22 @@ export default class App extends Component {
             render={props => <Game {...props} user={this.state.user} />}
           />
         </Switch>
+        {(pathName === "/childlogin" ||
+          pathName === "/parentlogin" ||
+          pathName === "/signup" ||
+          pathName === "/play" ||
+          pathName === "/") && (
+          <div
+            style={{
+              position: "absolute",
+              zIndex: "-1",
+              left: "30px",
+              marginTop: "-700px"
+            }}
+          >
+            <AnimationWindmillSpinning />
+          </div>
+        )}
       </div>
     );
   }

@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import { signupChild } from "./services/auth";
-import { Alert, Form /* Button  */ } from "react-bootstrap";
 import CarouselProfileimages from "../components/Signup_Children/CarouselProfileImages";
 import ChildrenPassword from "../components/Signup_Children/ChildrenPassword";
 import Button from "../../src/components/Button";
 import "../assets/stylesheet/components/ChildrenSignup/signupForm.scss";
 
-import { profileImgDragon } from "../images";
+import { profileImg_boy_brownHair } from "../images";
+import axios from "axios";
 
-const profileImgArr = [profileImgDragon];
+const profileImgArr = [profileImg_boy_brownHair];
+
+const defaultProfiles = ["max"];
 
 class ChildSignup extends Component {
   state = {
@@ -20,19 +22,34 @@ class ChildSignup extends Component {
     chosenProfileImg: 0,
     parent: this.props.parentUser._id,
     passwordImages: [],
-    changeImage: 0
+    changeImage: 0,
+    allChildrenProfiles: defaultProfiles
   };
 
   handleChange = event => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
+      nameDuplicat: false,
+      nameEmpty: false,
+      error: ""
     });
   };
 
   handleSubmit = event => {
     event.preventDefault();
+    let nameArr = this.state.childname.split("");
+    let newName =
+      nameArr
+        .slice(0, 1)
+        .join("")
+        .toUpperCase() +
+      nameArr
+        .slice(1)
+        .join("")
+        .toLowerCase();
+
     signupChild(
-      this.state.childname,
+      newName,
       this.state.password,
       this.state.birthDate,
       this.state.profileImgUrl,
@@ -50,8 +67,25 @@ class ChildSignup extends Component {
     });
   };
 
+  componentDidMount() {
+    axios
+      .get("/api/auth/getProfiles")
+      .then(response => {
+        if (response.data.length !== 0) {
+          let profiles = response.data;
+          let profileNames = profiles.map(profile => {
+            return profile.username.toUpperCase();
+          });
+          this.setState({ allChildrenProfiles: profileNames });
+        }
+      })
+      .catch(err => {
+        return err;
+      });
+  }
+
   setPassword = password => {
-    this.setState({ password: password });
+    this.setState({ password: password, error: "" });
   };
   setPasswordImage = passwordImages => {
     this.setState({ passwordImages: passwordImages });
@@ -75,6 +109,35 @@ class ChildSignup extends Component {
   };
 
   forwardClick = event => {
+    if (!this.state.childname) {
+      this.setState({
+        nameEmpty: true
+      });
+      return;
+    }
+
+    if (
+      this.state.allChildrenProfiles.includes(
+        this.state.childname.toUpperCase()
+      )
+    ) {
+      this.setState({
+        nameDuplicat: true
+      });
+      return;
+    } else {
+      this.setState({
+        nameDuplicat: false
+      });
+    }
+
+    if (this.state.page === 2 && this.state.password.length < 4) {
+      this.setState({
+        error: "Das Passwort ist leider noch zu kurz!"
+      });
+      return;
+    }
+
     if (this.state.page < 3) {
       this.setState({
         page: this.state.page + 1
@@ -83,7 +146,6 @@ class ChildSignup extends Component {
   };
 
   render() {
-    console.log("PASSWORT", this.state.password);
     return (
       <div className="mainWrapper">
         <div className="header">
@@ -100,11 +162,11 @@ class ChildSignup extends Component {
             <Button variant="btn-rnd back" onClick={this.backwardClick} />
           )}
 
-          <Form onSubmit={this.handleSubmit} className="form">
+          <form onSubmit={this.handleSubmit} className="form">
             {this.state.page === 0 && (
-              <Form.Group>
-                <Form.Label htmlFor="childname">Childname: </Form.Label>
-                <Form.Control
+              <section>
+                <label htmlFor="childname">Childname: </label>
+                <input
                   type="text"
                   name="childname"
                   id="childname"
@@ -112,7 +174,9 @@ class ChildSignup extends Component {
                   value={this.state.childname}
                   onChange={this.handleChange}
                 />
-              </Form.Group>
+                {this.state.nameEmpty && <h2>Please chose a name!</h2>}
+                {this.state.nameDuplicat && <h2>Name is already taken!</h2>}
+              </section>
             )}
 
             {this.state.page === 1 && (
@@ -124,18 +188,21 @@ class ChildSignup extends Component {
             )}
 
             {this.state.page === 2 && (
-              <ChildrenPassword
-                {...this.state}
-                setPassword={this.setPassword}
-                setPasswordImage={this.setPasswordImage}
-                setChangePassword={this.setChangePassword}
-              />
+              <>
+                <ChildrenPassword
+                  {...this.state}
+                  setPassword={this.setPassword}
+                  setPasswordImage={this.setPasswordImage}
+                  setChangePassword={this.setChangePassword}
+                />
+                {this.state.error && <h2>{this.state.error}</h2>}
+              </>
             )}
             {this.state.page === 3 && (
               <div className="signupPage">
-                <Form.Group>
-                  <Form.Label htmlFor="birthdate">Birthdate:</Form.Label>
-                  <Form.Control
+                <div>
+                  <label htmlFor="birthdate">Birthdate:</label>
+                  <input
                     type="date"
                     name="birthDate"
                     id="birthDate"
@@ -143,16 +210,14 @@ class ChildSignup extends Component {
                     value={this.state.birthDate}
                     onChange={this.handleChange}
                   />
-                </Form.Group>{" "}
-                {this.state.error && (
-                  <Alert variant="danger">{this.state.error}</Alert>
-                )}
+                </div>{" "}
+                {this.state.error && <h2>{this.state.error}</h2>}
                 <button className="submitButton" type="submit">
                   Child Sign Up
                 </button>
               </div>
             )}
-          </Form>
+          </form>
           {this.state.page >= 3 ? (
             <Button
               variant="btn-rnd transparent forward"

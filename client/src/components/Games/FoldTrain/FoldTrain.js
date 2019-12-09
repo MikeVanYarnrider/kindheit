@@ -23,15 +23,17 @@ export default class FoldTrain extends Component {
   };
 
   postGameTime = () => {
+    const { gameId } = this.props.match.params;
     const gameEndTime = new Date();
     const gameTime = (gameEndTime - this.state.gameStartTime) / 1000;
     axios
       .post("/child/play/handsgames/foldtrain", {
         gameTime: gameTime,
-        user: this.props.user
+        user: this.props.user,
+        game: gameId
       })
       .then(response => {
-        console.log(response);
+        // console.log(response);
       })
       .catch(err => console.log(err));
   };
@@ -91,7 +93,7 @@ export default class FoldTrain extends Component {
             ))}
           </div>
         </div>
-        <div className="flex">
+        <div className="flex-slider">
           {this.state.currentIndex > 0 && (
             <Button
               variant="btn-rnd back"

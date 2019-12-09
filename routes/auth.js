@@ -54,7 +54,6 @@ router.post("/signup", (req, res) => {
           });
         })
         .then(newUser => {
-          console.log(newUser);
           req.login(newUser, err => {
             if (err) res.status(500).json(err);
             else res.json(newUser);
@@ -97,8 +96,14 @@ router.post("/childsignup", (req, res) => {
       .json({ message: "Bitte geben Sie den Namen eines Kindes ein!" });
   }
   if (password.length < 4) {
-    return res.status(400).json({ mesage: "Passwort ist noch zu kurz" });
+    return res.status(400).json({ message: "Passwort ist noch zu kurz" });
   }
+  if (!birthDate) {
+    return res
+      .status(400)
+      .json({ message: "Bitte geben Sie das Geburtsdatum Ihres Kindes an!" });
+  }
+
   Child.findOne({ username: childname })
     .then(found => {
       if (found) {
@@ -122,16 +127,13 @@ router.post("/childsignup", (req, res) => {
           });
         })
         .then(newChild => {
-          console.log(newChild);
           ParentUser.findByIdAndUpdate(
             req.user._id,
             { $push: { children: newChild._id } },
             { new: true }
           )
             .populate("children")
-            .then(realFinalStuff => {
-              console.log(realFinalStuff);
-            });
+            .then(realFinalStuff => {});
           req.login(newChild, err => {
             if (err) res.status(500).json(err);
             else res.json(newChild);
@@ -164,7 +166,6 @@ router.post("/childlogin", (req, res, next) => {
         if (err) res.status(500).json(err);
         res.json(foundChild);
       });
-      console.log("CHILD USER", req.user);
     })
     .catch(err => next(err));
 });
@@ -173,7 +174,6 @@ router.post("/childlogin", (req, res, next) => {
 router.get("/getProfiles", (req, res, next) => {
   Child.find({})
     .then(foundChildren => {
-      console.log(foundChildren);
       res.json(foundChildren);
     })
     .catch(err => next(err));
@@ -181,16 +181,16 @@ router.get("/getProfiles", (req, res, next) => {
 
 //LOGOUT
 router.delete("/logout", (req, res) => {
-  console.log("LOGOUT");
-  
   req.session.destroy();
-  res.redirect('/');
- /*  res.json({ message: "Successfull logout!" }); */
+  res.json(req.body);
+
+  /*  res.json({ message: "Successfull logout!" }); */
 });
 
 //LOGIN CHECK
 router.get("/loggedin", (req, res) => {
-  console.log("loggedInUser", req.user);
+  // console.log("loggedInUser", req.user);
+
   res.json(req.user);
 });
 

@@ -69,6 +69,9 @@ app.use("/api/auth", authRoutes);
 const childRoutes = require("./routes/child");
 app.use("/child", childRoutes);
 
+const parentRoutes = require("./routes/parents");
+app.use("/parent", parentRoutes);
+
 app.use((req, res) => {
   // If no routes match, send them the React HTML.
   res.sendFile(__dirname + "/client/build/index.html");

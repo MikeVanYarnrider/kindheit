@@ -5,21 +5,23 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../../assets/stylesheet/components/ChildrenSignup/sliderProfile.scss";
 
 import {
-  profileImgDragon,
-  profileImgPrincess,
-  profileImgBoy,
-  profileImgCrocodile,
-  profileImgCow,
-  profileImgPig
+  profileImg_boy_brownHair,
+  profileImg_boy_darkSkintone,
+  profileImg_boy_purpleHair,
+  profileImg_girl_blondeHair,
+  profileImg_girl_redHair,
+  profileImg_girl_blueHair,
+  profileImg_girl_pinkHair
 } from "../../images";
 
 const profileImgArr = [
-  profileImgDragon,
-  profileImgPrincess,
-  profileImgBoy,
-  profileImgCrocodile,
-  profileImgCow,
-  profileImgPig
+  profileImg_boy_brownHair,
+  profileImg_girl_redHair,
+  profileImg_boy_darkSkintone,
+  profileImg_girl_pinkHair,
+  profileImg_girl_blondeHair,
+  profileImg_boy_purpleHair,
+  profileImg_girl_blueHair
 ];
 
 class CarouselProfileImages extends Component {
@@ -44,7 +46,10 @@ class CarouselProfileImages extends Component {
       width: "500px"
     };
     return (
-      <div style={(styles, { margin: "30px 0 0 0" })}>
+      <div
+        className="signupProfiles"
+        style={(styles, { margin: "30px 0 0 0" })}
+      >
         <Carousel
           autoPlay={false}
           interval={10000}
