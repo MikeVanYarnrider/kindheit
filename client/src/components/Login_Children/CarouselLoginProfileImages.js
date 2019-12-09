@@ -12,15 +12,14 @@ import {
   profileImg_girl_blondeHair,
   profileImg_girl_redHair,
   profileImg_girl_blueHair,
-  profileImg_girl_pinkHair,
-  profileImgDragon,
-  profileImgPrincess,
-  profileImgBoy,
-  profileImgCrocodile,
-  profileImgCow,
-  profileImgPig
+  profileImg_girl_pinkHair
+  // profileImgDragon,
+  // profileImgPrincess,
+  // profileImgBoy,
+  // profileImgCrocodile,
+  // profileImgCow,
+  // profileImgPig
 } from "../../images";
-
 
 // import Axios from "axios";
 // import ChildLogin from "../ChildLogin";
@@ -135,7 +134,7 @@ class CarouselProfileImages extends Component {
           {this.state.profiles.map(profile => {
             let key = profile.profileImgUrl.match(/media[/](\w+)/)[1];
             return (
-              <div  key={key}>
+              <div key={key}>
                 <img
                   src={profile.profileImgUrl}
                   style={{ borderRadius: "50%" }}
