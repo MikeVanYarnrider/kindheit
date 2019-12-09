@@ -7,8 +7,7 @@ import { logout } from "./services/auth";
 
 const Navbar = props => {
   const handleLogout = () => {
-    logout();
-    props.clearUser(null);
+    logout(props);
   };
 
   const pathName = props.location.pathname;
@@ -22,9 +21,11 @@ const Navbar = props => {
           {props.user ? (
             <>
               <p style={{ margin: 0, padding: 0 }}>Hi {props.user.username}</p>
-              <Link className="navbar-link" to="/">
-                Home
-              </Link>
+              {props.location.pathname !== "/" && (
+                <Link className="navbar-link" to="/">
+                  Home
+                </Link>
+              )}
 
               {/* IN CASE USER IS PARENT: */}
               {props.user.type === "parent" && (
@@ -38,7 +39,7 @@ const Navbar = props => {
               </Link>
             </>
           ) : (
-            <React.Fragment>
+            <>
               {/* NO USER DETECTED: */}
               {/* INDEX SELECTED: */}
               {pathName === "/" ? (
@@ -71,7 +72,7 @@ const Navbar = props => {
                   </Link> */}
                 </>
               )}
-            </React.Fragment>
+            </>
           )}
         </nav>
       </div>

@@ -26,7 +26,7 @@ export default class LoginForm extends Component {
         });
       } else {
         this.props.setUser(data);
-        this.props.history.push("/");
+        this.props.history.push("/parent");
       }
     });
   };
@@ -48,13 +48,14 @@ export default class LoginForm extends Component {
     ];
 
     return (
-      <>
+      <div>
         <h2>ParentLogin</h2>
         <Form
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           fields={fields}
           error={this.state.error}
+          button="Parent login"
         />
         <p>
           Don't have an account yet?
@@ -62,7 +63,7 @@ export default class LoginForm extends Component {
             Signup
           </Link>
         </p>
-      </>
+      </div>
     );
   }
 }

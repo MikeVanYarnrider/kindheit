@@ -5,20 +5,21 @@ import animationBoyGirl from "./animationData/animationBoyGirl";
 class AnimationBoyGirl extends Component {
   state = { isToggled: false, isStopped: false };
 
+  resetFrame = () => {
+    return this.setState({ isToggled: !this.state.isToggled });
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    prevState.isToggled === this.state.isToggled && this.resetFrame();
+  }
+
   render() {
     return (
-      <button className="animationWrapperButton"
-        style={{ border: "none", outline: "none", backgroundColor: "transparent" }}
-        onClick={() => {
-          this.setState({
-            isToggled: !this.state.isToggled
-          });
-        }}
-      >
+      <div className={this.props.classLotti}>
         <Lottie
           direction={this.state.isToggled ? 1 : -1}
-          //speed={1}
           options={{
+
             animationData:animationBoyGirl,
             loop: false,
             rendererSettings: {
@@ -28,16 +29,19 @@ class AnimationBoyGirl extends Component {
           isStopped={!this.state.isToggled}
           height={500}
           width={370}
+          onClick={() => {
+            this.setState({
+              isToggled: !this.state.isToggled
+            });
+          }}
           eventListeners={[
             {
               eventName: "complete",
-              callback: () => {
-                this.setState({ isToggled: !this.state.isToggled });
-              }
+              callback: this.resetFrame
             }
           ]}
         />
-      </button>
+      </div>
     );
   }
 }
