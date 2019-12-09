@@ -19,21 +19,21 @@ class GameLogin extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    childLogin(
-      this.state.chosenProfile.username,
-      this.state.chosenProfile._id,
-      this.state.password
-    ).then(data => {
-      if (data.message) {
-        this.setState({
-          error: data.message
-        });
-      } else {
-        console.log(data);
-        this.props.setUser(data);
-        this.props.history.push("/play");
-      }
-    });
+    // childLogin(
+    //   this.state.chosenProfile.username,
+    //   this.state.chosenProfile._id,
+    //   this.state.password
+    // ).then(data => {
+    //   if (data.message) {
+    //     this.setState({
+    //       error: data.message
+    //     });
+    //   } else {
+    //     console.log(data);
+    //     this.props.setUser(data);
+    //     this.props.history.push("/play");
+    //   }
+    // });
   };
 
   setPassword = password => {

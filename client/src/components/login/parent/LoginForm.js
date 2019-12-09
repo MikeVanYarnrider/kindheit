@@ -26,7 +26,7 @@ export default class LoginForm extends Component {
         });
       } else {
         this.props.setUser(data);
-        this.props.history.push("/");
+        this.props.history.push("/parent");
       }
     });
   };
