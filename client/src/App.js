@@ -25,7 +25,6 @@ export default class App extends Component {
   };
 
   render() {
-    let pathName = this.props.location.pathname;
     return (
       <div>
         <Navbar
@@ -39,9 +38,13 @@ export default class App extends Component {
             path="/"
             render={props =>
               this.state.user ? (
-                <GameType {...props} user={this.state.user} />
+                <Welcome>
+                  <GameType {...props} user={this.state.user} />
+                </Welcome>
               ) : (
-                <ChildLogin {...props} setUser={this.setUser} />
+                <Welcome>
+                  <ChildLogin {...props} setUser={this.setUser} />
+                </Welcome>
               )
             }
           />
@@ -49,7 +52,11 @@ export default class App extends Component {
           <Route
             exact
             path="/signup"
-            render={props => <Signup {...props} setUser={this.setUser} />}
+            render={props => (
+              <Welcome>
+                <Signup {...props} setUser={this.setUser} />
+              </Welcome>
+            )}
           />
           <Route
             exact
@@ -91,7 +98,6 @@ export default class App extends Component {
               </Welcome>
             )}
           />
-          <Route exact path="/play" component={GameType} />
           <Route exact path="/play/:type" component={GameList} />
           <Route
             exact

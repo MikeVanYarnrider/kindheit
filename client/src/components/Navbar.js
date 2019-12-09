@@ -40,7 +40,7 @@ const Navbar = props => {
               </Link>
             </>
           ) : (
-            <React.Fragment>
+            <>
               {/* NO USER DETECTED: */}
               {/* INDEX SELECTED: */}
               {pathName === "/" ? (
@@ -73,7 +73,7 @@ const Navbar = props => {
                   </Link> */}
                 </>
               )}
-            </React.Fragment>
+            </>
           )}
         </nav>
       </div>

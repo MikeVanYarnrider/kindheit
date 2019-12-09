@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import "../../src/assets/stylesheet/components/parent.scss";
 import "../../src/assets/stylesheet/components/button.scss";
