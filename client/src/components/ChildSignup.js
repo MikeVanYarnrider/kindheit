@@ -11,6 +11,8 @@ import axios from "axios";
 
 const profileImgArr = [profileImg_boy_brownHair];
 
+const defaultProfiles = ["max"];
+
 class ChildSignup extends Component {
   state = {
     childname: "",
@@ -21,7 +23,8 @@ class ChildSignup extends Component {
     chosenProfileImg: 0,
     parent: this.props.parentUser._id,
     passwordImages: [],
-    changeImage: 0
+    changeImage: 0,
+    allChildrenProfiles: defaultProfiles
   };
 
   handleChange = event => {
@@ -74,7 +77,6 @@ class ChildSignup extends Component {
           let profileNames = profiles.map(profile => {
             return profile.username.toUpperCase();
           });
-          console.log(profileNames);
           this.setState({ allChildrenProfiles: profileNames });
         }
       })
@@ -161,11 +163,11 @@ class ChildSignup extends Component {
             <Button variant="btn-rnd back" onClick={this.backwardClick} />
           )}
 
-          <Form onSubmit={this.handleSubmit} className="form">
+          <form onSubmit={this.handleSubmit} className="form">
             {this.state.page === 0 && (
-              <Form.Group>
-                <Form.Label htmlFor="childname">Childname: </Form.Label>
-                <Form.Control
+              <section>
+                <label htmlFor="childname">Childname: </label>
+                <input
                   type="text"
                   name="childname"
                   id="childname"
@@ -175,7 +177,7 @@ class ChildSignup extends Component {
                 />
                 {this.state.nameEmpty && <h2>Please chose a name!</h2>}
                 {this.state.nameDuplicat && <h2>Name is already taken!</h2>}
-              </Form.Group>
+              </section>
             )}
 
             {this.state.page === 1 && (
@@ -199,9 +201,9 @@ class ChildSignup extends Component {
             )}
             {this.state.page === 3 && (
               <div className="signupPage">
-                <Form.Group>
-                  <Form.Label htmlFor="birthdate">Birthdate:</Form.Label>
-                  <Form.Control
+                <div>
+                  <label htmlFor="birthdate">Birthdate:</label>
+                  <input
                     type="date"
                     name="birthDate"
                     id="birthDate"
@@ -209,14 +211,14 @@ class ChildSignup extends Component {
                     value={this.state.birthDate}
                     onChange={this.handleChange}
                   />
-                </Form.Group>{" "}
+                </div>{" "}
                 {this.state.error && <h2>{this.state.error}</h2>}
                 <button className="submitButton" type="submit">
                   Child Sign Up
                 </button>
               </div>
             )}
-          </Form>
+          </form>
           {this.state.page >= 3 ? (
             <Button
               variant="btn-rnd transparent forward"
