@@ -6,30 +6,63 @@ import "../../assets/stylesheet/components/ChildrenLogin/sliderLoginProfile.scss
 import axios from "axios";
 
 import {
-  profileImgDragon,
-  profileImgPrincess,
-  profileImgBoy,
-  profileImgCrocodile,
-  profileImgCow,
-  profileImgPig
+  profileImg_boy_brownHair,
+  profileImg_boy_darkSkintone,
+  profileImg_boy_purpleHair,
+  profileImg_girl_blondeHair,
+  profileImg_girl_redHair,
+  profileImg_girl_blueHair,
+  profileImg_girl_pinkHair
+  // profileImgDragon,
+  // profileImgPrincess,
+  // profileImgBoy,
+  // profileImgCrocodile,
+  // profileImgCow,
+  // profileImgPig
 } from "../../images";
-import Axios from "axios";
-import ChildLogin from "../ChildLogin";
+
+// import Axios from "axios";
+// import ChildLogin from "../ChildLogin";
+// import { childLogin } from "../services/auth";
 
 const profileImgArr = [
-  profileImgDragon,
-  profileImgPrincess,
-  profileImgBoy,
-  profileImgCrocodile,
-  profileImgCow,
-  profileImgPig
+  profileImg_boy_brownHair,
+  profileImg_girl_redHair,
+  profileImg_boy_darkSkintone,
+  profileImg_girl_pinkHair,
+  profileImg_girl_blondeHair,
+  profileImg_boy_purpleHair,
+  profileImg_girl_blueHair
+];
+
+const defaultProfiles = [
+  {
+    gameStatus: [],
+    parent: ["111111111111111111111111"],
+    password: "pppp",
+    profileImgUrl: profileImgArr[5],
+    sessionTimes: [],
+    type: "child",
+    username: "Max",
+    _id: "111111111111111111111111"
+  },
+  {
+    gameStatus: [],
+    parent: ["111111111111111111111111"],
+    password: "pppp",
+    profileImgUrl: profileImgArr[1],
+    sessionTimes: [],
+    type: "child",
+    username: "Marie",
+    _id: "111111111111111111111111"
+  }
 ];
 
 class CarouselProfileImages extends Component {
   state = {
     profileImgUrl: this.props.profileImgUrl,
     chosenProfileImg: this.props.chosenProfileImg,
-    profiles: [],
+    profiles: defaultProfiles,
     chosenProfile: this.props.chosenProfile
   };
 
@@ -43,7 +76,7 @@ class CarouselProfileImages extends Component {
         this.setState({
           chosenProfile: this.state.profiles[this.state.chosenProfileImg]
         });
-        this.props.setChosenProfile(this.state.chosenProfile)
+        this.props.setChosenProfile(this.state.chosenProfile);
       }
     );
 
@@ -59,16 +92,17 @@ class CarouselProfileImages extends Component {
 
     this.props.setChosenProfileImg(event);
     this.props.setProfileImg(profileImgArr[event]);
-  
   };
 
   componentDidMount() {
     axios
       .get("/api/auth/getProfiles")
       .then(response => {
-        let profiles = response.data;
-        this.setState({ profiles: profiles, chosenProfile: profiles[0] });
-        this.props.setChosenProfile(this.state.chosenProfile)
+        if (response.data.length !== 0) {
+          let profiles = response.data;
+          this.setState({ profiles: profiles, chosenProfile: profiles[0] });
+          this.props.setChosenProfile(this.state.chosenProfile);
+        }
       })
       .catch(err => {
         return err;
@@ -76,44 +110,41 @@ class CarouselProfileImages extends Component {
   }
 
   render() {
-
     let styles = {
       margin: "auto",
       width: "200px"
     };
     return (
-      <div style={(styles, { margin: "30px 0 0 0" })}>
-        {this.state.profiles.length > 0 && (
-          <Carousel
-            autoPlay={false}
-            interval={10000}
-            showThumbs={true}
-            showArrows={true}
-            infiniteLoop={true}
-            showStatus={false}
-            onChange={this.selectProfileImage}
-            onClickItem={this.selectProfileImage}
-            onClickThumb={this.selectProfileImage}
-            dynamicHeight={true}
-            centerSlidePercentage={50}
-            height={100}
-            selectedItem={this.state.chosenProfileImg}
-          >
-            {this.state.profiles.map(profile => {
-              let key = profile.profileImgUrl.match(/media[/](\w+)/)[1];
-              return (
-                <div key={key}>
-                  <img
-                    src={profile.profileImgUrl}
-                    style={{ borderRadius: "50%" }}
-                    alt="dragon"
-                  />
-                  <p className="legend">{profile.username}</p>
-                </div>
-              );
-            })}
-          </Carousel>
-        )}
+      <div className="loginProfiles" style={(styles, { margin: "30px 0 0 0" })}>
+        <Carousel
+          autoPlay={false}
+          interval={10000}
+          showThumbs={false}
+          showArrows={true}
+          infiniteLoop={true}
+          showStatus={false}
+          onChange={this.selectProfileImage}
+          onClickItem={this.selectProfileImage}
+          onClickThumb={this.selectProfileImage}
+          dynamicHeight={true}
+          centerSlidePercentage={50}
+          height={100}
+          selectedItem={this.state.chosenProfileImg}
+        >
+          {this.state.profiles.map(profile => {
+            let key = profile.profileImgUrl.match(/media[/](\w+)/)[1];
+            return (
+              <div key={key}>
+                <img
+                  src={profile.profileImgUrl}
+                  style={{ borderRadius: "50%" }}
+                  alt="dragon"
+                />
+                <p className="legend">{profile.username}</p>
+              </div>
+            );
+          })}
+        </Carousel>
       </div>
     );
   }

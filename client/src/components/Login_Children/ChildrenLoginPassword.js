@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Alert, Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import "../../assets/stylesheet/components/ChildrenLogin/childrenLoginPasswort.scss";
 
 import {
@@ -95,7 +95,7 @@ class ChildrenPassword extends Component {
         <Form.Group>
           {passWordImageArr.map((image, index) => {
             return (
-              <button key={index} type="button">
+              <button key={index} type="button" className="chosing-btn">
                 <img
                   height={passwordImageSize}
                   width={passwordImageSize}

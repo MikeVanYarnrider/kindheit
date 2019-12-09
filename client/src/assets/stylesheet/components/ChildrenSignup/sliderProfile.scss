@@ -1,58 +1,60 @@
-.carousel .thumb img {
+.signupProfiles .carousel .thumb img {
   width: 100% !important;
   height: 100% !important;
 }
 
-.carousel .slide img {
-  max-height: 300px !important;
+.signupProfiles .carousel .slide img {
+  max-height: 300px;
 
-    /* change this to whatever you want */
-  width: auto
+  /* change this to whatever you want */
+  width: auto;
 }
 
-.carousel .slide {
-  background-color: rgba(0,0,0,0);
-  height: 100px
+.signupProfiles .carousel .slide {
+  background-color: rgba(0, 0, 0, 0);
+  height: 100px;
 }
 
-.carousel .thumb {
+.signupProfiles .carousel .thumb {
   width: 30%;
-border: none
+  border: none;
 }
 
-.carousel .thumb.selected {
+.signupProfiles .carousel .thumb.selected {
   width: 35%;
   border-radius: 50%;
-  border: 3px solid white
+  border: 3px solid white;
 }
 
-.carousel .thumbs-wrapper  {
-  margin-left: 0
+.signupProfiles .carousel .thumbs-wrapper {
+  margin-left: 0;
 }
 
-.control-dots {
+.signupProfiles .control-dots {
   padding: 0;
-  opacity: 0
+  opacity: 0;
 }
 
-.thumbs.animated {
-  padding: 0 20px 
+.signupProfiles .thumbs.animated {
+  padding: 0 20px;
 }
 
-.thumbs-wrapper.axis-vertical {
+.signupProfiles .thumbs-wrapper.axis-vertical {
   margin: 0;
   width: 400px;
   padding: 0 20px;
 }
+.signupProfiles .slider-wrapper.axis-horizontal {
+  height: 300px !important;
+}
 
-.carousel {
+.signupProfiles .carousel {
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
-.control-arrow > button {
+.signupProfiles .control-arrow > button {
   height: 100px !important;
-  font-size: 3em
+  font-size: 3em;
 }
-

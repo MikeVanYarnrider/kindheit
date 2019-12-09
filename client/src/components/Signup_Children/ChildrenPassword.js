@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Alert, Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import "../../assets/stylesheet/components/ChildrenSignup/childrenPasswort.scss";
 
 import {
@@ -56,7 +56,16 @@ class ChildrenPassword extends Component {
     let imageState = this.state.passwordImages;
     let passwordImageSize = "50px";
     return (
-      <div className="passwordWrapper" style={{height: "200px", display:"flex", flexDirection:"column", justifyContent: "space-between", alignItems: "center"}}>
+      <div
+        className="passwordWrapper"
+        style={{
+          height: "200px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          alignItems: "center"
+        }}
+      >
         <Form.Group>
           {passWordImageArr.map((image, index) => {
             return (
@@ -73,7 +82,13 @@ class ChildrenPassword extends Component {
           })}
         </Form.Group>
 
-        <Form.Group style={{width: "600px", display: "flex", justifyContent: "space-between"}}>
+        <Form.Group
+          style={{
+            width: "500px",
+            display: "flex",
+            justifyContent: "space-between"
+          }}
+        >
           {[1, 2, 3, 4].map(passwordIndex => {
             return (
               <button

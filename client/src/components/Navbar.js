@@ -11,11 +11,14 @@ const Navbar = props => {
     props.clearUser(null);
   };
 
+  const pathName = props.location.pathname;
+
   return (
     <div className="nav">
       <div className="container-flex nav-container">
         <img src={logo} className="nav-logo" alt="Logo Kindheit" />
         <nav className="navbar">
+          {/* IS USER DETECTED? */}
           {props.user ? (
             <>
               <p style={{ margin: 0, padding: 0 }}>Hi {props.user.username}</p>
@@ -31,21 +34,45 @@ const Navbar = props => {
                   Child Signup
                 </Link>
               )}
+              {/*LOGOUT FOR BOTH USER-TYPES: */}
               <Link className="navbar-link" to="/logout" onClick={handleLogout}>
                 Logout
               </Link>
             </>
           ) : (
             <React.Fragment>
-              <Link className="navbar-link" to="/">
-                Home
-              </Link>
-              <Link className="navbar-link" to="/parentlogin">
-                Parentlogin
-              </Link>
-              <Link className="navbar-link" to="/childlogin">
-                Child Login
-              </Link>
+              {/* NO USER DETECTED: */}
+              {/* INDEX SELECTED: */}
+              {pathName === "/" ? (
+                <>
+                  {/*          <Link className="navbar-link" to="/signup">
+                    Signup
+                  </Link> */}
+                  <Link className="navbar-link" to="/parentlogin">
+                    Parentlogin
+                  </Link>
+                </>
+              ) : /* PARENT LOGIN SELECTED: */
+
+              pathName === "/parentlogin" ? (
+                <>
+                  <Link className="navbar-link" to="/childlogin">
+                    Child Login
+                  </Link>
+                  {/*          <Link className="navbar-link" to="/signup">
+                    Signup
+                  </Link> */}
+                </>
+              ) : (
+                /* CHILD LOGIN SELECTED: */ <>
+                  <Link className="navbar-link" to="/parentlogin">
+                    Parentlogin
+                  </Link>
+                  {/*       <Link className="navbar-link" to="/signup">
+                    Signup
+                  </Link> */}
+                </>
+              )}
             </React.Fragment>
           )}
         </nav>
