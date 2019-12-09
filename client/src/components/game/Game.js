@@ -1,5 +1,6 @@
 // eslint-disable-next-line
 import React from "react";
+import { CSSTransition } from "react-transition-group";
 import Button from "../Button";
 
 import games from "../../data/games";
@@ -10,13 +11,15 @@ function Game(props) {
 
   const Component = game.component;
   return (
-    <div className="container-ratio">
-      <Button
-        variant="btn-rnd close btn-ratio top right"
-        href={`/play/${type}`}
-      />
-      <Component {...props} />
-    </div>
+    <CSSTransition in appear classNames="app-fade" timeout={800}>
+      <div className="container-ratio">
+        <Button
+          variant="btn-rnd close btn-ratio top right"
+          href={`/play/${type}`}
+        />
+        <Component {...props} />
+      </div>
+    </CSSTransition>
   );
 }
 

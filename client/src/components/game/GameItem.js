@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Modal } from "../modal/Modal";
+import Modal from "../modal/Modal";
 import Button from "../Button";
 
 class GameItem extends Component {
@@ -9,6 +9,7 @@ class GameItem extends Component {
   };
 
   handleInstructions = () => {
+    console.log("TRIGGER MODAL", this.state.instructions);
     this.setState({
       instructions: !this.state.instructions
     });
@@ -25,19 +26,18 @@ class GameItem extends Component {
               onClick={() => this.handleInstructions()}
               variant="btn-rnd select"
             ></Button>
-            <Modal
-              show={this.state.instructions}
-              path={link}
-              variant="btn-rnd btn-start"
+            {this.state.instructions && (
+              <Modal
+                path={link}
+                variant="btn-rnd btn-start"
+                isOpen={this.state.instructions}
+                onClose={this.handleInstructions}
               classCustom="instructions"
-            >
-              <h1>Instructions</h1>
-              {instructions}
-              <Button
-                onClick={() => this.handleInstructions()}
-                variant="btn-rnd close"
-              ></Button>
-            </Modal>
+              >
+                <h1>Instructions</h1>
+                {instructions}
+              </Modal>
+            )}
           </>
         ) : (
           <Link to={link}>{title}</Link>

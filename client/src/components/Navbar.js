@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import { logo } from "../images";
 import "../assets/stylesheet/components/navbar.scss";
 import { logout } from "./services/auth";
