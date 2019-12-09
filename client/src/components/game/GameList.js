@@ -1,4 +1,5 @@
 import React from "react";
+import { CSSTransition } from "react-transition-group";
 
 import GameItem from "./GameItem";
 import Button from "../Button";
@@ -13,7 +14,6 @@ const GameList = props => {
   const list = games
     .filter(game => game.type === type)
     .map((game, index) => {
-      console.log(game);
       return (
         <GameItem
           key={index}
@@ -26,10 +26,12 @@ const GameList = props => {
     });
 
   return (
-    <div className="container-flex container-indent container-ratio">
-      <Button variant="btn-rnd back btn-ratio top left" href="/" />
-      <div className="game-list">{list}</div>
-    </div>
+    <CSSTransition in appear classNames="app-fade" timeout={800}>
+      <div className="container-flex container-indent container-ratio">
+        <Button variant="btn-rnd back btn-ratio top left" href="/" />
+        <div className="game-list">{list}</div>
+      </div>
+    </CSSTransition>
   );
 };
 

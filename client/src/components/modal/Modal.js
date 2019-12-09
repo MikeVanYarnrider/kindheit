@@ -3,28 +3,65 @@ import Button from "../Button";
 
 import "../../assets/stylesheet/components/modal.scss";
 
-export const Modal = props => {
-  const handleClick = () => {
-    props.onBtnClick();
+class Modal extends React.Component {
+  state = { fadeType: null };
+
+  componentDidMount() {
+    setTimeout(() => this.setState({ fadeType: "in" }), 0);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (!this.props.isOpen && prevProps.isOpen) {
+      this.setState({ fadeType: "out" });
+    }
+  }
+
+  transitionEnd = event => {
+    if (event.propertyName !== "opacity" || this.state.fadeType === "in")
+      return;
+
+    if (this.state.fadeType === "out") {
+      this.props.onClose();
+    }
   };
 
-  return (
-    <div
-      className={`container-flex modal ${props.show ? "open" : ""}`.trimRight()}
-    >
-      <div className="modal-inner">
-        {props.children}
-        {props.onBtnClick && (
-          <Button onClick={() => handleClick()} variant={props.variant}>
-            {props.btnAction}
-          </Button>
-        )}
-        {props.path && (
-          <Button href={props.path} variant={props.variant}>
-            {props.btnAction}
-          </Button>
-        )}
+  modalClose = event => {
+    event.preventDefault();
+    this.setState({ fadeType: "out" });
+  };
+
+  handleClick = () => {
+    this.props.onBtnClick();
+  };
+
+  render() {
+    return (
+      <div
+        className={`container-flex modal fade-${this.state.fadeType}`}
+        onTransitionEnd={this.transitionEnd}
+      >
+        <div className="modal-inner">
+          {this.props.children}
+          {this.props.onBtnClick && (
+            <Button
+              onClick={() => this.handleClick()}
+              variant={this.props.variant}
+            >
+              {this.props.btnAction}
+            </Button>
+          )}
+          {this.props.path && (
+            <Button href={this.props.path} variant={this.props.variant}>
+              {this.props.btnAction}
+            </Button>
+          )}
+          {this.props.onClose && (
+            <Button onClick={this.modalClose} variant="btn-rnd close"></Button>
+          )}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
+
+export default Modal;
