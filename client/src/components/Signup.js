@@ -29,7 +29,6 @@ class Signup extends Component {
           console.log(data);
           this.props.setUser(data);
           this.props.history.push("/parent");
-
         }
       }
     );
@@ -39,42 +38,40 @@ class Signup extends Component {
     return (
       <div>
         <h2>Signup</h2>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
-            <Form.Label htmlFor="username">Username: </Form.Label>
-            <Form.Control
+        <form onSubmit={this.handleSubmit}>
+          <div>
+            <label htmlFor="username">Username: </label>
+            <input
               type="text"
               name="username"
               id="username"
               value={this.state.username}
               onChange={this.handleChange}
             />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label htmlFor="password">Password: </Form.Label>
-            <Form.Control
+          </div>
+          <div>
+            <label htmlFor="password">Password: </label>
+            <input
               type="password"
               name="password"
               id="password"
               value={this.state.password}
               onChange={this.handleChange}
             />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label htmlFor="email">Email: </Form.Label>
-            <Form.Control
+          </div>
+          <div>
+            <label htmlFor="email">Email: </label>
+            <input
               type="email"
               name="email"
               id="email"
               value={this.state.email}
               onChange={this.handleChange}
             />
-          </Form.Group>
-          {this.state.error && (
-            <Alert variant="danger">{this.state.error}</Alert>
-          )}
+          </div>
+          {this.state.error && <h2 variant="danger">{this.state.error}</h2>}
           <Button type="submit">Sign Up</Button>
-        </Form>
+        </form>
       </div>
     );
   }

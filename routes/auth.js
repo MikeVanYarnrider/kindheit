@@ -133,8 +133,7 @@ router.post("/childsignup", (req, res) => {
             { new: true }
           )
             .populate("children")
-            .then(realFinalStuff => {
-            });
+            .then(realFinalStuff => {});
           req.login(newChild, err => {
             if (err) res.status(500).json(err);
             else res.json(newChild);
@@ -182,18 +181,14 @@ router.get("/getProfiles", (req, res, next) => {
 
 //LOGOUT
 router.delete("/logout", (req, res) => {
-
-
-  req.session.destroy()
-  res.json(req.body)
-
+  req.session.destroy();
+  res.json(req.body);
 
   /*  res.json({ message: "Successfull logout!" }); */
 });
 
 //LOGIN CHECK
 router.get("/loggedin", (req, res) => {
-
   // console.log("loggedInUser", req.user);
 
   res.json(req.user);
