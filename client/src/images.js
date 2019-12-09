@@ -38,6 +38,8 @@ import profileImg_girl_pinkHair from "./assets/images/authentification/defaultPr
 //animationImages
 import animationImageBoyGirl from "./assets/images/animationImages/animationBoyGirl/img_0.png";
 
+// instructions
+import train from "./assets/images/instructions/train.png";
 
 export {
   logo,
@@ -68,5 +70,6 @@ export {
   profileImg_girl_redHair,
   profileImg_girl_blueHair,
   profileImg_girl_pinkHair,
-  animationImageBoyGirl 
+  animationImageBoyGirl,
+  train
 };

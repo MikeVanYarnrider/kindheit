@@ -3,19 +3,19 @@ import React from "react";
 import Puzzle from "../components/Games/Puzzle/Puzzle";
 import PuzzleInstructions from "../components/Games/Puzzle/Instructions";
 
-import FoldTrain from "../components/Games/FoldTrain/FoldTrain";
-import FoldTrainInstructions from "../components/Games/FoldTrain/Instructions";
+import DrawTrain from "../components/Games/DrawTrain/DrawTrain";
+import DrawTrainInstructions from "../components/Games/FoldTrain/Instructions";
 
 import MemoryGame from "../components/Games/Memory/Memory";
 import MemoryInstructions from "../components/Games/Memory/Instructions";
 
 const games = [
   {
-    title: "Fold a train",
-    link: "foldtrain",
+    title: "Draw a Train",
+    link: "drawtrain",
     type: "handsgames",
-    component: FoldTrain,
-    instructions: <FoldTrainInstructions />
+    component: DrawTrain,
+    instructions: <DrawTrainInstructions />
   },
   {
     title: "Puzzle",
