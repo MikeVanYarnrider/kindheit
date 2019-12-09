@@ -39,8 +39,18 @@ import profileImg_girl_pinkHair from "./assets/images/authentification/defaultPr
 //animationImages
 import animationImageBoyGirl from "./assets/images/animationImages/animationBoyGirl/img_0.png";
 
-// instructions
+// train draw instructions
 import train from "./assets/images/instructions/train.png";
+
+// lego train instructions
+import lego1 from "./assets/images/instructions/10706_Building_Instructions-26.jpg";
+import lego2 from "./assets/images/instructions/10706_Building_Instructions-27.jpg";
+import lego3 from "./assets/images/instructions/10706_Building_Instructions-28.jpg";
+import lego4 from "./assets/images/instructions/10706_Building_Instructions-29.jpg";
+import lego5 from "./assets/images/instructions/10706_Building_Instructions-30.jpg";
+import lego6 from "./assets/images/instructions/10706_Building_Instructions-31.jpg";
+import lego7 from "./assets/images/instructions/10706_Building_Instructions-32.jpg";
+import lego8 from "./assets/images/instructions/10706_Building_Instructions-33.jpg";
 
 export {
   logo,
@@ -73,5 +83,13 @@ export {
   profileImg_girl_blueHair,
   profileImg_girl_pinkHair,
   animationImageBoyGirl,
-  train
+  train,
+  lego1,
+  lego2,
+  lego3,
+  lego4,
+  lego5,
+  lego6,
+  lego7,
+  lego8
 };
