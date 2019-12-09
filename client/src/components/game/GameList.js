@@ -27,7 +27,7 @@ const GameList = props => {
 
   return (
     <div className="container-flex container-indent container-ratio">
-      <Button variant="btn-rnd back btn-ratio top left" href="/play" />
+      <Button variant="btn-rnd back btn-ratio top left" href="/" />
       <div className="game-list">{list}</div>
     </div>
   );

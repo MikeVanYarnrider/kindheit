@@ -1,5 +1,4 @@
 import React from "react";
-
 import "../assets/stylesheet/components/welcome.scss";
 
 import AnimationBoyGirl from "./lottieAnimations/AnimationBoyGirl";

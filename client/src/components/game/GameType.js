@@ -1,6 +1,5 @@
 import React from "react";
-
-import Welcome from "../Welcome";
+import { CSSTransition } from "react-transition-group";
 import GameItem from "./GameItem";
 
 import "../../assets/stylesheet/components/game.scss";
@@ -19,14 +18,14 @@ const GameSelect = () => {
     );
   });
 
-  return <>{list}</>;
+  return <div>{list}</div>;
 };
 
 const GameType = () => {
   return (
-    <Welcome>
+    <CSSTransition in appear classNames="app-fade" timeout={800}>
       <GameSelect />
-    </Welcome>
+    </CSSTransition>
   );
 };
 

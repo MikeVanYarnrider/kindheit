@@ -11,9 +11,6 @@ import GameType from "./components/game/GameType";
 import GameList from "./components/game/GameList";
 import Welcome from "./components/Welcome";
 
-import AnimationWindmillSpinning from "./components/lottieAnimations/AnimationWindmillSpinning";
-
-// import { childLogin } from "./components/services/auth";
 import ParentsBackend from "./components/ParentsBackend";
 
 export default class App extends Component {
@@ -28,7 +25,6 @@ export default class App extends Component {
   };
 
   render() {
-    let pathName = this.props.location.pathname;
     return (
       <div>
         <Navbar
@@ -42,9 +38,13 @@ export default class App extends Component {
             path="/"
             render={props =>
               this.state.user ? (
-                <GameType {...props} user={this.state.user} />
+                <Welcome>
+                  <GameType {...props} user={this.state.user} />
+                </Welcome>
               ) : (
-                <ChildLogin {...props} setUser={this.setUser} />
+                <Welcome>
+                  <ChildLogin {...props} setUser={this.setUser} />
+                </Welcome>
               )
             }
           />
@@ -52,7 +52,11 @@ export default class App extends Component {
           <Route
             exact
             path="/signup"
-            render={props => <Signup {...props} setUser={this.setUser} />}
+            render={props => (
+              <Welcome>
+                <Signup {...props} setUser={this.setUser} />
+              </Welcome>
+            )}
           />
           <Route
             exact
@@ -94,7 +98,6 @@ export default class App extends Component {
               </Welcome>
             )}
           />
-          <Route exact path="/play" component={GameType} />
           <Route exact path="/play/:type" component={GameList} />
           <Route
             exact
@@ -102,22 +105,6 @@ export default class App extends Component {
             render={props => <Game {...props} user={this.state.user} />}
           />
         </Switch>
-        {(pathName === "/childlogin" ||
-          pathName === "/parentlogin" ||
-          pathName === "/signup" ||
-          pathName === "/play" ||
-          pathName === "/") && (
-          <div
-            style={{
-              position: "absolute",
-              zIndex: "-1",
-              left: "30px",
-              marginTop: "-700px"
-            }}
-          >
-            <AnimationWindmillSpinning />
-          </div>
-        )}
       </div>
     );
   }
