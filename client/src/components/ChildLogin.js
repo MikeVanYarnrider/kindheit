@@ -1,8 +1,7 @@
 import React, { Component } from "react";
+import { CSSTransition } from "react-transition-group";
 import { childLogin } from "./services/auth";
-// import { Alert, Form, Button } from "react-bootstrap";
 
-import Welcome from "./Welcome";
 import CarouselProfileimages from "../components/Login_Children/CarouselLoginProfileImages";
 import ChildrenPassword from "../components/Login_Children/ChildrenLoginPassword";
 import "../../src/assets/stylesheet/components/ChildrenLogin/childrenLoginForm.scss";
@@ -57,37 +56,39 @@ class GameLogin extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div
-          style={{
-            backgroundColor: "rgba(255,255,255, 0.7)",
-            height: "600px",
-            borderRadius: "40px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            alignItems: "center",
-            paddingBottom: "20px"
-          }}
-        >
-          <CarouselProfileimages
-            {...this.state}
-            setProfileImg={this.setProfileImage}
-            setChosenProfileImg={this.setChosenProfileImage}
-            setChosenProfile={this.setChosenProfile}
-          />
-          <ChildrenPassword
-            {...this.state}
-            setPassword={this.setPassword}
-            setPasswordImage={this.setPasswordImage}
-            setChangePassword={this.setChangePassword}
-          />
-          {this.state.error && <p>{this.state.error}</p>}
-          <button className="loginButton" type="submit">
-            Login
-          </button>
-        </div>
-      </form>
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <div
+            style={{
+              backgroundColor: "rgba(255,255,255, 0.7)",
+              height: "600px",
+              borderRadius: "40px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              alignItems: "center",
+              paddingBottom: "20px"
+            }}
+          >
+            <CarouselProfileimages
+              {...this.state}
+              setProfileImg={this.setProfileImage}
+              setChosenProfileImg={this.setChosenProfileImage}
+              setChosenProfile={this.setChosenProfile}
+            />
+            <ChildrenPassword
+              {...this.state}
+              setPassword={this.setPassword}
+              setPasswordImage={this.setPasswordImage}
+              setChangePassword={this.setChangePassword}
+            />
+            {this.state.error && <p>{this.state.error}</p>}
+            <button className="loginButton" type="submit">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
     );
   }
 }
@@ -110,9 +111,9 @@ class ChildLogin extends Component {
 
   render() {
     return (
-      <Welcome>
+      <CSSTransition in appear classNames="app-fade" timeout={800}>
         <GameLogin {...this.props} setUser={this.setUser} />
-      </Welcome>
+      </CSSTransition>
     );
   }
 }

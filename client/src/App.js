@@ -7,9 +7,9 @@ import ParentLogin from "./components/login/parent/ParentLogin";
 import ChildSignup from "./components/ChildSignup";
 import ChildLogin from "./components/ChildLogin";
 import Game from "./components/game/Game";
-// import GameStart from "./components/Start";
 import GameType from "./components/game/GameType";
 import GameList from "./components/game/GameList";
+import Welcome from "./components/Welcome";
 
 import AnimationWindmillSpinning from "./components/lottieAnimations/AnimationWindmillSpinning";
 
@@ -57,7 +57,11 @@ export default class App extends Component {
           <Route
             exact
             path="/parentlogin"
-            render={props => <ParentLogin {...props} setUser={this.setUser} />}
+            render={props => (
+              <Welcome>
+                <ParentLogin {...props} setUser={this.setUser} />
+              </Welcome>
+            )}
           />
           <Route
             exact
@@ -84,7 +88,11 @@ export default class App extends Component {
           <Route
             exact
             path="/childlogin"
-            render={props => <ChildLogin {...props} setUser={this.setUser} />}
+            render={props => (
+              <Welcome>
+                <ChildLogin {...props} setUser={this.setUser} />
+              </Welcome>
+            )}
           />
           <Route exact path="/play" component={GameType} />
           <Route exact path="/play/:type" component={GameList} />

@@ -27,7 +27,7 @@ export default class SignupForm extends Component {
           });
         } else {
           this.props.setUser(data);
-          this.props.history.push("/");
+          this.props.history.push("/parent");
         }
       }
     );
@@ -63,6 +63,7 @@ export default class SignupForm extends Component {
           handleChange={this.handleChange}
           fields={fields}
           error={this.state.error}
+          button="Parent signup"
         />
       </div>
     );
