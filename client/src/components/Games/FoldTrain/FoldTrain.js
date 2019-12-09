@@ -93,7 +93,7 @@ export default class FoldTrain extends Component {
             ))}
           </div>
         </div>
-        <div className="flex">
+        <div className="flex-slider">
           {this.state.currentIndex > 0 && (
             <Button
               variant="btn-rnd back"

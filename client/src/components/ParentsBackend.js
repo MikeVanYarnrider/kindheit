@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "../../src/assets/stylesheet/components/parent.scss";
+import "../../src/assets/stylesheet/components/button.scss";
+import Button from "../../src/components/Button";
 
 class ParentsBackend extends React.Component {
   state = {
@@ -23,25 +26,25 @@ class ParentsBackend extends React.Component {
         const { time, timeStamp, game } = times;
         timeSum += time;
         return (
-          <div key={time}>
-            <p>
-              {game}: {time.toFixed(2)} on {timeStamp.slice(4, 15)}
-            </p>
-          </div>
+          <li key={time}>
+            {game}: {time.toFixed(2)} on {timeStamp.slice(4, 15)}
+          </li>
         );
       });
 
       const { _id, username, profileImgUrl } = child;
       return (
-        <div key={_id}>
-          <img src={profileImgUrl} width="100px" alt="profile" />
+        <div key={_id} className="flex-container align-center kids-card">
+          <div>
+            <img src={profileImgUrl} width="200px" alt="profile" />
+          </div>
           <div>
             <p>
               <strong>Name:</strong> {username}
             </p>
             <div>
-              <h4>Last 5 played games:</h4>
-              <span>{time.slice(time.length - 5, time.length)}</span>
+              <h5>Last 5 played games:</h5>
+              <ol>{time.slice(time.length - 5, time.length)}</ol>
             </div>
             <p>Overall screen time {(timeSum / 60).toFixed(2)} min</p>
           </div>
@@ -52,13 +55,13 @@ class ParentsBackend extends React.Component {
     return (
       <div>
         <h1>Hello {this.props.parentUser.username}</h1>
-        {this.state.children.length === 0 || !this.state.children ? (
-          <h2>
-            No children available. Create <Link to="/childsignup">here</Link>
-          </h2>
-        ) : (
-          <div>{children}</div>
-        )}
+        <div className="flex-container between">
+          {children}
+          <div className="flex-container align-center kids-card text-center justify-center">
+            <p className="">Create a new kid</p>
+            <Button variant="btn-rnd select" href="/childsignup" />
+          </div>
+        </div>
       </div>
     );
   }
