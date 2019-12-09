@@ -10,14 +10,9 @@ class ParentsBackend extends React.Component {
   componentDidMount() {
     const parent = this.props.parentUser._id;
     axios.post("/parent", { parent }).then(res => {
-      this.setState(
-        {
-          children: { ...res.data.children }
-        },
-        () => {
-          // console.log(...res.data.children);
-        }
-      );
+      this.setState({
+        children: { ...res.data.children }
+      });
     });
   }
 
@@ -54,7 +49,6 @@ class ParentsBackend extends React.Component {
       );
     });
 
-    console.log(this.state.children);
     return (
       <div>
         <h1>Hello {this.props.parentUser.username}</h1>
