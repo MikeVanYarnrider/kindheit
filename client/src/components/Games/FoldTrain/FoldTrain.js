@@ -79,8 +79,8 @@ export default class FoldTrain extends Component {
 
   render() {
     return (
-      <div>
-        <div className="slider" id="train">
+      <div className="container">
+        <div id="train">
           <div
             className="slider-wrapper"
             style={{
