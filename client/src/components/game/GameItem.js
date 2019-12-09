@@ -29,6 +29,7 @@ class GameItem extends Component {
               show={this.state.instructions}
               path={link}
               variant="btn-rnd btn-start"
+              classCustom="instructions"
             >
               <h1>Instructions</h1>
               {instructions}
