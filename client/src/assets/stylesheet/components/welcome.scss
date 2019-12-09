@@ -1,10 +1,7 @@
 @import "../variables";
 @import "../mixins/grid";
 
-$bg: "../../images/home/lego-welcome.png";
-
 .welcome {
-  background: url($bg) 0 100% / 40rem no-repeat;
   justify-content: flex-end;
   align-items: center;
 
@@ -13,5 +10,24 @@ $bg: "../../images/home/lego-welcome.png";
   &-box {
     width: 100%;
     max-width: 600px;
+    justify-content: space-evenly;
+  }
+
+  &-animation {
+    position: relative;
+    flex: auto;
+
+    .front {
+      position: relative;
+      bottom: -5rem;
+      left: 0;
+    }
+
+    .back {
+      position: absolute;
+      bottom: 8rem;
+      left: calc(50% - (350px / 2));
+      z-index: -1;
+    }
   }
 }

@@ -19,7 +19,7 @@ const FormGroup = props => {
         );
       })}
       {props.error && <Alert variant="danger">{props.error}</Alert>}
-      <Button type="submit">Parent Login</Button>
+      <Button type="submit">{props.button}</Button>
     </Form>
   );
 };
