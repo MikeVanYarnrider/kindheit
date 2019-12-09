@@ -52,12 +52,12 @@ class ParentsBackend extends React.Component {
     });
 
     return (
-      <div>
+      <div className="container">
         <h1>Hello {this.props.parentUser.username}</h1>
         <div className="flex-container between">
           {children}
           <div className="flex-container align-center kids-card text-center justify-center">
-            <p className="">Create a new kid</p>
+            <h3 className="">Add your kid</h3>
             <Button variant="btn-rnd select" href="/childsignup" />
           </div>
         </div>
