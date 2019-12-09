@@ -4,7 +4,7 @@ import Puzzle from "../components/Games/Puzzle/Puzzle";
 import PuzzleInstructions from "../components/Games/Puzzle/Instructions";
 
 import DrawTrain from "../components/Games/DrawTrain/DrawTrain";
-import DrawTrainInstructions from "../components/Games/FoldTrain/Instructions";
+import DrawTrainInstructions from "../components/Games/DrawTrain/Instructions";
 
 import MemoryGame from "../components/Games/Memory/Memory";
 import MemoryInstructions from "../components/Games/Memory/Instructions";
