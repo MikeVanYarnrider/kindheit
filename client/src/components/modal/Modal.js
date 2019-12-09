@@ -12,7 +12,11 @@ export const Modal = props => {
     <div
       className={`container-flex modal ${props.show ? "open" : ""}`.trimRight()}
     >
-      <div className="modal-inner">
+      <div
+        className={`modal-inner${
+          props.classCustom ? `-${props.classCustom}` : ""
+        }`.trimRight()}
+      >
         {props.children}
         {props.onBtnClick && (
           <Button onClick={() => handleClick()} variant={props.variant}>
