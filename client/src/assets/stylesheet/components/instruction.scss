@@ -1,0 +1,12 @@
+@import "../variables";
+@import "../mixins/card";
+@import "../mixins/grid";
+@import "../mixins/position";
+
+.equipment {
+  // background-color: gray;
+  display: flex;
+  align-self: flex-start;
+  // width: 50%;
+  height: 60%;
+}

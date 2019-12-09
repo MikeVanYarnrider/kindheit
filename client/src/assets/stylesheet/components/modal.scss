@@ -31,5 +31,11 @@
   &-inner {
     flex-direction: column;
     @include make-round-item($radius / 10, $size * 2);
+
+    &-instructions {
+      @include make-round-item($radius / 10, $size * 3, $size * 2);
+      display: block;
+      flex-wrap: nowrap;
+    }
   }
 }

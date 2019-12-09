@@ -3,7 +3,6 @@ import { train } from "../../../images";
 import "./../../../assets/stylesheet/components/instruction.scss";
 
 const Instructions = () => {
-  // const trainImg = train;
   return (
     <div className="equipment flex">
       <div className="container">
@@ -11,7 +10,7 @@ const Instructions = () => {
       </div>
 
       <div className="container">
-        <p>Male einen Zug</p>
+        <p>Baue einen Lego Zug</p>
       </div>
       <div className="container">
         <img src={train} width="200px" alt="train" />

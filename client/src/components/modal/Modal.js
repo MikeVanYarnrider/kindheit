@@ -40,7 +40,7 @@ class Modal extends React.Component {
         className={`container-flex modal fade-${this.state.fadeType}`}
         onTransitionEnd={this.transitionEnd}
       >
-        <div className="modal-inner">
+        <div className={`modal-inner${props.classCustom ? `-${props.classCustom}` : ""}`.trimRight()}>
           {this.props.children}
           {this.props.onBtnClick && (
             <Button

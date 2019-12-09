@@ -32,6 +32,7 @@ class GameItem extends Component {
                 variant="btn-rnd btn-start"
                 isOpen={this.state.instructions}
                 onClose={this.handleInstructions}
+              classCustom="instructions"
               >
                 <h1>Instructions</h1>
                 {instructions}

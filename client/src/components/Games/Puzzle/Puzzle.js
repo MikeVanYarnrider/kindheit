@@ -16,7 +16,7 @@ import {
 } from "../../../images";
 
 export default props => {
-  let [gameStartTime, setGameStartTime] = useState("");
+  let [gameStartTime, setGameStartTime] = useState(null);
 
   const images = {
     "1.png": pathImage1,
@@ -40,10 +40,11 @@ export default props => {
         game: gameId
       })
       .then(response => {
-        console.log(response);
+        // console.log(response);
       })
       .catch(err => console.log(err));
   };
+  console.log("heree", gameStartTime);
 
   useEffect(() => {
     // screen time tracking
@@ -79,7 +80,6 @@ export default props => {
   }
 
   const select = event => {
-    console.log(event.target.src);
     const image = event.target.closest("img");
     if (image) {
       setCurrentImage(image.src);
