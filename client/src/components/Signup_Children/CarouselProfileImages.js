@@ -60,8 +60,10 @@ class CarouselProfileImages extends Component {
           onClickItem={this.selectProfileImage}
           onClickThumb={this.selectProfileImage}
           dynamicHeight={true}
+          emulateTouch={true}
           centerSlidePercentage={50}
           height={100}
+          swipeable={true}
           selectedItem={this.state.chosenProfileImg}
         >
           {profileImgArr.map(image => {

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { signupChild } from "./services/auth";
-import { Alert, Form /* Button  */ } from "react-bootstrap";
 import CarouselProfileimages from "../components/Signup_Children/CarouselProfileImages";
 import ChildrenPassword from "../components/Signup_Children/ChildrenPassword";
 import Button from "../../src/components/Button";
@@ -10,8 +9,6 @@ import { profileImg_boy_brownHair } from "../images";
 import axios from "axios";
 
 const profileImgArr = [profileImg_boy_brownHair];
-
-const defaultProfiles = ["max"];
 
 class ChildSignup extends Component {
   state = {
@@ -24,7 +21,7 @@ class ChildSignup extends Component {
     parent: this.props.parentUser._id,
     passwordImages: [],
     changeImage: 0,
-    allChildrenProfiles: defaultProfiles
+    allChildrenProfiles: ""
   };
 
   handleChange = event => {

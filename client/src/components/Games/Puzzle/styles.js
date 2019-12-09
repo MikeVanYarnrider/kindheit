@@ -1,4 +1,7 @@
 import styled, { keyframes } from "styled-components";
+import $colors from "../../../assets/stylesheet/_variables.scss"
+
+
 
 export const GameContainer = styled.div`
   max-width: 750px;
@@ -86,6 +89,7 @@ export const WinContainer = styled.div`
     width: 100%;
    //height: 100%;
     background: lightblue;
+  
   }
   &::before {
     content: "";
@@ -99,11 +103,13 @@ export const WinContainer = styled.div`
     background-repeat: no-repeat;
     background-size: 50% 50%, 50% 50%;
     background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    background-image: linear-gradient(#399953, #399953),
-      linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33),
-      linear-gradient(#377af5, #377af5);
+    background-image: linear-gradient(#0a6073, #0a6073),
+      linear-gradient(#4ba8b0, #4ba8b0), linear-gradient(#095c80, #095c80),
+      linear-gradient(#53b9d2, #53b9d2);
     animation: ${rotate} 4s linear infinite;
   }
+
+
 
   &::after {
     content: "";
@@ -144,17 +150,22 @@ export const Content = styled.div`
 
   > div:nth-child(5) {
     background-position: 0 0;
+    box-shadow: 3px 3px 9px rgba(0, 68, 75, 0.6) !important;
   }
   > div:nth-child(2) {
     background-position: 0 25%;
+    box-shadow: 3px 3px 9px rgba(0, 68, 75, 0.6) !important;
   }
   > div:nth-child(1) {
     background-position: 0 50%;
+    box-shadow: 3px 3px 9px rgba(0, 68, 75, 0.6) !important;
   }
   > div:nth-child(4) {
     background-position: 0 75%;
+    box-shadow: 3px 3px 9px rgba(0, 68, 75, 0.6) !important;
   }
   > div:nth-child(3) {
     background-position: 0 100%;
+    box-shadow: 3px 3px 9px rgba(0, 68, 75, 0.6) !important;
   }
 `;

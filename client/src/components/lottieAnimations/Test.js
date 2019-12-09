@@ -7,8 +7,13 @@ class AnimationBoyGirl extends Component {
 
   render() {
     return (
-      <button className="animationWrapperButton"
-        style={{ border: "none", outline: "none", backgroundColor: "transparent" }}
+      <button
+        className="animationWrapperButton"
+        style={{
+          border: "none",
+          outline: "none",
+          backgroundColor: "transparent"
+        }}
         onClick={() => {
           this.setState({
             isToggled: !this.state.isToggled
@@ -19,11 +24,11 @@ class AnimationBoyGirl extends Component {
           direction={this.state.isToggled ? 1 : -1}
           //speed={1}
           options={{
-            animationData:animationBoyGirl,
+            animationData: animationBoyGirl,
             loop: false,
             rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice'
-      }
+              preserveAspectRatio: "xMidYMid slice"
+            }
           }}
           isStopped={!this.state.isToggled}
           height={500}

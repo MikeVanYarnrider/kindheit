@@ -6,12 +6,12 @@ export const Game = styled.div`
   justify-content: center;
   height: 690px;
   width: 100%;
-  background-image: ${({ filter }) => {
+  ${'' /* background-image: ${({ filter }) => {
       return filter
         ? " linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0)), "
         : "";
     }}
-    url(${({ bg }) => bg});
+    url(${({ bg }) => bg}); */}
   background-size: ${({ size }) => size};
   display: flex;
   justify-content: center;
