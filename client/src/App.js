@@ -13,9 +13,8 @@ import GameList from "./components/game/GameList";
 
 import AnimationWindmillSpinning from "./components/lottieAnimations/AnimationWindmillSpinning";
 
-import { childLogin } from "./components/services/auth";
+// import { childLogin } from "./components/services/auth";
 import ParentsBackend from "./components/ParentsBackend";
-
 
 export default class App extends Component {
   state = {
@@ -95,7 +94,11 @@ export default class App extends Component {
             render={props => <Game {...props} user={this.state.user} />}
           />
         </Switch>
-        {(pathName === "/childlogin" || pathName === "/parentlogin" || pathName === "/signup" || pathName === "/play" || pathName === "/") && (
+        {(pathName === "/childlogin" ||
+          pathName === "/parentlogin" ||
+          pathName === "/signup" ||
+          pathName === "/play" ||
+          pathName === "/") && (
           <div
             style={{
               position: "absolute",
