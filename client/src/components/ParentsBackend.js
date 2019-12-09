@@ -58,7 +58,7 @@ class ParentsBackend extends React.Component {
         <div className="flex-container between">
           {children}
           <div className="flex-container align-center kids-card text-center justify-center">
-            <p className="">Create a new kid</p>
+            <h3 className="">Add your kid</h3>
             <Button variant="btn-rnd select" href="/childsignup" />
           </div>
         </div>
