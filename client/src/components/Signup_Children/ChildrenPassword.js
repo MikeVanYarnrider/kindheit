@@ -84,7 +84,7 @@ class ChildrenPassword extends Component {
 
         <Form.Group
           style={{
-            width: "600px",
+            width: "500px",
             display: "flex",
             justifyContent: "space-between"
           }}

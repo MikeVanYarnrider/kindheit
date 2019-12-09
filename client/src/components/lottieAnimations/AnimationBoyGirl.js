@@ -8,7 +8,7 @@ class AnimationBoyGirl extends Component {
   render() {
     return (
       <button className="animationWrapperButton"
-        style={{ border: "none !important", outline: "none !important" }}
+        style={{ border: "none", outline: "none", backgroundColor: "transparent" }}
         onClick={() => {
           this.setState({
             isToggled: !this.state.isToggled
