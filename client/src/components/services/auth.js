@@ -66,8 +66,9 @@ const logout = props => {
     .delete("/api/auth/logout")
     .then(response => {
       props.history.push("/");
+      return props;
     })
-    .then(_ => {
+    .then(props => {
       props.clearUser(null);
     })
     .catch(err => {
