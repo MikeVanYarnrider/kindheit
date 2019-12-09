@@ -8,7 +8,6 @@
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
     "axios": "^0.19.0",
-    "bootstrap": "^4.4.1",
     "lodash-es": "^4.17.15",
     "lodash-move": "^1.1.1",
     "node-sass": "^4.13.0",
@@ -23,7 +22,8 @@
     "react-transition-group": "^4.3.0",
     "react-use-gesture": "^5.2.4",
     "scroll-lock": "^2.1.2",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "typescript": "^3.7.3"
   },
   "scripts": {
     "start": "react-scripts start",

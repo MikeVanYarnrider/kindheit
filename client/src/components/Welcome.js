@@ -4,7 +4,7 @@ import { CSSTransition } from "react-transition-group";
 import "../assets/stylesheet/components/welcome.scss";
 import "../assets/stylesheet/components/app.scss";
 import AnimationBoyGirl from "./lottieAnimations/AnimationBoyGirl";
-import AnimationWindmillSpinning from "./lottieAnimations/AnimationWindmillSpinning";
+// import AnimationWindmillSpinning from "./lottieAnimations/AnimationWindmillSpinning";
 
 const Welcome = props => {
   const content = props.children;
