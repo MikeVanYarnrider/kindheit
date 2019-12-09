@@ -43,9 +43,9 @@ const Navbar = props => {
               {/* INDEX SELECTED: */}
               {pathName === "/" ? (
                 <>
-                  <Link className="navbar-link" to="/signup">
+                  {/*          <Link className="navbar-link" to="/signup">
                     Signup
-                  </Link>
+                  </Link> */}
                   <Link className="navbar-link" to="/parentlogin">
                     Parentlogin
                   </Link>
@@ -57,33 +57,19 @@ const Navbar = props => {
                   <Link className="navbar-link" to="/childlogin">
                     Child Login
                   </Link>
-                  <Link className="navbar-link" to="/signup">
+                  {/*          <Link className="navbar-link" to="/signup">
                     Signup
-                  </Link>
+                  </Link> */}
                 </>
-              ) : /* CHILD LOGIN SELECTED: */
-
-              pathName === "/childlogin" ? (
-                <>
+              ) : (
+                /* CHILD LOGIN SELECTED: */ <>
                   <Link className="navbar-link" to="/parentlogin">
                     Parentlogin
                   </Link>
-                  <Link className="navbar-link" to="/signup">
+                  {/*       <Link className="navbar-link" to="/signup">
                     Signup
-                  </Link>
+                  </Link> */}
                 </>
-              ) : (
-                /* SIGNUP SELECTED: */
-                pathName === "/signup" && (
-                  <>
-                    <Link className="navbar-link" to="/childlogin">
-                      Child Login
-                    </Link>
-                    <Link className="navbar-link" to="/parentlogin">
-                      Parentlogin
-                    </Link>
-                  </>
-                )
               )}
             </React.Fragment>
           )}

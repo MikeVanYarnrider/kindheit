@@ -98,6 +98,11 @@ router.post("/childsignup", (req, res) => {
   if (password.length < 4) {
     return res.status(400).json({ message: "Passwort ist noch zu kurz" });
   }
+  if (!birthDate) {
+    return res
+      .status(400)
+      .json({ message: "Bitte geben Sie das Geburtsdatum Ihres Kindes an!" });
+  }
 
   Child.findOne({ username: childname })
     .then(found => {

@@ -95,7 +95,7 @@ class ChildrenPassword extends Component {
         <Form.Group>
           {passWordImageArr.map((image, index) => {
             return (
-              <button key={index} type="button">
+              <button key={index} type="button" className="chosing-btn">
                 <img
                   height={passwordImageSize}
                   width={passwordImageSize}
