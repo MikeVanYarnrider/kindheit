@@ -53,7 +53,7 @@ class ParentsBackend extends React.Component {
     });
 
     return (
-      <div>
+      <div className="container">
         <h1>Hello {this.props.parentUser.username}</h1>
         <div className="flex-container between">
           {children}
