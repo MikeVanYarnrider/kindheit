@@ -33,14 +33,12 @@ const signupChild = (childname, password, birthDate, profileImgUrl, parent) => {
 };
 
 const parentLogin = (username, password) => {
-  console.log("Lol");
   return axios
     .post("/api/auth/parentlogin", {
       username: username,
       password: password
     })
     .then(response => {
-      console.log(response.data);
       return response.data;
     })
     .catch(err => {
