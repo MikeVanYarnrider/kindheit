@@ -9,6 +9,9 @@ import DrawTrainInstructions from "../components/Games/DrawTrain/Instructions";
 import MemoryGame from "../components/Games/Memory/Memory";
 import MemoryInstructions from "../components/Games/Memory/Instructions";
 
+import EnergyFlow from "../components/Games/EnergyFlow/EnergyFlow";
+import EnergyFlowInstructions from "../components/Games/EnergyFlow/Instructions";
+
 const games = [
   {
     title: "Draw a Train",
@@ -30,6 +33,13 @@ const games = [
     type: "device",
     component: MemoryGame,
     instructions: <MemoryInstructions />
+  },
+  {
+    title: "Energy Flow",
+    link: "energyflow",
+    type: "device",
+    component: EnergyFlow,
+    instructions: <EnergyFlowInstructions />
   }
 ];
 

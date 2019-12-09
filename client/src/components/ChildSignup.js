@@ -10,8 +10,6 @@ import axios from "axios";
 
 const profileImgArr = [profileImg_boy_brownHair];
 
-const defaultProfiles = ["max"];
-
 class ChildSignup extends Component {
   state = {
     childname: "",
@@ -23,7 +21,7 @@ class ChildSignup extends Component {
     parent: this.props.parentUser._id,
     passwordImages: [],
     changeImage: 0,
-    allChildrenProfiles: defaultProfiles
+    allChildrenProfiles: ""
   };
 
   handleChange = event => {

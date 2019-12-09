@@ -13,6 +13,7 @@ import memoryImage1 from "./assets/images/games/memory/1.png";
 import memoryImage2 from "./assets/images/games/memory/2.png";
 import memoryImage3 from "./assets/images/games/memory/3.png";
 import memoryImage4 from "./assets/images/games/memory/4.png";
+import memoryBG from "./assets/images/games/memory/BG.png";
 
 import passwordImg1 from "./assets/images/authentification/signupChildren/1.png";
 import passwordImg2 from "./assets/images/authentification/signupChildren/2.png";
@@ -53,6 +54,7 @@ export {
   memoryImage2,
   memoryImage3,
   memoryImage4,
+  memoryBG,
   passwordImg1,
   passwordImg2,
   passwordImg3,

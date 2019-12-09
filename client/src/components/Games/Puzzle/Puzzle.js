@@ -53,7 +53,7 @@ export default props => {
 
     // puzzle
     if (Object.keys(images).length > 0) {
-      setCurrentImage(images["1.png"]);
+      setCurrentImage(images["4.png"]);
     }
 
     return () => {
@@ -101,10 +101,10 @@ export default props => {
       >
         <GameContainer>
           <div className="options" onClick={select}>
-            <img src={pathImage1} alt="puzzle1" />
-            <img src={pathImage2} alt="puzzle2" />
-            <img src={pathImage3} alt="puzzle3" />
-            <img src={pathImage1} alt="puzzle4" />
+            <img style={{ boxShadow: "3px 3px 5px rgba(0, 68, 75, 0.8)"}} src={pathImage1} alt="puzzle1" />
+            <img style={{ boxShadow: "3px 3px 5px rgba(0, 68, 75, 0.8)"}} src={pathImage2} alt="puzzle2" />
+            <img style={{ boxShadow: "3px 3px 5px rgba(0, 68, 75, 0.8)"}} src={pathImage3} alt="puzzle3" />
+            <img style={{ boxShadow: "3px 3px 5px rgba(0, 68, 75, 0.8)"}} src={pathImage4} alt="puzzle4" />
           </div>
           <div className="inner">{content}</div>
         </GameContainer>
