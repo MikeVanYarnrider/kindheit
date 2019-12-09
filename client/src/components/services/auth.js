@@ -61,11 +61,18 @@ const childLogin = (childname, childId, password) => {
     });
 };
 
-const logout = () => {
-  axios.delete("/api/auth/logout").then(res => {
-    /*  document.location.href = "/" */
-    window.location = "/";
-  });
+const logout = props => {
+  axios
+    .delete("/api/auth/logout")
+    .then(response => {
+      props.history.push("/");
+    })
+    .then(_ => {
+      props.clearUser(null);
+    })
+    .catch(err => {
+      return err.response.data;
+    });
 };
 
 export { signup, parentLogin, logout, signupChild, childLogin };

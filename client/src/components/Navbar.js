@@ -7,8 +7,7 @@ import { logout } from "./services/auth";
 
 const Navbar = props => {
   const handleLogout = () => {
-    logout();
-    props.clearUser(null);
+    logout(props);
   };
 
   const pathName = props.location.pathname;
