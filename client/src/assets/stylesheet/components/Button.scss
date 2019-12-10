@@ -2,15 +2,34 @@
 @import "../mixins/button";
 
 .btn {
+  svg {
+    fill: currentColor;
+
+    &.empty {
+      fill: none;
+      stroke: currentColor;
+    }
+
+    &.checked {
+      position: relative;
+      top: -3px;
+      right: -3px;
+    }
+
+    &.forward {
+      transform: scale(-1, 1);
+    }
+  }
+
   &.back,
   &.forward {
-    @include make-button($white, $teal-dark, $teal-dark, $teal-dark);
+    @include make-button($white, $teal-light, $teal-light, $teal-light);
   }
 
   &.play {
     text-align: center;
 
-    @include make-button($red-dark, $red-dark);
+    @include make-button($red-light, rgba(10,96,115,0.6), $white, $white, 0.25em);
   }
 
   &.overview {
@@ -26,11 +45,11 @@
   }
 
   &.checked {
-    @include make-button($teal-dark, $teal-dark);
+    @include make-button($blue-light, rgba(10,96,115,0.6), $white, $white, 0.25em);
   }
 
   &.close {
-    @include make-button($red-light, $red-light);
+    @include make-button($teal-dark, $teal-dark);
   }
 
   &-start {
@@ -38,10 +57,14 @@
   }
 
   &-rnd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 70px;
     height: 70px;
     line-height: 70px;
     margin: 0.5em;
+    box-sizing: border-box;
 
     @include make-button-type(50%);
   }
