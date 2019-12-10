@@ -18,6 +18,10 @@
 
     &.forward {
       transform: scale(-1, 1);
+      -webkit-transform: scale(-1, 1);
+      -moz-transform: scale(-1, 1);
+      -ms-transform: scale(-1, 1);
+      -o-transform: scale(-1, 1);
     }
   }
 
@@ -29,7 +33,13 @@
   &.play {
     text-align: center;
 
-    @include make-button($red-light, rgba(10,96,115,0.6), $white, $white, 0.25em);
+    @include make-button(
+      $red-light,
+      rgba(10, 96, 115, 0.6),
+      $white,
+      $white,
+      0.25em
+    );
   }
 
   &.overview {
@@ -45,7 +55,13 @@
   }
 
   &.checked {
-    @include make-button($blue-light, rgba(10,96,115,0.6), $white, $white, 0.25em);
+    @include make-button(
+      $blue-light,
+      rgba(10, 96, 115, 0.6),
+      $white,
+      $white,
+      0.25em
+    );
   }
 
   &.close {
@@ -96,4 +112,18 @@
 
 .transparent {
   opacity: 0;
+}
+
+.rotate {
+  animation: #{rotate-keyframes} 2s;
+  -webkit-animation: #{rotate-keyframes} 2s;
+}
+
+@keyframes rotate-keyframes {
+  0% {
+    @include make-button-rotate(0);
+  }
+  100% {
+    @include make-button-rotate(360, 2);
+  }
 }

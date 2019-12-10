@@ -17,3 +17,11 @@
   -ms-border-radius: $br;
   -o-border-radius: $br;
 }
+
+@mixin make-button-rotate($angle, $times: 1) {
+  transform: rotate($angle * $times);
+  -webkit-transform: rotate($angle * $times#{deg});
+  -moz-transform: rotate($angle * $times#{deg});
+  -ms-transform: rotate($angle * $times#{deg});
+  -o-transform: rotate($angle * $times#{deg});
+}

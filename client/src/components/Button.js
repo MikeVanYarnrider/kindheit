@@ -1,56 +1,91 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import "../assets/stylesheet/components/button.scss";
 
-import { Back, Plus, Play, Close, Overview, Check } from "./buttons/SpriteButtons";
+import {
+  Back,
+  Plus,
+  Play,
+  Close,
+  Overview,
+  Check
+} from "./buttons/SpriteButtons";
 
-const Button = props => {
-  const { onClick, href } = props;
-
-  const variant = () => {
-    if (props.variant.includes("back")) {
-      return <Back />;
-    }
-    if (props.variant.includes("forward")) {
-      return <Back classSvg="forward" />;
-    }
-    if (props.variant.includes("play")) {
-      return <Play />;
-    }
-    if (props.variant.includes("close")) {
-      return <Close />;
-    }
-    if (props.variant.includes("overview")) {
-      return <Overview classSvg="empty" />;
-    }
-    if (props.variant.includes("number")) {
-      return <span>1</span>;
-    }
-    if (props.variant.includes("select")) {
-      return <Plus />;
-    }
-    if (props.variant.includes("checked")) {
-      return <Check classSvg="checked" />;
-    } else {
-      return (
-        <>
-          {props.children} <Play />
-        </>
-      );
-    }
+class Button extends Component {
+  state = {
+    redirect: "",
+    timeouts: [],
+    fade: false
   };
 
-  const button = href ? (
-    <Link to={href} className={`btn ${props.variant}`}>
-      {variant()}
-    </Link>
-  ) : (
-    <button className={`btn ${props.variant}`} onClick={onClick}>
-      {variant()}
-    </button>
-  );
+  generateContent = variant => {
+    if (variant.includes("back")) return <Back />;
+    if (variant.includes("forward")) return <Back classSvg="forward" />;
+    if (variant.includes("play")) return <Play />;
+    if (variant.includes("close")) return <Close />;
+    if (variant.includes("overview")) return <Overview classSvg="empty" />;
+    if (variant.includes("number")) return <span>1</span>;
+    if (variant.includes("select")) return <Plus />;
+    if (variant.includes("checked")) return <Check classSvg="checked" />;
+    else
+      return (
+        <>
+          {this.props.children} <Play />
+        </>
+      );
+  };
 
-  return button;
-};
+  startAnimation = () => {
+    this.setState({
+      fade: true
+    });
+  };
+
+  finishAnimation = (event, cb) => {
+    this.setState(
+      {
+        fade: false
+      },
+      () => {
+        cb();
+      }
+    );
+  };
+
+  handleRedirect = () => {
+    this.setState({
+      fade: false,
+      redirect: this.props.href
+    });
+  };
+
+  render() {
+    const { onClick, href, variant } = this.props;
+    const btnClass = `btn ${
+      this.state.fade ? this.props.animation : ""
+    } ${variant}`;
+    const checkLink = href ? this.handleRedirect : onClick;
+
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />;
+    }
+
+    return (
+      <>
+        <button
+          className={btnClass}
+          onClick={event =>
+            this.props.animation
+              ? this.startAnimation()
+              : this.finishAnimation(event, checkLink)
+          }
+          onAnimationEnd={event => this.finishAnimation(event, checkLink)}
+        >
+          {this.generateContent(variant)}
+        </button>
+      </>
+    );
+  }
+}
 
 export default Button;

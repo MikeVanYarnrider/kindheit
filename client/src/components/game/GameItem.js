@@ -24,6 +24,7 @@ class GameItem extends Component {
             <Button
               onClick={() => this.handleInstructions()}
               variant="btn-rnd select"
+              animation="rotate"
             ></Button>
             {this.state.instructions && (
               <Modal

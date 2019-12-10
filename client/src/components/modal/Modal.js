@@ -25,8 +25,7 @@ class Modal extends React.Component {
     }
   };
 
-  modalClose = event => {
-    event.preventDefault();
+  modalClose = () => {
     this.setState({ fadeType: "out" });
   };
 
