@@ -28,7 +28,11 @@ const GameList = props => {
   return (
     <CSSTransition in appear classNames="app-fade" timeout={800}>
       <div className="container-flex container-indent container-ratio">
-        <Button variant="btn-rnd back btn-ratio top left" href="/" />
+        <Button
+          variant="btn-rnd back btn-ratio top left"
+          animation="rotate"
+          href="/"
+        />
         <div className="game-list">{list}</div>
       </div>
     </CSSTransition>
