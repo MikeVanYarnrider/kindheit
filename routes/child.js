@@ -16,13 +16,15 @@ router.post("/play/:type/:id", (req, res) => {
           timeStamp: new Date(),
           time: gameTime,
           game: game
-        }
+        },
+        restrictionTime: gameTime
       }
     },
     { new: true }
   )
     .then(found => {
-      console.log("User -->", found);
+      console.log(found);
+      res.json(found);
     })
     .catch(err => {
       console.log(err);
