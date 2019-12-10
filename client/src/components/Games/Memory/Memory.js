@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Card } from "./components/Card";
-import { Modal } from "../../modal/Modal";
+import Modal from "../../modal/Modal";
 
 import "../../../assets/stylesheet/components/memory.scss";
 
@@ -39,22 +39,14 @@ class Game extends Component {
         user: this.props.user,
         game: gameId
       })
-      .then(response => {
-        // console.log("ROUTE??", response);
-      })
+      .then(response => {})
       .catch(err => console.log(err));
   };
 
   componentDidMount = () => {
-    // console.log("did mount");
-    this.setState(
-      {
-        gameStartTime: new Date()
-      },
-      () => {
-        // console.log(this.state.gameStartTime);
-      }
-    );
+    this.setState({
+      gameStartTime: new Date()
+    });
     window.addEventListener("beforeunload", this.postGameTime);
   };
 
@@ -136,14 +128,17 @@ class Game extends Component {
             );
           })}
         </div>
-        <Modal
-          show={this.state.isFinished}
-          btnAction="Restart"
-          variant="btn-pill btn-start"
-          onBtnClick={() => this.restartGame()}
-        >
-          <h1>Finished!</h1>
-        </Modal>
+        {this.state.isFinished && (
+          <Modal
+            isOpen={this.state.isFinished}
+            btnAction="Restart"
+            variant="btn-pill btn-start"
+            onBtnClick={() => this.restartGame()}
+            onClose={this.handleInstructions}
+          >
+            <h1>Finished!</h1>
+          </Modal>
+        )}
       </div>
     );
   }

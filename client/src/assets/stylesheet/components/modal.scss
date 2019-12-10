@@ -4,18 +4,38 @@
 @import "../mixins/position";
 
 .modal {
-  display: none;
-  z-index: 9999;
-
-  @include make-container-positioned(fixed);
+  display: flex;
+  opacity: 0;
+  transition: opacity linear 0.15s;
+  z-index: $z-modal;
+  @include make-container-positioned(absolute);
   @include make-container-flex-center();
 
-  &.open {
-    display: flex;
+  &.fade-in {
+    opacity: 1;
+    transition: opacity linear 0.3s;
+    -webkit-transition: opacity linear 0.3s;
+    -moz-transition: opacity linear 0.3s;
+    -ms-transition: opacity linear 0.3s;
+    -o-transition: opacity linear 0.3s;
+  }
+  &.fade-out {
+    opacity: 0;
+    transition: opacity linear 0.3s;
+    -webkit-transition: opacity linear 0.3s;
+    -moz-transition: opacity linear 0.3s;
+    -ms-transition: opacity linear 0.3s;
+    -o-transition: opacity linear 0.3s;
   }
 
   &-inner {
     flex-direction: column;
     @include make-round-item($radius / 10, $size * 2);
+
+    &-instructions {
+      @include make-round-item($radius / 10, $size * 3, $size * 2);
+      display: block;
+      flex-wrap: nowrap;
+    }
   }
 }

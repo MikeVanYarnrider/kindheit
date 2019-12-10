@@ -1,7 +1,7 @@
 import React from "react";
 
 const Instructions = () => {
-  return <div>Draw train instructions</div>;
+  return <div>Energy Flow instructions</div>;
 };
 
 export default Instructions;

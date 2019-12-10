@@ -4,9 +4,10 @@ import "../assets/stylesheet/components/slide.scss";
 const Slide = ({ image }) => {
   const styles = {
     backgroundImage: `url(${image})`,
-    backgroundSize: "cover",
+    backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "50% 60%"
+    backgroundPosition: "50% 60%",
+    borderRadius: "1em"
   };
   return <div className="slide" style={styles}></div>;
 };

@@ -1,12 +1,12 @@
 import React from "react";
-import Welcome from "../../Welcome";
+import { CSSTransition } from "react-transition-group";
 import LoginForm from "./LoginForm";
 
 const ParentLogin = props => {
   return (
-    <Welcome>
+    <CSSTransition in appear classNames="app-fade" timeout={800}>
       <LoginForm {...props} />
-    </Welcome>
+    </CSSTransition>
   );
 };
 

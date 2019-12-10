@@ -55,7 +55,7 @@
 
   &-ratio {
     position: absolute;
-    z-index: 1;
+    z-index: $z-modal + 1;
 
     &.top {
       top: $grid-indent-width;

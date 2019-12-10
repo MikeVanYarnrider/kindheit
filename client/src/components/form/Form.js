@@ -1,11 +1,9 @@
 import React from "react";
 import { FormField } from "./FormField";
 
-import { Alert, Form, Button } from "react-bootstrap";
-
 const FormGroup = props => {
   return (
-    <Form onSubmit={props.handleSubmit}>
+    <form onSubmit={props.handleSubmit}>
       {props.fields.map(item => {
         return (
           <FormField
@@ -18,9 +16,9 @@ const FormGroup = props => {
           />
         );
       })}
-      {props.error && <Alert variant="danger">{props.error}</Alert>}
-      <Button type="submit">Parent Login</Button>
-    </Form>
+      {props.error && <p>{props.error}</p>}
+      <button type="submit">{props.button}</button>
+    </form>
   );
 };
 
