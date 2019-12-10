@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Lottie from "react-lottie";
-import animationBoyGirl from "./animationData/animationBoyGirl";
+import animationBoyGirl from "./animationData/";
 
 class AnimationBoyGirl extends Component {
-  state = { isToggled: false, isStopped: false };
+  state = { isToggled: false, isStopped: false /* isClicked: false */ };
 
   render() {
     return (
@@ -25,14 +25,19 @@ class AnimationBoyGirl extends Component {
           //speed={1}
           options={{
             animationData: animationBoyGirl,
-            loop: false,
+            autoplay: false,
+            loop: true,
             rendererSettings: {
               preserveAspectRatio: "xMidYMid slice"
             }
           }}
           isStopped={!this.state.isToggled}
+          isPaused={false}
           height={500}
+          segments={[15, 20]}
+          forceSegment={false}
           width={370}
+          isClickToPauseDisabled={true}
           eventListeners={[
             {
               eventName: "complete",
