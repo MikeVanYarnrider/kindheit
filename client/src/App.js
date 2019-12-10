@@ -15,16 +15,19 @@ import ParentsBackend from "./components/ParentsBackend";
 
 export default class App extends Component {
   state = {
-    user: this.props.user
+    user: this.props.user,
+    restrictionTime: 0
   };
 
   setUser = user => {
+    // console.log("setUser");
     this.setState({
       user: user
     });
   };
 
   render() {
+    console.log(this.state.user);
     return (
       <div>
         <Navbar

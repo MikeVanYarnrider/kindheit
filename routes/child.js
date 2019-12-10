@@ -7,7 +7,7 @@ router.post("/play/:type/:id", (req, res) => {
   console.log(req.body.sessionTimes);
   const { _id } = req.body.user;
   const { gameTime, game } = req.body;
-  res.json(req.body);
+
   Child.findByIdAndUpdate(
     _id,
     {
@@ -23,8 +23,13 @@ router.post("/play/:type/:id", (req, res) => {
     { new: true }
   )
     .then(found => {
-      console.log(found);
-      res.json(found);
+      // console.log(found.restrictionTime);
+      const restricted = found.restrictionTime.reduce((acc, val) => {
+        return acc + val;
+      });
+      console.log(restricted);
+      // res.json(restricted);
+      res.json({ ...req.body, restricted });
     })
     .catch(err => {
       console.log(err);
