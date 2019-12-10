@@ -33,12 +33,13 @@ export default class DrawTrain extends Component {
         game: gameId
       })
       .then(response => {
-        // console.log(response);
+        console.log(response);
       })
       .catch(err => console.log(err));
   };
 
   componentDidMount = () => {
+    console.log(this.props);
     this.setState(
       {
         gameStartTime: new Date()

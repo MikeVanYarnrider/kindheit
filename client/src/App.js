@@ -19,12 +19,14 @@ export default class App extends Component {
   };
 
   setUser = user => {
+    // console.log("setUser");
     this.setState({
       user: user
     });
   };
 
   render() {
+    console.log(this.state.user);
     return (
       <div>
         <Navbar
