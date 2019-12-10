@@ -9,7 +9,6 @@ class GameItem extends Component {
   };
 
   handleInstructions = () => {
-    console.log("TRIGGER MODAL", this.state.instructions);
     this.setState({
       instructions: !this.state.instructions
     });
@@ -29,10 +28,10 @@ class GameItem extends Component {
             {this.state.instructions && (
               <Modal
                 path={link}
-                variant="btn-rnd btn-start"
+                variant="btn-rnd play"
                 isOpen={this.state.instructions}
                 onClose={this.handleInstructions}
-              classCustom="instructions"
+                classCustom="instructions"
               >
                 <h1>Instructions</h1>
                 {instructions}
