@@ -9,15 +9,15 @@ class AnimationBoyGirl extends Component {
     return this.setState({ isToggled: !this.state.isToggled });
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    prevState.isToggled === this.state.isToggled && this.resetFrame();
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   prevState.isToggled === this.state.isToggled && this.resetFrame();
+  // }
 
   render() {
     return (
       <div className={this.props.classLotti}>
         <Lottie
-          direction={this.state.isToggled ? 1 : -1}
+          // direction={this.state.isToggled ? 1 : -1}
           options={{
 
             animationData:animationBoyGirl,
@@ -29,6 +29,7 @@ class AnimationBoyGirl extends Component {
           isStopped={!this.state.isToggled}
           height={500}
           width={370}
+          isPaused= {false}
           onClick={() => {
             this.setState({
               isToggled: !this.state.isToggled
