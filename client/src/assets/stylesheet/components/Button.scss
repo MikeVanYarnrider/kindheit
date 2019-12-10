@@ -115,8 +115,10 @@
 }
 
 .rotate {
-  animation: #{rotate-keyframes} 2s;
-  -webkit-animation: #{rotate-keyframes} 2s;
+  svg {
+    animation: #{rotate-keyframes} 2s;
+    -webkit-animation: #{rotate-keyframes} 2s;
+  }
 }
 
 @keyframes rotate-keyframes {
@@ -125,5 +127,24 @@
   }
   100% {
     @include make-button-rotate(360, 2);
+  }
+}
+
+.scale {
+  svg {
+    animation: #{scale-keyframes} 2s;
+    -webkit-animation: #{scale-keyframes} 2s;
+  }
+}
+
+@keyframes scale-keyframes {
+  0% {
+    @include make-button-scale(1);
+  }
+  50% {
+    @include make-button-scale(1.25);
+  }
+  100% {
+    @include make-button-scale(1);
   }
 }
