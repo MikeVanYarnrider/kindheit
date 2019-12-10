@@ -26,7 +26,7 @@ class ParentsBackend extends React.Component {
         timeSum += time;
         return (
           <li key={time}>
-            {game}: {time.toFixed(2)} on {timeStamp.slice(4, 15)}
+            {game}: {time.toFixed(2)} sec on {timeStamp.slice(4, 15)}
           </li>
         );
       });
@@ -37,10 +37,9 @@ class ParentsBackend extends React.Component {
           <div>
             <img src={profileImgUrl} width="200px" alt="profile" />
           </div>
-          <div>
-            <p>
-              <strong>Name:</strong> {username}
-            </p>
+          <div className="height">
+            <h2>{username}</h2>
+
             <div>
               <h5>Last 5 played games:</h5>
               <ol>{time.slice(time.length - 5, time.length)}</ol>
