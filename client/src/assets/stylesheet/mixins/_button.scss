@@ -25,3 +25,11 @@
   -ms-transform: rotate($angle * $times#{deg});
   -o-transform: rotate($angle * $times#{deg});
 }
+
+@mixin make-button-scale($prop) {
+  transform: scale($prop);
+  -webkit-transform: scale($prop);
+  -moz-transform: scale($prop);
+  -ms-transform: scale($prop);
+  -o-transform: scale($prop);
+}

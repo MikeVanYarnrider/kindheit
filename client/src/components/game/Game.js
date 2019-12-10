@@ -16,6 +16,7 @@ function Game(props) {
         <Button
           variant="btn-rnd close btn-ratio top right"
           href={`/play/${type}`}
+          animation="scale"
         />
         <Component {...props} />
       </div>
