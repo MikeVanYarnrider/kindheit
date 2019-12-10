@@ -23,12 +23,9 @@ router.post("/play/:type/:id", (req, res) => {
     { new: true }
   )
     .then(found => {
-      // console.log(found.restrictionTime);
       const restricted = found.restrictionTime.reduce((acc, val) => {
         return acc + val;
       });
-      console.log(restricted);
-      // res.json(restricted);
       res.json({ ...req.body, restricted });
     })
     .catch(err => {

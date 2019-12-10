@@ -15,8 +15,7 @@ import ParentsBackend from "./components/ParentsBackend";
 
 export default class App extends Component {
   state = {
-    user: this.props.user,
-    restrictionTime: 0
+    user: this.props.user
   };
 
   setUser = user => {
