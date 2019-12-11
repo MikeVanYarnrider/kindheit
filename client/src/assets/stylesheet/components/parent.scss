@@ -15,7 +15,7 @@
   margin: 1em 0;
   padding: 5px;
   width: 48%;
-  min-height: 260px;
+  height: 300px;
 }
 
 .between {
@@ -29,4 +29,9 @@
 .height {
   height: 100%;
   width: 58%;
+}
+
+ol {
+  list-style: inside;
+  padding-left: 0;
 }

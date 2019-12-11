@@ -20,10 +20,11 @@ class ParentsBackend extends React.Component {
 
   render() {
     const children = Object.values(this.state.children).map((child, index) => {
+      console.log(child);
       let timeSum = 0;
       const time = child.sessionTimes.map(times => {
         const { time, timeStamp, game } = times;
-        timeSum += time;
+        timeSum += times;
         return (
           <li key={time}>
             {game}: {time.toFixed(2)} sec on {timeStamp.slice(4, 15)}
