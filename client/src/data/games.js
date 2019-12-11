@@ -1,5 +1,3 @@
-import React from "react";
-
 import Puzzle from "../components/Games/Puzzle/Puzzle";
 import PuzzleInstructions from "../components/Games/Puzzle/Instructions";
 
@@ -24,7 +22,7 @@ const games = [
     type: "handsgames",
     image: TrainImg,
     component: DrawTrain,
-    instructions: <DrawTrainInstructions />
+    instructions: DrawTrainInstructions
   },
   {
     title: "Build a Lego Train",
@@ -32,7 +30,7 @@ const games = [
     type: "handsgames",
     image: LegoImg,
     component: LegoBuild,
-    instructions: <LegoBuildInstructions />
+    instructions: LegoBuildInstructions
   },
   {
     title: "Puzzle",
@@ -40,7 +38,7 @@ const games = [
     type: "device",
     image: PuzzleImg,
     component: Puzzle,
-    instructions: <PuzzleInstructions />
+    instructions: PuzzleInstructions
   },
   {
     title: "Memory Game",
@@ -48,7 +46,7 @@ const games = [
     type: "device",
     image: MemoryImg,
     component: MemoryGame,
-    instructions: <MemoryInstructions />
+    instructions: MemoryInstructions
   },
   {
     title: "Energy Flow",
@@ -56,7 +54,7 @@ const games = [
     type: "device",
     image: PuzzleImg,
     component: EnergyFlow,
-    instructions: <EnergyFlowInstructions />
+    instructions: EnergyFlowInstructions
   }
 ];
 
