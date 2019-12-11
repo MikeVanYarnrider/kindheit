@@ -39,6 +39,7 @@ export default class App extends Component {
       .catch(err => {
         console.log(err);
       });
+    this.props.history.push("/play/handsgames");
   };
 
   setUser = user => {
@@ -55,11 +56,11 @@ export default class App extends Component {
   };
 
   render() {
-    // console.log(this.state.user);
-    console.log(
-      "restrictionTime",
-      this.state.restrictionTime.toFixed(0) + " min"
-    );
+    console.log(this.props);
+    // console.log(
+    //   "restrictionTime",
+    //   this.state.restrictionTime.toFixed(0) + " min"
+    // );
     return (
       <div>
         <Navbar
