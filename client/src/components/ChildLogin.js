@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
 import { childLogin } from "./services/auth";
-import {error, loginChildIcon} from "../images"
+import { error, loginChildIcon } from "../images";
 
 import CarouselProfileimages from "../components/Login_Children/CarouselLoginProfileImages";
 import ChildrenPassword from "../components/Login_Children/ChildrenLoginPassword";
@@ -12,7 +12,7 @@ const defaultProfiles = [
     gameStatus: [],
     parent: ["111111111111111111111111"],
     password: "pppp",
-    profileImgUrl:"",
+    profileImgUrl: "",
     sessionTimes: [],
     type: "child",
     username: "Max",
@@ -22,7 +22,7 @@ const defaultProfiles = [
     gameStatus: [],
     parent: ["111111111111111111111111"],
     password: "ppppp",
-    profileImgUrl:"",
+    profileImgUrl: "",
     sessionTimes: [],
     type: "child",
     username: "Marie",
@@ -82,25 +82,41 @@ class GameLogin extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <div className="childLoginFormWrapper"
-          >
+          <div className="childLoginFormWrapper">
             <CarouselProfileimages
               {...this.state}
               setProfileImg={this.setProfileImage}
               setChosenProfileImg={this.setChosenProfileImage}
               setChosenProfile={this.setChosenProfile}
             />
-            <div style={{display: "flex", justifyContent: "space-between", flexDirection: "column", alignItems: "center", height: "50%"}}>
-            <ChildrenPassword
-              {...this.state}
-              setPassword={this.setPassword}
-              setPasswordImage={this.setPasswordImage}
-              setChangePassword={this.setChangePassword}
-            />
-            {this.state.error && <div className="errorWrapper"><img src={error} style={{height: "20px", marginRight: "10px"}} alt=""/><p className="error">{this.state.error}</p></div>}
-            <button className="loginButton" type="submit">
-              <img src={loginChildIcon} style={{height: "30px"}} alt=""/>
-            </button>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                flexDirection: "column",
+                alignItems: "center",
+                height: "50%"
+              }}
+            >
+              <ChildrenPassword
+                {...this.state}
+                setPassword={this.setPassword}
+                setPasswordImage={this.setPasswordImage}
+                setChangePassword={this.setChangePassword}
+              />
+              {this.state.error && (
+                <div className="errorWrapper">
+                  <img
+                    src={error}
+                    style={{ height: "20px", marginRight: "10px" }}
+                    alt=""
+                  />
+                  <p className="error">{this.state.error}</p>
+                </div>
+              )}
+              <button className="loginButton" type="submit">
+                <img src={loginChildIcon} style={{ height: "30px" }} alt="" />
+              </button>
             </div>
           </div>
         </form>

@@ -28,7 +28,7 @@ const GameList = props => {
 
   return (
     <CSSTransition in appear classNames="app-fade" timeout={800}>
-      <div className="container-flex container-indent container-ratio">
+      <div className="container-game-list container-flex container-indent container-ratio">
         <Button
           variant="btn-rnd back btn-ratio top left"
           animation="rotate"

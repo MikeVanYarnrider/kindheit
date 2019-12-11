@@ -25,6 +25,11 @@ class AnimationBoyGirl extends Component {
           isStopped={!this.state.isToggled}
           height={500}
           width={370}
+          onClick={() => {
+            this.setState({
+              isToggled: !this.state.isToggled
+            });
+          }}
           eventListeners={[
             {
               eventName: "complete",

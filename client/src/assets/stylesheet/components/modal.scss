@@ -33,14 +33,38 @@
     @include make-round-item($red-light, $radius / 10, $size * 2);
 
     &-instructions {
+      position: relative;
+      flex-direction: column;
       @include make-round-item(
         $yellow-light,
         $radius / 10,
         $size * 3,
-        $size * 2
+        $size * 1.75
       );
-      display: block;
-      flex-wrap: nowrap;
+
+      .btn {
+        &.play {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          transform: translate(50%, 50%);
+          -webkit-transform: translate(50%, 50%);
+          -moz-transform: translate(50%, 50%);
+          -ms-transform: translate(50%, 50%);
+          -o-transform: translate(50%, 50%);
+        }
+
+        &.close {
+          position: absolute;
+          top: 0;
+          right: 0;
+          transform: translate(50%, -50%);
+          -webkit-transform: translate(50%, -50%);
+          -moz-transform: translate(50%, -50%);
+          -ms-transform: translate(50%, -50%);
+          -o-transform: translate(50%, -50%);
+        }
+      }
     }
   }
 }

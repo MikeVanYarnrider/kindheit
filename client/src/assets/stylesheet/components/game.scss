@@ -33,6 +33,15 @@
     justify-content: space-between;
 
     @include make-container-flex();
+
+    @at-root .container {
+      &-game {
+        &-list {
+          padding-bottom: $grid-indent-width * 2;
+          @include make-container-full-height();
+        }
+      }
+    }
   }
 
   &-wrapper {
@@ -51,8 +60,8 @@
       width: 90%;
 
       &.scale {
-        animation: #{scale-img-keyframes} 1s;
-        -webkit-animation: #{scale-img-keyframes} 1s;
+        animation: #{scale-img-keyframes} $speed;
+        -webkit-animation: #{scale-img-keyframes} $speed;
       }
     }
 
@@ -74,7 +83,7 @@
     @include make-button-scale(1);
   }
   50% {
-    @include make-button-scale(1.05);
+    @include make-button-scale(1.15);
   }
   100% {
     @include make-button-scale(1);

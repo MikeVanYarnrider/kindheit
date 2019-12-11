@@ -125,8 +125,8 @@
 .rotate {
   svg,
   img {
-    animation: #{rotate-keyframes} 1s;
-    -webkit-animation: #{rotate-keyframes} 1s;
+    animation: #{rotate-keyframes} $speed;
+    -webkit-animation: #{rotate-keyframes} $speed;
   }
 }
 
@@ -135,19 +135,19 @@
     @include make-button-rotate(0);
   }
   100% {
-    @include make-button-rotate(360, 2);
+    @include make-button-rotate(360, 1);
   }
 }
 
 .scale {
   svg {
-    animation: #{scale-btn-keyframes} 1s;
-    -webkit-animation: #{scale-btn-keyframes} 1s;
+    animation: #{scale-btn-keyframes} $speed;
+    -webkit-animation: #{scale-btn-keyframes} $speed;
   }
 
   img {
-    animation: #{scale-img-keyframes} 1s;
-    -webkit-animation: #{scale-img-keyframes} 1s;
+    animation: #{scale-img-keyframes} $speed;
+    -webkit-animation: #{scale-img-keyframes} $speed;
   }
 }
 
