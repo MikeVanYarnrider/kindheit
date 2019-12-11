@@ -1,10 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { logo } from "../images";
+import { logo, loginChildrenNotActive, loginParentsNotActive } from "../images";
 import "../assets/stylesheet/components/navbar.scss";
 import { logout } from "./services/auth";
 
 const Navbar = props => {
+  let parentIcon = loginParentsNotActive;
+  let childrenIcon = loginChildrenNotActive;
+
+
+
+let changeIconsStartScreen = () => {
+console.log("hex")
+}
+
+
   const handleLogout = () => {
     logout(props);
   };
@@ -46,16 +56,24 @@ const Navbar = props => {
                   {/*          <Link className="navbar-link" to="/signup">
                     Signup
                   </Link> */}
-                  <Link className="navbar-link" to="/parentlogin">
-                    Parentlogin
+                  <Link
+                    className="navbar-link parentLogin"
+                    to="/parentlogin"
+              
+                  >
+                    <img src={parentIcon} style={{ height: "50px" }} onClickCapture={console.log("hex")} alt="" />
                   </Link>
                 </>
               ) : /* PARENT LOGIN SELECTED: */
 
               pathName === "/parentlogin" ? (
                 <>
-                  <Link className="navbar-link" to="/childlogin">
-                    Child Login
+                  <Link className="navbar-link childrenLogin" to="/childlogin">
+                    <img
+                      src={childrenIcon}
+                      style={{ height: "50px" }}
+                      alt=""
+                    />
                   </Link>
                   {/*          <Link className="navbar-link" to="/signup">
                     Signup
@@ -63,8 +81,12 @@ const Navbar = props => {
                 </>
               ) : (
                 /* CHILD LOGIN SELECTED: */ <>
-                  <Link className="navbar-link" to="/parentlogin">
-                    Parentlogin
+                  <Link className="navbar-link parentLogin" onClickCapture={changeIconsStartScreen()} to="/parentlogin">
+                    <img
+                      src={parentIcon}
+                      style={{ height: "50px" }}
+                      alt=""
+                    />
                   </Link>
                   {/*       <Link className="navbar-link" to="/signup">
                     Signup
