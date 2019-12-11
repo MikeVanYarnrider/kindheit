@@ -20,13 +20,13 @@ class ParentsBackend extends React.Component {
 
   render() {
     const children = Object.values(this.state.children).map((child, index) => {
-      console.log(child);
+      // console.log(child);
       let timeSum = 0;
       const time = child.sessionTimes.map(times => {
-        console.log(times);
+        // console.log(times);
         const { time, timeStamp, game } = times;
         timeSum += time;
-        console.log(timeSum);
+        // console.log(timeSum);
 
         return (
           <li key={time} className="flex-container between">
