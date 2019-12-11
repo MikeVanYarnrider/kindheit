@@ -15,11 +15,14 @@ import MemoryInstructions from "../components/Games/Memory/Instructions";
 import EnergyFlow from "../components/Games/EnergyFlow/EnergyFlow";
 import EnergyFlowInstructions from "../components/Games/EnergyFlow/Instructions";
 
+import { LegoImg, TrainImg, PuzzleImg, MemoryImg } from "../images";
+
 const games = [
   {
     title: "Draw a Train",
     link: "drawtrain",
     type: "handsgames",
+    image: TrainImg,
     component: DrawTrain,
     instructions: <DrawTrainInstructions />
   },
@@ -27,6 +30,7 @@ const games = [
     title: "Build a Lego Train",
     link: "legobuild",
     type: "handsgames",
+    image: LegoImg,
     component: LegoBuild,
     instructions: <LegoBuildInstructions />
   },
@@ -34,6 +38,7 @@ const games = [
     title: "Puzzle",
     link: "puzzle",
     type: "device",
+    image: PuzzleImg,
     component: Puzzle,
     instructions: <PuzzleInstructions />
   },
@@ -41,6 +46,7 @@ const games = [
     title: "Memory Game",
     link: "memory",
     type: "device",
+    image: MemoryImg,
     component: MemoryGame,
     instructions: <MemoryInstructions />
   },
@@ -48,6 +54,7 @@ const games = [
     title: "Energy Flow",
     link: "energyflow",
     type: "device",
+    image: PuzzleImg,
     component: EnergyFlow,
     instructions: <EnergyFlowInstructions />
   }

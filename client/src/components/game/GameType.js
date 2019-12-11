@@ -13,6 +13,7 @@ const GameSelect = () => {
         key={index}
         classProp={"game-type"}
         title={game.type}
+        url={game.image}
         link={`/play/${game.link}`}
       />
     );
@@ -23,7 +24,12 @@ const GameSelect = () => {
 
 const GameType = () => {
   return (
-    <CSSTransition in appear classNames="app-fade" timeout={800}>
+    <CSSTransition
+      in
+      appear
+      classNames="container-game-type app-fade"
+      timeout={800}
+    >
       <GameSelect />
     </CSSTransition>
   );
