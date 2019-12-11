@@ -1,6 +1,9 @@
 @import "../../variables";
 
-.loginProfiles  .carousel .thumb img {
+$sliderButtonColor: $blue-light;
+$nameTagColor: $yellow-dark;
+
+.loginProfiles .carousel .thumb img {
   width: 100% !important;
   height: 100% !important;
 }
@@ -12,13 +15,13 @@
   width: auto;
 }
 
-.loginProfiles  .carousel .slide {
+.loginProfiles .carousel .slide {
   background-color: rgba(0, 0, 0, 0);
 
   height: 100px;
 }
 
-.loginProfiles  .carousel .thumb {
+.loginProfiles .carousel .thumb {
   width: 15%;
   border: none;
 }
@@ -53,6 +56,12 @@
   justify-content: center;
   align-items: center;
 }
+.loginProfiles .carousel.carousel-slider {
+  height: 200px;
+  padding: 20px 0px 20px 0px;
+
+  overflow: visible;
+}
 
 .loginProfiles .control-arrow > button {
   height: 100px !important;
@@ -70,8 +79,12 @@
 .loginProfiles .carousel .slide .legend {
   top: 120%;
   height: 50px;
-  background: rgb(0, 153, 153);
+  background: $nameTagColor;
   opacity: 1;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.4), inset -1px -1px 2px rgba(0,0,0,0.2);
+}
+.loginProfiles ul {
+  height: 180px;
 }
 
 .loginProfiles p.legend {
@@ -95,22 +108,41 @@
 }
 
 .loginProfiles .carousel > button.control-arrow.control-next {
-  background-color: rgb(0, 153, 153);
+  background-color: $sliderButtonColor;
   width: 40px;
+  height: 200px;
+  top: auto;
+  bottom: auto;
   opacity: 1 !important;
   border-radius: 12px;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.4), inset -1px -1px 2px rgba(0,0,0,0.2);
 }
 
 .loginProfiles .carousel > button.control-arrow.control-prev {
-  background-color: rgb(0, 153, 153);
+  background-color: $sliderButtonColor;
   width: 40px;
+  height: 200px;
+  top: auto;
+  bottom: auto;
   opacity: 1 !important;
   border-radius: 12px;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.4), inset -1px -1px 2px rgba(0,0,0,0.2);
 }
 
+
 .loginProfiles .carousel.carousel-slider .control-arrow:hover {
-  background: rgb(0, 153, 153);
+  background: $sliderButtonColor;
+  height: 200px;
+  width: 44px;
+  top: auto;
+  bottom: auto;
+  box-shadow: 3px 3px 5px #33b6c6, inset -1px -1px 2px rgba(0,0,0,0.2);
 }
-.loginProfiles .carousel.carousel-slider .control-arrow:hover {
-  background: rgb(0, 153, 153);
+.loginProfiles .carousel.carousel-slider .control-arrow:active {
+  background: $blue-dark;
+  height: 200px;
+  width: 44px;
+  top: auto;
+  bottom: auto;
+  box-shadow: 3px 3px 5px $blue-dark, inset -1px -1px 2px rgba(0,0,0,0.2);
 }

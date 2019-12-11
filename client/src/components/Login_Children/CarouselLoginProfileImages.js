@@ -49,7 +49,7 @@ const defaultProfiles = [
   {
     gameStatus: [],
     parent: ["111111111111111111111111"],
-    password: "pppp",
+    password: "ppppp",
     profileImgUrl: profileImgArr[1],
     sessionTimes: [],
     type: "child",

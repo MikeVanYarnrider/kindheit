@@ -20,6 +20,15 @@ import passwordImg2 from "./assets/images/authentification/signupChildren/2.png"
 import passwordImg3 from "./assets/images/authentification/signupChildren/3.png";
 import passwordImg4 from "./assets/images/authentification/signupChildren/4.png";
 
+//loginlogos
+import loginChildrenNotActive from "./assets/images/authentification/LoginIconChildren_notActive.png"
+import loginParentsNotActive from "./assets/images/authentification/LoginIconParents_notActive.png"
+
+import loginChildIcon from "./assets/images/authentification/loginChildIcon.png"
+
+//loginerror 
+import error from "./assets/images/authentification/error.png"
+
 import profileImgDragon from "./assets/images/authentification/defaultProfileimages/old/dragon.png";
 import profileImgPrincess from "./assets/images/authentification/defaultProfileimages/old/princess.png";
 import profileImgBoy from "./assets/images/authentification/defaultProfileimages/old/boy.png";
@@ -28,13 +37,13 @@ import profileImgCow from "./assets/images/authentification/defaultProfileimages
 import profileImgPig from "./assets/images/authentification/defaultProfileimages/old/pig.png";
 
 //newProfileImages
-import profileImg_boy_brownHair from "./assets/images/authentification/defaultProfileimages/boy_brownHair.png";
-import profileImg_boy_darkSkintone from "./assets/images/authentification/defaultProfileimages/boy_darkSkintone.png";
-import profileImg_boy_purpleHair from "./assets/images/authentification/defaultProfileimages/boy_purpleHair.png";
-import profileImg_girl_blondeHair from "./assets/images/authentification/defaultProfileimages/girl_blondeHair.png";
-import profileImg_girl_redHair from "./assets/images/authentification/defaultProfileimages/girl_redHair.png";
-import profileImg_girl_blueHair from "./assets/images/authentification/defaultProfileimages/girl_blueHair.png";
-import profileImg_girl_pinkHair from "./assets/images/authentification/defaultProfileimages/girl_pinkHair.png";
+import profileImg_boy_brownHair from "./assets/images/authentification/defaultProfileimages/boy_brownHair_2.png";
+import profileImg_boy_darkSkintone from "./assets/images/authentification/defaultProfileimages/boy_darkSkintone_2.png";
+import profileImg_boy_purpleHair from "./assets/images/authentification/defaultProfileimages/boy_purpleHair_2.png";
+import profileImg_girl_blondeHair from "./assets/images/authentification/defaultProfileimages/girl_blondeHair_2.png";
+import profileImg_girl_redHair from "./assets/images/authentification/defaultProfileimages/girl_redHair_2.png";
+import profileImg_girl_blueHair from "./assets/images/authentification/defaultProfileimages/girl_blueHair_2.png";
+import profileImg_girl_pinkHair from "./assets/images/authentification/defaultProfileimages/girl_pinkHair_2.png";
 
 //animationImages
 import animationImageBoyGirl from "./assets/images/animationImages/animationBoyGirl/img_0.png";
@@ -95,5 +104,10 @@ export {
   lego6,
   lego7,
   lego8,
+  loginChildrenNotActive,
+  loginParentsNotActive,
+  error,
+  loginChildIcon,
   buildSomething
+
 };
