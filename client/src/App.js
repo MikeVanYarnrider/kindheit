@@ -16,6 +16,8 @@ import Modal from "./components/modal/Modal";
 
 import axios from "axios";
 
+import { buildSomething } from "./images";
+
 export default class App extends Component {
   state = {
     user: this.props.user,
@@ -68,7 +70,10 @@ export default class App extends Component {
             isOpen={this.state.modalOpen}
             onClose={this.handleInstructions}
           >
-            TIME RESTRICTED
+            <h2>Hat du Lust etwas zu basteln? </h2>
+            <div>
+              <img src={buildSomething} width="150px" alt="buildSomething" />
+            </div>
           </Modal>
         )}
 
