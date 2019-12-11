@@ -1,7 +1,7 @@
 import React from "react";
 
-const Instructions = () => {
-  return <div>Energy Flow instructions</div>;
+const Instructions = props => {
+  return <img src="" alt={props.title} />;
 };
 
 export default Instructions;

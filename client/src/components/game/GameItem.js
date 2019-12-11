@@ -16,6 +16,7 @@ class GameItem extends Component {
 
   render() {
     const { classProp, title, instructions, link, url } = this.props;
+    const Instructions = instructions;
     return (
       <>
         {instructions ? (
@@ -44,8 +45,7 @@ class GameItem extends Component {
                 onClose={this.handleInstructions}
                 classCustom="instructions"
               >
-                <h1>Instructions</h1>
-                {instructions}
+                <Instructions title={title} />
               </Modal>
             )}
           </>
