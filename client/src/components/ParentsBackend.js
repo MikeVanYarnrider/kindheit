@@ -3,7 +3,6 @@ import axios from "axios";
 import "../../src/assets/stylesheet/components/parent.scss";
 import "../../src/assets/stylesheet/components/button.scss";
 import Button from "../../src/components/Button";
-
 class ParentsBackend extends React.Component {
   state = {
     children: []
