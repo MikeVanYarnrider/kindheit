@@ -12,10 +12,33 @@ import GameList from "./components/game/GameList";
 import Welcome from "./components/Welcome";
 
 import ParentsBackend from "./components/ParentsBackend";
+import Modal from "./components/modal/Modal";
+
+import axios from "axios";
 
 export default class App extends Component {
   state = {
-    user: this.props.user
+    user: this.props.user,
+    restrictionTime: 0, //minutes
+    modalOpen: false
+  };
+
+  handleInstructions = () => {
+    // console.log(this.state.user._id);
+    this.setState({
+      modalOpen: !this.state.modalOpen,
+      restrictionTime: 0
+    });
+    axios
+      .post("/child/restriction/delete", {
+        user: this.state.user._id
+      })
+      .then(response => {
+        console.log("DELETED", response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   setUser = user => {
@@ -26,11 +49,17 @@ export default class App extends Component {
   };
 
   getRestrictionTime = restrictionTime => {
-    console.log("restrictionTime", restrictionTime);
+    this.setState({
+      restrictionTime: restrictionTime / 60
+    });
   };
 
   render() {
     // console.log(this.state.user);
+    console.log(
+      "restrictionTime",
+      this.state.restrictionTime.toFixed(0) + " min"
+    );
     return (
       <div>
         <Navbar
@@ -38,6 +67,16 @@ export default class App extends Component {
           user={this.state.user}
           clearUser={this.setUser}
         />
+        {this.state.restrictionTime > 45 && (
+          <Modal
+            variant="btn-rnd play"
+            isOpen={this.state.modalOpen}
+            onClose={this.handleInstructions}
+          >
+            TIME RESTRICTED
+          </Modal>
+        )}
+
         <Switch>
           <Route
             exact

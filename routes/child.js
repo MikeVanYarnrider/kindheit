@@ -33,4 +33,25 @@ router.post("/play/:type/:id", (req, res) => {
     });
 });
 
+router.post("/restriction/delete", (req, res) => {
+  console.log(req.user._id);
+  // res.json(req.body);
+  const { _id } = req.user;
+  Child.findByIdAndUpdate(
+    _id,
+    {
+      $set: {
+        restrictionTime: []
+      }
+    },
+    { new: true }
+  )
+    .then(found => {
+      console.log(found.restrictionTime);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
 module.exports = router;
