@@ -1,7 +1,14 @@
 import logo from "./assets/images/layout/logo.png";
 
-// Welcome page assets
-import lego from "./assets/images/home/lego-welcome.png";
+// Game types
+import handGames from "./assets/images/layout/cards/type/handgames_card.png";
+import digitalGames from "./assets/images/layout/cards/type/digitalgames_card.png";
+
+// Game list
+import LegoImg from "./assets/images/layout/cards/list/lego_card.png";
+import TrainImg from "./assets/images/layout/cards/list/train_card.png";
+import PuzzleImg from "./assets/images/layout/cards/list/puzzle_card.png";
+import MemoryImg from "./assets/images/layout/cards/list/memory_card.png";
 
 import pathImage1 from "./assets/images/games/puzzle/1.png";
 import pathImage2 from "./assets/images/games/puzzle/2.png";
@@ -54,7 +61,12 @@ import lego8 from "./assets/images/instructions/10706_Building_Instructions-33.j
 
 export {
   logo,
-  lego,
+  handGames,
+  digitalGames,
+  LegoImg,
+  TrainImg,
+  PuzzleImg,
+  MemoryImg,
   pathImage1,
   pathImage2,
   pathImage3,
