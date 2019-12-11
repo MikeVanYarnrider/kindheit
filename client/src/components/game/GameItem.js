@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Modal from "../modal/Modal";
 import Button from "../Button";
 
 class GameItem extends Component {
   state = {
-    instructions: false
+    instructions: false,
+    animation: false
   };
 
   handleInstructions = () => {
@@ -15,17 +15,27 @@ class GameItem extends Component {
   };
 
   render() {
-    const { classProp, title, instructions, link } = this.props;
+    const { classProp, title, instructions, link, url } = this.props;
     return (
-      <div className={classProp}>
+      <>
         {instructions ? (
           <>
-            <h1>{title}</h1>
-            <Button
-              onClick={() => this.handleInstructions()}
-              variant="btn-rnd select"
-              animation="scale"
-            ></Button>
+            <div className={classProp}>
+              <img
+                src={url}
+                alt={title}
+                className={this.state.animation ? "scale" : ""}
+              />
+              <Button
+                onClick={() => {
+                  this.handleInstructions();
+                }}
+                variant="btn-rnd select"
+                animation="scale"
+                animationImg={true}
+                handleAnimationImg={bool => this.setState({ animation: bool })}
+              ></Button>
+            </div>
             {this.state.instructions && (
               <Modal
                 path={link}
@@ -40,9 +50,13 @@ class GameItem extends Component {
             )}
           </>
         ) : (
-          <Link to={link}>{title}</Link>
+          <div className={classProp}>
+            <Button href={link} variant="image" animation="scale">
+              <img src={url} alt={title} />
+            </Button>
+          </div>
         )}
-      </div>
+      </>
     );
   }
 }

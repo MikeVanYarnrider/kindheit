@@ -14,7 +14,6 @@ import {
 class Button extends Component {
   state = {
     redirect: "",
-    timeouts: [],
     fade: false
   };
 
@@ -27,6 +26,7 @@ class Button extends Component {
     if (variant.includes("number")) return <span>1</span>;
     if (variant.includes("select")) return <Plus />;
     if (variant.includes("checked")) return <Check classSvg="checked" />;
+    if (variant.includes("image")) return <>{this.props.children}</>;
     else
       return (
         <>
@@ -36,12 +36,14 @@ class Button extends Component {
   };
 
   startAnimation = () => {
+    this.props.animationImg && this.props.handleAnimationImg(true);
     this.setState({
       fade: true
     });
   };
 
   finishAnimation = (event, cb) => {
+    this.props.animationImg && this.props.handleAnimationImg(false);
     this.setState(
       {
         fade: false
@@ -53,6 +55,7 @@ class Button extends Component {
   };
 
   handleRedirect = () => {
+    this.props.animationImg && this.props.handleAnimationImg(false);
     this.setState({
       fade: false,
       redirect: this.props.href
@@ -61,9 +64,9 @@ class Button extends Component {
 
   render() {
     const { onClick, href, variant } = this.props;
-    const btnClass = `btn ${
+    const btnClass = `btn ${variant} ${
       this.state.fade ? this.props.animation : ""
-    } ${variant}`;
+    }`.trimRight();
     const checkLink = href ? this.handleRedirect : onClick;
 
     if (this.state.redirect) {

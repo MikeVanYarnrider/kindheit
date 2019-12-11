@@ -20,6 +20,7 @@ const GameList = props => {
           classProp={"game-item"}
           instructions={game.instructions}
           title={game.title}
+          url={game.image}
           link={`/play/${type}/${game.link}`}
         />
       );

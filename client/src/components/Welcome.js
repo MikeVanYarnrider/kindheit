@@ -13,7 +13,11 @@ const Welcome = props => {
         <AnimationWindmillSpinning classLotti="back" />
       </div>
 
-      <div className="welcome-box container-flex">{content}</div>
+      <div
+        className={`welcome-box container-flex ${props.classProps}`.trimRight()}
+      >
+        {content}
+      </div>
     </div>
   );
 };
