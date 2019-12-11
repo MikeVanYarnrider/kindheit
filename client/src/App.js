@@ -12,15 +12,45 @@ import GameList from "./components/game/GameList";
 import Welcome from "./components/Welcome";
 
 import ParentsBackend from "./components/ParentsBackend";
+import Modal from "./components/modal/Modal";
+
+import axios from "axios";
 
 export default class App extends Component {
   state = {
-    user: this.props.user
+    user: this.props.user,
+    restrictionTime: 0, //minutes
+    modalOpen: false
+  };
+
+  handleInstructions = () => {
+    this.setState({
+      modalOpen: !this.state.modalOpen,
+      restrictionTime: 0
+    });
+    axios
+      .post("/child/restriction/delete", {
+        user: this.state.user._id
+      })
+      .then(response => {
+        console.log("DELETED", response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    this.props.history.push("/play/handsgames");
   };
 
   setUser = user => {
+    // console.log("setUser");
     this.setState({
       user: user
+    });
+  };
+
+  getRestrictionTime = restrictionTime => {
+    this.setState({
+      restrictionTime: restrictionTime / 60
     });
   };
 
@@ -32,6 +62,16 @@ export default class App extends Component {
           user={this.state.user}
           clearUser={this.setUser}
         />
+        {this.state.restrictionTime > 45 && (
+          <Modal
+            variant="btn-rnd play"
+            isOpen={this.state.modalOpen}
+            onClose={this.handleInstructions}
+          >
+            TIME RESTRICTED
+          </Modal>
+        )}
+
         <Switch>
           <Route
             exact
@@ -102,7 +142,13 @@ export default class App extends Component {
           <Route
             exact
             path="/play/:type/:gameId"
-            render={props => <Game {...props} user={this.state.user} />}
+            render={props => (
+              <Game
+                {...props}
+                getRestrictionTime={this.getRestrictionTime}
+                user={this.state.user}
+              />
+            )}
           />
         </Switch>
       </div>

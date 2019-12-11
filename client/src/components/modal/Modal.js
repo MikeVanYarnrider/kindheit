@@ -25,8 +25,7 @@ class Modal extends React.Component {
     }
   };
 
-  modalClose = event => {
-    event.preventDefault();
+  modalClose = () => {
     this.setState({ fadeType: "out" });
   };
 
@@ -55,12 +54,20 @@ class Modal extends React.Component {
             </Button>
           )}
           {this.props.path && (
-            <Button href={this.props.path} variant={this.props.variant}>
+            <Button
+              href={this.props.path}
+              variant={this.props.variant}
+              animation="scale"
+            >
               {this.props.btnAction}
             </Button>
           )}
           {this.props.onClose && (
-            <Button onClick={this.modalClose} variant="btn-rnd close"></Button>
+            <Button
+              onClick={this.modalClose}
+              variant="btn-rnd close"
+              animation="scale"
+            ></Button>
           )}
         </div>
       </div>

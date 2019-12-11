@@ -1,13 +1,12 @@
 @import "../variables";
 
-@mixin make-button($bg, $shadow, $bc: $white, $color: $white) {
+@mixin make-button($bg, $shadow, $bc: $white, $color: $white, $sb: 0.5em) {
   background-color: $bg;
   border: 4px solid #{$bc};
-  box-shadow: 0 0 1em #{$shadow};
+  box-shadow: 0 0 #{$sb} #{$shadow};
   color: $color;
 }
 @mixin make-button-type($br) {
-  display: inline-block;
   font-family: $font-family-patrick-hand;
   font-size: 2em;
   text-align: center;
@@ -17,4 +16,20 @@
   -moz-border-radius: $br;
   -ms-border-radius: $br;
   -o-border-radius: $br;
+}
+
+@mixin make-button-rotate($angle, $times: 1) {
+  transform: rotate($angle * $times);
+  -webkit-transform: rotate($angle * $times#{deg});
+  -moz-transform: rotate($angle * $times#{deg});
+  -ms-transform: rotate($angle * $times#{deg});
+  -o-transform: rotate($angle * $times#{deg});
+}
+
+@mixin make-button-scale($prop) {
+  transform: scale($prop);
+  -webkit-transform: scale($prop);
+  -moz-transform: scale($prop);
+  -ms-transform: scale($prop);
+  -o-transform: scale($prop);
 }

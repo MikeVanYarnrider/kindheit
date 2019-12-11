@@ -7,7 +7,7 @@ router.post("/play/:type/:id", (req, res) => {
   console.log(req.body.sessionTimes);
   const { _id } = req.body.user;
   const { gameTime, game } = req.body;
-  res.json(req.body);
+
   Child.findByIdAndUpdate(
     _id,
     {
@@ -16,13 +16,38 @@ router.post("/play/:type/:id", (req, res) => {
           timeStamp: new Date(),
           time: gameTime,
           game: game
-        }
+        },
+        restrictionTime: gameTime
       }
     },
     { new: true }
   )
     .then(found => {
-      console.log("User -->", found);
+      const restricted = found.restrictionTime.reduce((acc, val) => {
+        return acc + val;
+      });
+      res.json({ ...req.body, restricted });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+router.post("/restriction/delete", (req, res) => {
+  console.log(req.user._id);
+  // res.json(req.body);
+  const { _id } = req.user;
+  Child.findByIdAndUpdate(
+    _id,
+    {
+      $set: {
+        restrictionTime: []
+      }
+    },
+    { new: true }
+  )
+    .then(found => {
+      console.log(found.restrictionTime);
     })
     .catch(err => {
       console.log(err);

@@ -3,7 +3,7 @@ import Lottie from "react-lottie";
 import animationBoyGirl from "./animationData/animationBoyGirl";
 
 class AnimationBoyGirl extends Component {
-  state = { isToggled: false, isStopped: false };
+  state = { isToggled: false };
 
   resetFrame = () => {
     return this.setState({ isToggled: !this.state.isToggled });
@@ -19,21 +19,14 @@ class AnimationBoyGirl extends Component {
         <Lottie
           direction={this.state.isToggled ? 1 : -1}
           options={{
-
-            animationData:animationBoyGirl,
+            animationData: animationBoyGirl,
             loop: false,
-            rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice'
-      }
+            rendererSettings: { preserveAspectRatio: "xMidYMid slice" }
           }}
           isStopped={!this.state.isToggled}
           height={500}
           width={370}
-          onClick={() => {
-            this.setState({
-              isToggled: !this.state.isToggled
-            });
-          }}
+          isPaused={this.state.isToggled}
           eventListeners={[
             {
               eventName: "complete",

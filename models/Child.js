@@ -25,7 +25,8 @@ const childSchema = new Schema({
       time: Number,
       game: String
     }
-  ]
+  ],
+  restrictionTime: [Number]
 });
 
 const Child = mongoose.model("Child", childSchema);
