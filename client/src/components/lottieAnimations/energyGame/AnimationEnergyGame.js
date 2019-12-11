@@ -24,6 +24,12 @@ import loadingCarStation from "../energyGame/loadingCarStation.json";
 import loadingCarStationStatic from "../energyGame/loadingCarStation_Static.json";
 import carArrive from "../energyGame/car_Incoming.json";
 import carLeaving from "../energyGame/car_Leaving.json";
+import trafficLightToGreen from "../energyGame/traffic_light_redToGreen.json";
+import trafficLightToRed from "../energyGame/traffic_light_greenToRed.json";
+import trafficLightOff from "../energyGame/traffic_light_off.json";
+import kidsMoving from "../energyGame/kidsMoving.json";
+import kidsStanding from "../energyGame/kidsStanding.json";
+import blitz from "../energyGame/blitz.json";
 
 const House = () => {
   return (
@@ -100,7 +106,13 @@ class AnimationEnergyGame extends Component {
     schrankeFrontAnimation: schrankeFrontStatic,
     schrankeStopped: false,
     carStationAnimation: loadingCarStationStatic,
-    carAnimation: carArrive
+    carAnimation: carArrive,
+    trafficLightTrainAnimation: trafficLightOff,
+    trafficLightCarAnimation: trafficLightOff,
+    trafficLightPedestrians: trafficLightOff,
+    kidsAnimation: kidsStanding,
+    positionBlitz: ["355px", "35px"],
+    blitzAnimation: blitz
   };
 
   cloudChange = event => {
@@ -108,7 +120,8 @@ class AnimationEnergyGame extends Component {
       this.setState({
         cloudAnimation: cloudsBlowing,
         cloudsActivated: true,
-        powerLineFirstTrack: powerLineFirstTrack
+        powerLineFirstTrack: powerLineFirstTrack,
+        positionBlitz: ["600px", "300px"]
       });
     }
   };
@@ -120,7 +133,10 @@ class AnimationEnergyGame extends Component {
           powerLineSouthTrack: powerLineSouthTrackClosing,
           powerLineSouthClosed: true,
           schrankeBackAnimation: schrankeBack,
-          schrankeFrontAnimation: schrankeFront
+          schrankeFrontAnimation: schrankeFront,
+          trafficLightTrainAnimation: trafficLightToGreen,
+          trafficLightCarAnimation: trafficLightToRed,
+          positionBlitz: ["530px", "180px"]
         },
         () => {
           setTimeout(() => {
@@ -133,7 +149,9 @@ class AnimationEnergyGame extends Component {
                   this.setState(
                     {
                       schrankeFrontAnimation: schrankeFrontMovingBack,
-                      schrankeBackAnimation: schrankeBackMovingBack
+                      schrankeBackAnimation: schrankeBackMovingBack,
+                      trafficLightCarAnimation: trafficLightToGreen,
+                      trafficLightTrainAnimation: trafficLightToRed
                     },
                     () => {
                       console.log("Hallo");
@@ -149,10 +167,20 @@ class AnimationEnergyGame extends Component {
   };
   northTrackChange = event => {
     if (this.state.cloudsActivated && this.state.powerLineSouthClosed) {
-      this.setState({
-        powerLineNorthTrack: powerLineNorthTrackClosing,
-        powerLineNorthClosed: true
-      });
+      this.setState(
+        {
+          powerLineNorthTrack: powerLineNorthTrackClosing,
+          powerLineNorthClosed: true,
+          trafficLightPedestrians: trafficLightToGreen,
+
+          positionBlitz: ["130px", "180px"]
+        },
+        () => {
+          setTimeout(() => {
+            this.setState({ kidsAnimation: kidsMoving });
+          }, 1000);
+        }
+      );
     }
   };
 
@@ -160,15 +188,16 @@ class AnimationEnergyGame extends Component {
     if (this.state.powerLineNorthClosed) {
       this.setState(
         {
-          carStationAnimation: loadingCarStation
+          carStationAnimation: loadingCarStation,
+          trafficLightPedestrians: trafficLightToRed,
+          blitzAnimation: ""
         },
         () => {
           setTimeout(() => {
             this.setState({
               carAnimation: carLeaving
             });
-          } ,
-          1000);
+          }, 1000);
         }
       );
     }
@@ -183,7 +212,7 @@ class AnimationEnergyGame extends Component {
         <div
           className="carStationActivationButton"
           style={{
-            zIndex: "101",
+            zIndex: "200",
             background: "transparent",
             position: "absolute",
             height: "20px",
@@ -198,7 +227,7 @@ class AnimationEnergyGame extends Component {
         <div
           className="southTrackActivationButton"
           style={{
-            zIndex: "101",
+            zIndex: "200",
             background: "transparent",
             position: "absolute",
             height: "50px",
@@ -213,7 +242,7 @@ class AnimationEnergyGame extends Component {
         <div
           className="southTrackActivationButton"
           style={{
-            zIndex: "101",
+            zIndex: "200",
             background: "transparent",
             position: "absolute",
             height: "50px",
@@ -228,7 +257,7 @@ class AnimationEnergyGame extends Component {
         <div
           className="cloudsActivationButton"
           style={{
-            zIndex: "101",
+            zIndex: "200",
             background: "transparent",
             position: "absolute",
             height: "200px",
@@ -236,6 +265,37 @@ class AnimationEnergyGame extends Component {
           }}
           onClick={this.cloudChange}
         ></div>
+
+        {/* Blitz */}
+        <div
+          className="blitz"
+          style={{
+            zIndex: "110",
+            background: "transparent",
+            position: "absolute",
+            width: "100px",
+            marginLeft: this.state.positionBlitz[0],
+            marginTop: this.state.positionBlitz[1]
+          }}
+        >
+          <Lottie
+            options={{
+              direction: 1,
+              animationData: this.state.blitzAnimation,
+              autoplay: true,
+              loop: true,
+              rendererSettings: {
+                preserveAspectRatio: "xMidYMid slice"
+              }
+            }}
+            isStopped={false}
+            isPaused={false}
+            forceSegments={true}
+            height={100}
+            width={100}
+            isClickToPauseDisabled={true}
+          />
+        </div>
 
         {/* ElectricBox */}
         <div
@@ -326,6 +386,126 @@ class AnimationEnergyGame extends Component {
           />
         </div>
 
+        {/* Ampel Pedestrian Front */}
+        <div
+          className="ampelPedestrianFront"
+          style={{
+            zIndex: "4",
+            background: "transparent",
+            position: "absolute",
+            width: "500px",
+            marginLeft: "100px",
+            marginTop: "222px"
+          }}
+        >
+          <Lottie
+            options={{
+              direction: 1,
+              animationData: this.state.trafficLightPedestrians,
+              autoplay: true,
+              loop: false,
+              rendererSettings: {
+                preserveAspectRatio: "xMidYMid slice"
+              }
+            }}
+            isStopped={false}
+            isPaused={false}
+            height={50}
+            width={50}
+            isClickToPauseDisabled={true}
+          />
+        </div>
+
+        {/* Ampel Pedestrian back */}
+        <div
+          className="ampelPedestrianBack"
+          style={{
+            zIndex: "4",
+            background: "transparent",
+            position: "absolute",
+            width: "500px",
+            marginLeft: "52px",
+            marginTop: "285px"
+          }}
+        >
+          <Lottie
+            options={{
+              direction: 1,
+              animationData: this.state.trafficLightPedestrians,
+              autoplay: true,
+              loop: false,
+              rendererSettings: {
+                preserveAspectRatio: "xMidYMid slice"
+              }
+            }}
+            isStopped={false}
+            isPaused={false}
+            height={50}
+            width={50}
+            isClickToPauseDisabled={true}
+          />
+        </div>
+
+        {/* Kids */}
+        <div
+          className="kids"
+          style={{
+            zIndex: "3",
+            background: "transparent",
+            position: "absolute",
+            width: "500px",
+            marginLeft: "80px",
+            marginTop: "140px"
+          }}
+        >
+          <Lottie
+            options={{
+              direction: 1,
+              animationData: this.state.kidsAnimation,
+              autoplay: true,
+              loop: false,
+              rendererSettings: {
+                preserveAspectRatio: "xMidYMid slice"
+              }
+            }}
+            isStopped={false}
+            isPaused={false}
+            height={220}
+            width={70}
+            isClickToPauseDisabled={true}
+          />
+        </div>
+
+        {/* Ampel Auto */}
+        <div
+          className="Ampel Auto"
+          style={{
+            zIndex: "4",
+            background: "transparent",
+            position: "absolute",
+            width: "500px",
+            marginLeft: "345px",
+            marginTop: "390px"
+          }}
+        >
+          <Lottie
+            options={{
+              direction: 1,
+              animationData: this.state.trafficLightCarAnimation,
+              autoplay: true,
+              loop: false,
+              rendererSettings: {
+                preserveAspectRatio: "xMidYMid slice"
+              }
+            }}
+            isStopped={false}
+            isPaused={false}
+            height={50}
+            width={50}
+            isClickToPauseDisabled={true}
+          />
+        </div>
+
         {/* SchrankeFront */}
         <div
           className="SchrankeFront"
@@ -352,6 +532,36 @@ class AnimationEnergyGame extends Component {
             isPaused={false}
             height={150}
             width={150}
+            isClickToPauseDisabled={true}
+          />
+        </div>
+
+        {/* Ampel Zug */}
+        <div
+          className="Ampel Zug"
+          style={{
+            zIndex: "4",
+            background: "transparent",
+            position: "absolute",
+            width: "500px",
+            marginLeft: "220px",
+            marginTop: "320px"
+          }}
+        >
+          <Lottie
+            options={{
+              direction: 1,
+              animationData: this.state.trafficLightTrainAnimation,
+              autoplay: true,
+              loop: false,
+              rendererSettings: {
+                preserveAspectRatio: "xMidYMid slice"
+              }
+            }}
+            isStopped={false}
+            isPaused={false}
+            height={50}
+            width={50}
             isClickToPauseDisabled={true}
           />
         </div>
@@ -452,7 +662,7 @@ class AnimationEnergyGame extends Component {
         <div
           className="Carstation"
           style={{
-            zIndex: "3",
+            zIndex: "2",
             background: "transparent",
             position: "absolute",
             width: "500px",
@@ -483,7 +693,7 @@ class AnimationEnergyGame extends Component {
         <div
           className="NorthTrack"
           style={{
-            zIndex: "3",
+            zIndex: "2",
             background: "transparent",
             position: "absolute",
             width: "500px",
