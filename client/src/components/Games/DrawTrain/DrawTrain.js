@@ -34,7 +34,6 @@ export default class DrawTrain extends Component {
       })
       .then(response => {
         console.log(response);
-        this.props.getRestrictionTime(response.data.restricted);
       })
       .catch(err => console.log(err));
   };
@@ -102,13 +101,6 @@ export default class DrawTrain extends Component {
               onClick={() => this.handleClick("left")}
             />
           )}
-
-          <span>
-            {" "}
-            <h4>Description</h4>Lorem, ipsum dolor sit amet consectetur
-            adipisicing elit. Necessitatibus vero fugiat sapiente,
-          </span>
-
           <Button
             variant="btn-rnd forward"
             onClick={() => this.handleClick("right")}

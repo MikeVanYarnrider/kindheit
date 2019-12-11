@@ -4,7 +4,6 @@ const Child = require("../models/Child");
 const Game = require("../models/Game");
 
 router.post("/play/:type/:id", (req, res) => {
-  console.log(req.body.sessionTimes);
   const { _id } = req.body.user;
   const { gameTime, game } = req.body;
 
@@ -27,6 +26,26 @@ router.post("/play/:type/:id", (req, res) => {
         return acc + val;
       });
       res.json({ ...req.body, restricted });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
+router.post("/restriction/delete", (req, res) => {
+  console.log(req.user._id);
+  const { _id } = req.user;
+  Child.findByIdAndUpdate(
+    _id,
+    {
+      $set: {
+        restrictionTime: []
+      }
+    },
+    { new: true }
+  )
+    .then(found => {
+      console.log(found.restrictionTime);
     })
     .catch(err => {
       console.log(err);

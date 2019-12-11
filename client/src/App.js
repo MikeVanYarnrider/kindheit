@@ -12,10 +12,35 @@ import GameList from "./components/game/GameList";
 import Welcome from "./components/Welcome";
 
 import ParentsBackend from "./components/ParentsBackend";
+import Modal from "./components/modal/Modal";
+
+import axios from "axios";
+
+import { buildSomething } from "./images";
 
 export default class App extends Component {
   state = {
-    user: this.props.user
+    user: this.props.user,
+    restrictionTime: 0, //minutes
+    modalOpen: false
+  };
+
+  handleInstructions = () => {
+    this.setState({
+      modalOpen: !this.state.modalOpen,
+      restrictionTime: 0
+    });
+    axios
+      .post("/child/restriction/delete", {
+        user: this.state.user._id
+      })
+      .then(response => {
+        console.log("DELETED", response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    this.props.history.push("/play/handsgames");
   };
 
   setUser = user => {
@@ -26,11 +51,12 @@ export default class App extends Component {
   };
 
   getRestrictionTime = restrictionTime => {
-    console.log("restrictionTime", restrictionTime);
+    this.setState({
+      restrictionTime: restrictionTime / 60
+    });
   };
 
   render() {
-    // console.log(this.state.user);
     return (
       <div>
         <Navbar
@@ -38,6 +64,19 @@ export default class App extends Component {
           user={this.state.user}
           clearUser={this.setUser}
         />
+        {this.state.restrictionTime > 45 && (
+          <Modal
+            variant="btn-rnd play"
+            isOpen={this.state.modalOpen}
+            onClose={this.handleInstructions}
+          >
+            <h2>Hat du Lust etwas zu basteln? </h2>
+            <div>
+              <img src={buildSomething} width="150px" alt="buildSomething" />
+            </div>
+          </Modal>
+        )}
+
         <Switch>
           <Route
             exact

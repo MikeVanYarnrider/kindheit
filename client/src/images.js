@@ -61,6 +61,9 @@ import lego6 from "./assets/images/instructions/10706_Building_Instructions-31.j
 import lego7 from "./assets/images/instructions/10706_Building_Instructions-32.jpg";
 import lego8 from "./assets/images/instructions/10706_Building_Instructions-33.jpg";
 
+// time over modal
+import buildSomething from "./assets/images/restriction/handgames_card.png";
+
 export {
   logo,
   lego,
@@ -104,5 +107,7 @@ export {
   loginChildrenNotActive,
   loginParentsNotActive,
   error,
-  loginChildIcon
+  loginChildIcon,
+  buildSomething
+
 };

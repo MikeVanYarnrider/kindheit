@@ -39,7 +39,10 @@ class Game extends Component {
         user: this.props.user,
         game: gameId
       })
-      .then(response => {})
+      .then(response => {
+        console.log(response);
+        this.props.getRestrictionTime(response.data.restricted);
+      })
       .catch(err => console.log(err));
   };
 

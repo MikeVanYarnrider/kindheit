@@ -103,12 +103,6 @@ export default class LegoBuild extends Component {
             />
           )}
 
-          <span>
-            {" "}
-            <h4>Description</h4>Lorem, ipsum dolor sit amet consectetur
-            adipisicing elit. Necessitatibus vero fugiat sapiente,
-          </span>
-
           <Button
             variant="btn-rnd forward"
             onClick={() => this.handleClick("right")}
