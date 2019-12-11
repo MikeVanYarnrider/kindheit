@@ -24,7 +24,6 @@ export default class App extends Component {
   };
 
   handleInstructions = () => {
-    // console.log(this.state.user._id);
     this.setState({
       modalOpen: !this.state.modalOpen,
       restrictionTime: 0
@@ -56,11 +55,6 @@ export default class App extends Component {
   };
 
   render() {
-    console.log(this.props);
-    // console.log(
-    //   "restrictionTime",
-    //   this.state.restrictionTime.toFixed(0) + " min"
-    // );
     return (
       <div>
         <Navbar

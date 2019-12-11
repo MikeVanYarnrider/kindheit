@@ -1,7 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import $colors from "../../../assets/stylesheet/_variables.scss"
-
-
 
 export const GameContainer = styled.div`
   max-width: 750px;
