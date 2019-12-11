@@ -19,7 +19,7 @@
 }
 
 .between {
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .justify-center {
@@ -28,10 +28,31 @@
 
 .height {
   height: 100%;
-  width: 58%;
+  width: 55%;
 }
 
 ol {
-  list-style: inside;
+  list-style: none;
   padding-left: 0;
+}
+
+.date {
+  text-align: center;
+  display: block;
+  width: 5em;
+  background-color: lightgray;
+  border-radius: 1em;
+}
+
+.text {
+  margin-left: 1em;
+}
+
+span {
+  margin: 3px 0;
+}
+
+.time {
+  display: block;
+  align-self: end;
 }
