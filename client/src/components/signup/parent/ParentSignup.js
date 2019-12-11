@@ -5,7 +5,7 @@ import SignupForm from "./SignupForm";
 const ParentSignup = props => {
   return (
     <CSSTransition in appear classNames="app-fade" timeout={800}>
-      <SignupForm {...props} />
+       <div style={{paddingLeft: "40px"}}> <SignupForm {...props} /></div>
     </CSSTransition>
   );
 };

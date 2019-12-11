@@ -77,13 +77,13 @@ class ChildrenPassword extends Component {
             return (
               <button
                 key={passwordIndex}
-                id={"button"+passwordIndex}
+                id={passwordIndex}
                 type="button"
                 className="selected-btn"
                 onClick={this.signupImageChange}
               >
                 <div
-                id={"field"+passwordIndex}
+                id={passwordIndex}
                   className="selectedField"
                   style={{
                     backgroundImage: `url(${imageState[passwordIndex - 1]})`
