@@ -4,7 +4,6 @@ const Child = require("../models/Child");
 const Game = require("../models/Game");
 
 router.post("/play/:type/:id", (req, res) => {
-  console.log(req.body.sessionTimes);
   const { _id } = req.body.user;
   const { gameTime, game } = req.body;
 
@@ -35,7 +34,6 @@ router.post("/play/:type/:id", (req, res) => {
 
 router.post("/restriction/delete", (req, res) => {
   console.log(req.user._id);
-  // res.json(req.body);
   const { _id } = req.user;
   Child.findByIdAndUpdate(
     _id,
