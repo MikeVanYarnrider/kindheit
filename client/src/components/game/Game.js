@@ -6,6 +6,7 @@ import Button from "../Button";
 import games from "../../data/games";
 
 function Game(props) {
+  console.log("GAME.JS", props);
   const { gameId, type } = props.match.params;
   const game = games.find(game => game.link === gameId);
 
@@ -18,7 +19,7 @@ function Game(props) {
           href={`/play/${type}`}
           animation="scale"
         />
-        <Component {...props} />
+        <Component {...props} getRestrictionTime={props.getRestrictionTime} />
       </div>
     </CSSTransition>
   );

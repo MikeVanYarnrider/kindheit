@@ -25,8 +25,12 @@ export default class App extends Component {
     });
   };
 
+  getRestrictionTime = restrictionTime => {
+    console.log("restrictionTime", restrictionTime);
+  };
+
   render() {
-    console.log(this.state.user);
+    // console.log(this.state.user);
     return (
       <div>
         <Navbar
@@ -104,7 +108,13 @@ export default class App extends Component {
           <Route
             exact
             path="/play/:type/:gameId"
-            render={props => <Game {...props} user={this.state.user} />}
+            render={props => (
+              <Game
+                {...props}
+                getRestrictionTime={this.getRestrictionTime}
+                user={this.state.user}
+              />
+            )}
           />
         </Switch>
       </div>
