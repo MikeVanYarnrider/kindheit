@@ -15,7 +15,8 @@ import ParentsBackend from "./components/ParentsBackend";
 
 export default class App extends Component {
   state = {
-    user: this.props.user
+    user: this.props.user,
+    restrictionTime: 0 //minutes
   };
 
   setUser = user => {
@@ -26,11 +27,17 @@ export default class App extends Component {
   };
 
   getRestrictionTime = restrictionTime => {
-    console.log("restrictionTime", restrictionTime);
+    this.setState({
+      restrictionTime: restrictionTime / 60
+    });
   };
 
   render() {
     // console.log(this.state.user);
+    console.log(
+      "restrictionTime",
+      this.state.restrictionTime.toFixed(0) + " min"
+    );
     return (
       <div>
         <Navbar
