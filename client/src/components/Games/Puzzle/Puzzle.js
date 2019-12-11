@@ -40,11 +40,12 @@ export default props => {
         game: gameId
       })
       .then(response => {
-        // console.log(response);
+        console.log(response);
+        props.getRestrictionTime(response.data.restricted);
       })
       .catch(err => console.log(err));
   };
-  console.log("heree", gameStartTime);
+  // console.log("heree", gameStartTime);
 
   useEffect(() => {
     // screen time tracking
@@ -101,10 +102,26 @@ export default props => {
       >
         <GameContainer>
           <div className="options" onClick={select}>
-            <img style={{ boxShadow: "3px 3px 5px rgba(0, 68, 75, 0.8)"}} src={pathImage1} alt="puzzle1" />
-            <img style={{ boxShadow: "3px 3px 5px rgba(0, 68, 75, 0.8)"}} src={pathImage2} alt="puzzle2" />
-            <img style={{ boxShadow: "3px 3px 5px rgba(0, 68, 75, 0.8)"}} src={pathImage3} alt="puzzle3" />
-            <img style={{ boxShadow: "3px 3px 5px rgba(0, 68, 75, 0.8)"}} src={pathImage4} alt="puzzle4" />
+            <img
+              style={{ boxShadow: "3px 3px 5px rgba(0, 68, 75, 0.8)" }}
+              src={pathImage1}
+              alt="puzzle1"
+            />
+            <img
+              style={{ boxShadow: "3px 3px 5px rgba(0, 68, 75, 0.8)" }}
+              src={pathImage2}
+              alt="puzzle2"
+            />
+            <img
+              style={{ boxShadow: "3px 3px 5px rgba(0, 68, 75, 0.8)" }}
+              src={pathImage3}
+              alt="puzzle3"
+            />
+            <img
+              style={{ boxShadow: "3px 3px 5px rgba(0, 68, 75, 0.8)" }}
+              src={pathImage4}
+              alt="puzzle4"
+            />
           </div>
           <div className="inner">{content}</div>
         </GameContainer>
