@@ -34,13 +34,13 @@ export default class LoginForm extends Component {
   render() {
     const fields = [
       {
-        label: "Username:",
+        label: "Nutzername:",
         name: "username",
         type: "text",
         value: this.state.username
       },
       {
-        label: "Password:",
+        label: "Passwort:",
         name: "password",
         type: "password",
         value: this.state.password
@@ -49,18 +49,18 @@ export default class LoginForm extends Component {
 
     return (
       <div>
-        <h2>ParentLogin</h2>
+        <h1 style={{margin: "0 0 20px 20px", color: "white"}}>Eltern Login</h1>
         <Form
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           fields={fields}
           error={this.state.error}
-          button="Parent login"
+          button="Login"
         />
-        <p>
-          Don't have an account yet?
-          <Link className="navbar-link" to="/signup">
-            Signup
+        <p style={{marginLeft: "20px"}}>
+          Sie haben noch kein Konto?
+          <Link className="navbar-link" to="/signup" >
+            Anmelden
           </Link>
         </p>
       </div>
