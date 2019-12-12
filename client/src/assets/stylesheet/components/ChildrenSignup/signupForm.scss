@@ -18,7 +18,7 @@
   color: white;
   display: flex;
   justify-content: center;
-  margin-top: 30px
+  margin-top: 30px;
 }
 
 .mainWrapper {
@@ -60,9 +60,31 @@
 
 .signupPage {
   padding-top: calc(50% - 50px);
-  height: 200px;
+  min-height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+.react-date-picker__wrapper {
+  padding: 10px 15px 10px 15px;
+  height: 58px;
+  border-radius: 30px;
+  outline: none;
+  font-size: 1.7em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: transparent;
+  border: 3px solid white;
+}
+
+.react-date-picker__wrapper svg {
+  stroke: white;
+}
+
+.react-date-picker__inputGroup__input {
+  color: white !important;
 }
