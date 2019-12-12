@@ -27,9 +27,9 @@ const FormGroup = props => {
             justifyContent: "space-between"
           }}
         >
-          {props.fields.map(item => {
+          {props.fields.map((item, index) => {
             return (
-              <div style={{ height: "90px" }}>
+              <div key={index} style={{ height: "90px" }}>
                 <FormField
                   key={item.name}
                   type={item.type}
