@@ -1,6 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { logo, loginChildrenNotActive, loginParentsNotActive } from "../images";
+import {
+  logo,
+  loginChildrenNotActive,
+  loginParentsNotActive,
+  logoutIcon,
+  home
+} from "../images";
 import "../assets/stylesheet/components/navbar.scss";
 import { logout } from "./services/auth";
 
@@ -9,7 +15,7 @@ const Navbar = props => {
   let childrenIcon = loginChildrenNotActive;
 
   let changeIconsStartScreen = () => {
-    console.log("");
+    // console.log("");
   };
 
   const handleLogout = () => {
@@ -26,22 +32,26 @@ const Navbar = props => {
           {/* IS USER DETECTED? */}
           {props.user ? (
             <>
-              <p style={{ margin: 0, padding: 0 }}>Hi {props.user.username}</p>
+              <h2
+                style={{
+                  margin: "0",
+                  padding: "0",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  color: "#33b6c6",
+                  marginRight: "10px"
+                }}
+              >
+                Hi {props.user.username}
+              </h2>
               {props.location.pathname !== "/" && (
                 <Link className="navbar-link" to="/">
-                  Home
+                  <img src={home} style={{ height: "50px" }} alt="" />
                 </Link>
               )}
-
-              {/* IN CASE USER IS PARENT: */}
-              {props.user.type === "parent" && (
-                <Link className="navbar-link" to="/childsignup">
-                  Child Signup
-                </Link>
-              )}
-              {/*LOGOUT FOR BOTH USER-TYPES: */}
               <Link className="navbar-link" to="/logout" onClick={handleLogout}>
-                Logout
+                <img src={logoutIcon} style={{ height: "50px" }} alt="" />
               </Link>
             </>
           ) : (
@@ -57,7 +67,7 @@ const Navbar = props => {
                     <img
                       src={parentIcon}
                       style={{ height: "50px" }}
-                      onClickCapture={console.log("hex")}
+                      // onClickCapture={console.log("hex")}
                       alt=""
                     />
                   </Link>

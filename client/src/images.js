@@ -29,9 +29,12 @@ import passwordImg2 from "./assets/images/authentification/signupChildren/2.png"
 import passwordImg3 from "./assets/images/authentification/signupChildren/3.png";
 import passwordImg4 from "./assets/images/authentification/signupChildren/4.png";
 
-//loginlogos
+//Navicons
 import loginChildrenNotActive from "./assets/images/authentification/LoginIconChildren_notActive.png";
 import loginParentsNotActive from "./assets/images/authentification/LoginIconParents_notActive.png";
+import signupChildren from "./assets/images/authentification/signupchild.png";
+import logoutIcon from "./assets/images/authentification/logout.png";
+import home from "./assets/images/authentification/home.png";
 
 import loginChildIcon from "./assets/images/authentification/loginChildIcon.png";
 
@@ -124,5 +127,8 @@ export {
   loginParentsNotActive,
   error,
   loginChildIcon,
-  buildSomething
+  buildSomething,
+  logoutIcon,
+  home,
+  signupChildren
 };

@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ac03774c4e2d07a435ec4c624da19b68",
+    "revision": "8e87c5dbb9ca12e303af9d2a21bd27ea",
     "url": "/index.html"
   },
   {
-    "revision": "dfc183a80b9b953a4dc6",
-    "url": "/static/css/2.3c1ddb0a.chunk.css"
+    "revision": "20d04467196045451927",
+    "url": "/static/css/2.8826bdfc.chunk.css"
   },
   {
-    "revision": "37d413b3eb18696ba33c",
-    "url": "/static/css/main.4f155d1d.chunk.css"
+    "revision": "0a8d792cb19d5113c0e9",
+    "url": "/static/css/main.7d7e991c.chunk.css"
   },
   {
-    "revision": "dfc183a80b9b953a4dc6",
-    "url": "/static/js/2.9469176a.chunk.js"
+    "revision": "20d04467196045451927",
+    "url": "/static/js/2.1b197337.chunk.js"
   },
   {
-    "revision": "37d413b3eb18696ba33c",
-    "url": "/static/js/main.c281c717.chunk.js"
+    "revision": "0a8d792cb19d5113c0e9",
+    "url": "/static/js/main.c7b9451b.chunk.js"
   },
   {
     "revision": "1337678ae3301a2c8a7b",
@@ -108,6 +108,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/BG.8180fd0a.png"
   },
   {
+    "revision": "ec36f6ff04a59f7ed23136821c149035",
+    "url": "/static/media/LoginIconChildren_notActive.ec36f6ff.png"
+  },
+  {
+    "revision": "4042bd434a8de49eed7d93059b1c4f2e",
+    "url": "/static/media/LoginIconParents_notActive.4042bd43.png"
+  },
+  {
     "revision": "16aa08ebbf689edc8cdf9eef7df1da5a",
     "url": "/static/media/bg.16aa08eb.png"
   },
@@ -116,16 +124,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/boy.39def02d.png"
   },
   {
-    "revision": "496a98de5c9963862b5fd8758e6aec65",
-    "url": "/static/media/boy_brownHair.496a98de.png"
+    "revision": "7b37ad8f04225f637533d7af522f9515",
+    "url": "/static/media/boy_brownHair_2.7b37ad8f.png"
   },
   {
-    "revision": "90c621427d9cf8a8444cdea754b1ab9b",
-    "url": "/static/media/boy_darkSkintone.90c62142.png"
+    "revision": "fe6cbdd85484b7f29cc231afbb007ceb",
+    "url": "/static/media/boy_darkSkintone_2.fe6cbdd8.png"
   },
   {
-    "revision": "270e0115e938c4ffa4f4a9cea7f53ade",
-    "url": "/static/media/boy_purpleHair.270e0115.png"
+    "revision": "43cd42012c27804aa381c1d7b1ecfe17",
+    "url": "/static/media/boy_purpleHair_2.43cd4201.png"
   },
   {
     "revision": "3a988b0afd40db38d9ff2e63d6db93c4",
@@ -136,36 +144,68 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/crocodile.0e0f6732.png"
   },
   {
+    "revision": "07d06ba587c843f517a338fea1bd35db",
+    "url": "/static/media/digitalgames_card.07d06ba5.png"
+  },
+  {
     "revision": "4a6b00d5511eb36673e1344fea4151c5",
     "url": "/static/media/dragon.4a6b00d5.png"
   },
   {
-    "revision": "89f16316e23f7b2b5cca72a15108b9f8",
-    "url": "/static/media/girl_blondeHair.89f16316.png"
+    "revision": "1b11f41bee1e1ccbdfa617bfde419a04",
+    "url": "/static/media/error.1b11f41b.png"
   },
   {
-    "revision": "6c5478004c86c1a22d61bb1df6be6be7",
-    "url": "/static/media/girl_blueHair.6c547800.png"
+    "revision": "fab523b7def8bde900105c0dc04f8516",
+    "url": "/static/media/girl_blondeHair_2.fab523b7.png"
   },
   {
-    "revision": "82a3588e8611489cee0954c7be817100",
-    "url": "/static/media/girl_pinkHair.82a3588e.png"
+    "revision": "981b4f3ddcf4f4fdc014ec115ed48033",
+    "url": "/static/media/girl_blueHair_2.981b4f3d.png"
   },
   {
-    "revision": "3a91fd4ffc49130e0d1b31fd8325e386",
-    "url": "/static/media/girl_redHair.3a91fd4f.png"
+    "revision": "1416417ba1ed7a269daa9b6ca31c2ab5",
+    "url": "/static/media/girl_pinkHair_2.1416417b.png"
+  },
+  {
+    "revision": "b72b3c92cc88d5b08758280e2adc5193",
+    "url": "/static/media/girl_redHair_2.b72b3c92.png"
+  },
+  {
+    "revision": "4bb39d8390bd2ccda3eb3ea73c023c3c",
+    "url": "/static/media/handgames_card.4bb39d83.png"
+  },
+  {
+    "revision": "616e5068aa82a1eee0f161e45a49c34f",
+    "url": "/static/media/handgames_card.616e5068.png"
+  },
+  {
+    "revision": "f0144981d9d1318696a35778e9b2708f",
+    "url": "/static/media/home.f0144981.png"
   },
   {
     "revision": "380f30f9775f6c2c07e0b0b40116f807",
     "url": "/static/media/img_0.380f30f9.png"
   },
   {
-    "revision": "1b151397644576443286c286eaf530c9",
-    "url": "/static/media/lego-welcome.1b151397.png"
+    "revision": "6ebb15ad34791d9f9f3dadaac73e399a",
+    "url": "/static/media/lego_card.6ebb15ad.png"
+  },
+  {
+    "revision": "6fba3b08957800c1fc96af8ff5a5f31a",
+    "url": "/static/media/loginChildIcon.6fba3b08.png"
   },
   {
     "revision": "92895829679b2853fcba777e42ff6d6f",
     "url": "/static/media/logo.92895829.png"
+  },
+  {
+    "revision": "77759c098e5a20b8dd9430a0e81e56c9",
+    "url": "/static/media/logout.77759c09.png"
+  },
+  {
+    "revision": "bdcc1329c1c6c98735503858532787ff",
+    "url": "/static/media/memory_card.bdcc1329.png"
   },
   {
     "revision": "c58a648e2a09a6fb74b55b24f3faba05",
@@ -176,7 +216,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/princess.c9f987da.png"
   },
   {
+    "revision": "3e05ba520fa33b6e45253abfba77dd5b",
+    "url": "/static/media/puzzle_card.3e05ba52.png"
+  },
+  {
+    "revision": "9d3edcacc4866984077e6a11c4bcc9ef",
+    "url": "/static/media/signupchild.9d3edcac.png"
+  },
+  {
     "revision": "8d7779caf4b42fed9541995661181bc2",
     "url": "/static/media/train.8d7779ca.png"
+  },
+  {
+    "revision": "65ff0ac0febe7d9af8a9d1afcdaa05a1",
+    "url": "/static/media/train_card.65ff0ac0.png"
   }
 ]);

@@ -20,7 +20,7 @@ class EnergyFlow extends Component {
         game: gameId
       })
       .then(response => {
-        console.log(response);
+        // console.log(response);
         this.props.getRestrictionTime(response.data.restricted);
       })
       .catch(err => console.log(err));
@@ -49,9 +49,7 @@ class EnergyFlow extends Component {
           height: "calc(100vh - 5rem)"
         }}
       >
-        <div
-          style={{ backgroundColor: "black", width: "850px", height: "580px" }}
-        >
+        <div style={{ width: "850px", height: "580px" }}>
           <div style={{ borderRadius: "20px" }}>
             <AnimationEnergyGame />
           </div>

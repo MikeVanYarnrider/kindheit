@@ -52,7 +52,7 @@ class GameLogin extends Component {
           error: data.message
         });
       } else {
-        console.log(data);
+        // console.log(data);
         this.props.setUser(data);
         this.props.history.push("/");
       }
