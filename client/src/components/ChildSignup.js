@@ -37,7 +37,7 @@ class ChildSignup extends Component {
   };
 
   handleDate = date => {
-    console.log(date);
+    // console.log(date);
     this.setState({
       birthDate: date,
       nameDuplicat: false,
@@ -71,7 +71,7 @@ class ChildSignup extends Component {
           error: data.message
         });
       } else {
-        console.log(data);
+        // console.log(data);
         this.props.setUser(data);
         this.props.history.push("/");
       }
@@ -276,7 +276,10 @@ class ChildSignup extends Component {
 
             {this.state.page === 2 && (
               <>
-                <p style={{ position: "absolute", marginTop: "-30px" }}>* Das Kind kann sich aus vier Bildern ein eigenes Passwort zusammenstellen.</p>
+                <p style={{ position: "absolute", marginTop: "-30px" }}>
+                  * Das Kind kann sich aus vier Bildern ein eigenes Passwort
+                  zusammenstellen.
+                </p>
                 <ChildrenPassword
                   {...this.state}
                   setPassword={this.setPassword}
