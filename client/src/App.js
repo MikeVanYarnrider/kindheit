@@ -83,7 +83,7 @@ export default class App extends Component {
             path="/"
             render={props =>
               this.state.user ? (
-                <Welcome>
+                <Welcome classProps="welcome-game-type">
                   <GameType {...props} user={this.state.user} />
                 </Welcome>
               ) : (

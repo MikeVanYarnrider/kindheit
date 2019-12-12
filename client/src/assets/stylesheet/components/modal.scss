@@ -3,6 +3,8 @@
 @import "../mixins/grid";
 @import "../mixins/position";
 
+$bg-rails: "../../images/layout/layout/railroad-white.png";
+
 .modal {
   display: flex;
   opacity: 0;
@@ -31,6 +33,79 @@
   &-inner {
     flex-direction: column;
     @include make-round-item($red-light, $radius / 10, $size * 2);
+
+    &-finished {
+      position: relative;
+      flex-direction: column;
+      color: $white;
+      box-shadow: 0 0 1.5rem $blue-light;
+      padding: $grid-indent-width * 2 $grid-indent-width * 3;
+      @include make-round-item(
+        $white,
+        $radius / 10,
+        $size + 5rem,
+        auto,
+        0.75rem,
+        linear-gradient(45deg, $blue-dark -20%, $teal-dark, $blue-dark 115%)
+      );
+
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        left: -5rem;
+        width: 128%;
+        height: 100%;
+        background-image: url($bg-rails);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: 0 0;
+        z-index: 0;
+        opacity: 0.1;
+        transform: rotate(14deg);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      p,
+      div {
+        width: 100%;
+        text-align: center;
+        margin: $grid-indent-width 0;
+      }
+
+      .title {
+        &-finished {
+          font-size: 3rem;
+          margin-top: $grid-indent-width * 3;
+          margin-bottom: 0;
+        }
+      }
+
+      .desc {
+        &-finished {
+          font-size: 2rem;
+        }
+      }
+
+      .image {
+        &-finished {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 13rem;
+        }
+      }
+
+      button,
+      .btn {
+        z-index: 1;
+      }
+    }
 
     &-instructions {
       position: relative;

@@ -14,7 +14,9 @@ const Welcome = props => {
       </div>
 
       <div
-        className={`welcome-box container-flex ${props.classProps}`.trimRight()}
+        className={`welcome-box container-flex ${
+          props.classProps ? props.classProps : ""
+        }`.trimRight()}
       >
         {content}
       </div>

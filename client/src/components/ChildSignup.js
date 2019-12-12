@@ -37,7 +37,7 @@ class ChildSignup extends Component {
   };
 
   handleDate = date => {
-    console.log(date);
+    // console.log(date);
     this.setState({
       birthDate: date,
       nameDuplicat: false,
@@ -71,7 +71,7 @@ class ChildSignup extends Component {
           error: data.message
         });
       } else {
-        console.log(data);
+        // console.log(data);
         this.props.setUser(data);
         this.props.history.push("/");
       }
@@ -170,7 +170,11 @@ class ChildSignup extends Component {
               onClick={this.backwardClick}
             />
           ) : (
-            <Button variant="btn-rnd back" onClick={this.backwardClick} />
+            <Button
+              variant="btn-rnd back"
+              onClick={this.backwardClick}
+              animation="scale"
+            />
           )}
 
           <form onSubmit={this.handleSubmit} className="form">
@@ -276,7 +280,9 @@ class ChildSignup extends Component {
 
             {this.state.page === 2 && (
               <>
+              
                 <p style={{ position: "absolute", marginTop: "-25px" }}>* Das Kind kann sich aus vier Bildern ein eigenes Passwort zusammenstellen.</p>
+
                 <ChildrenPassword
                   {...this.state}
                   setPassword={this.setPassword}
@@ -438,7 +444,11 @@ class ChildSignup extends Component {
               onClick={this.forwardClick}
             />
           ) : (
-            <Button variant="btn-rnd forward" onClick={this.forwardClick} />
+            <Button
+              variant="btn-rnd forward"
+              onClick={this.forwardClick}
+              animation="scale"
+            />
           )}
         </div>
       </div>

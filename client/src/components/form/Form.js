@@ -102,8 +102,7 @@ const FormGroup = props => {
             alignItems: "center",
             color: "white",
             backgroundColor: "transparent",
-            border: "none"
-            // border: "3px solid white"
+            border: "3px solid white"
           }}
         >
           {props.button}
