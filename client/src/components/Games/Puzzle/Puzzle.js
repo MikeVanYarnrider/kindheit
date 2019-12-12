@@ -40,7 +40,7 @@ export default props => {
         game: gameId
       })
       .then(response => {
-        console.log(response);
+        // console.log(response);
         props.getRestrictionTime(response.data.restricted);
       })
       .catch(err => console.log(err));

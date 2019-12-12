@@ -40,7 +40,7 @@ class Game extends Component {
         game: gameId
       })
       .then(response => {
-        console.log(response);
+        // console.log(response);
         this.props.getRestrictionTime(response.data.restricted);
       })
       .catch(err => console.log(err));
@@ -134,13 +134,11 @@ class Game extends Component {
         {this.state.isFinished && (
           <Modal
             isOpen={this.state.isFinished}
-            btnAction="Restart"
-            variant="btn-pill btn-start"
+            classCustom="finished"
+            variant="btn-rnd btn-restart"
             onBtnClick={() => this.restartGame()}
-            onClose={this.handleInstructions}
-          >
-            <h1>Finished!</h1>
-          </Modal>
+            finished={true}
+          ></Modal>
         )}
       </div>
     );

@@ -17,11 +17,11 @@
     }
 
     &.forward {
-      transform: scale(-1, 1);
-      -webkit-transform: scale(-1, 1);
-      -moz-transform: scale(-1, 1);
-      -ms-transform: scale(-1, 1);
-      -o-transform: scale(-1, 1);
+      transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
     }
   }
 
@@ -78,6 +78,10 @@
 
   &-start {
     @include make-button($yellow-dark, $yellow-dark);
+  }
+
+  &-restart {
+    @include make-button($white, $blue-dark, $white, $green-light);
   }
 
   &-rnd {
@@ -145,9 +149,28 @@
     -webkit-animation: #{scale-btn-keyframes} $speed;
   }
 
+  &.forward {
+    svg {
+      animation: #{scale-btn-forward-keyframes} $speed;
+      -webkit-animation: #{scale-btn-forward-keyframes} $speed;
+    }
+  }
+
   img {
     animation: #{scale-img-keyframes} $speed;
     -webkit-animation: #{scale-img-keyframes} $speed;
+  }
+}
+
+@keyframes scale-btn-forward-keyframes {
+  0% {
+    @include make-button-rotate-scale(1, 180deg);
+  }
+  50% {
+    @include make-button-rotate-scale(1.25, 180deg);
+  }
+  100% {
+    @include make-button-rotate-scale(1, 180deg);
   }
 }
 

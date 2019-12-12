@@ -18,17 +18,14 @@ class ParentsBackend extends React.Component {
   }
 
   render() {
-    const children = Object.values(this.state.children).map((child, index) => {
-      // console.log(child);
+    const children = Object.values(this.state.children).map(child => {
       let timeSum = 0;
       const time = child.sessionTimes.map(times => {
-        // console.log(times);
         const { time, timeStamp, game } = times;
         timeSum += time;
 
         const dateSplit = timeStamp.slice(4, 15).split(" ");
         const date = `${dateSplit[1]}. ${dateSplit[0]}. ${dateSplit[2]}`;
-        console.log(date.replace("c", "z"));
         return (
           <li key={time} className="flex-container between">
             <span className="date">{date.replace("c", "z")}</span>
@@ -51,7 +48,7 @@ class ParentsBackend extends React.Component {
               <ol>{time.slice(time.length - 5, time.length)}</ol>
             </div>
             <p>
-              {username} hat {(timeSum / 60).toFixed(0)} Miuten mit Spielen
+              {username} hat {(timeSum / 60).toFixed(0)} Minuten mit Spielen
               verbracht.
             </p>
           </div>
@@ -66,7 +63,11 @@ class ParentsBackend extends React.Component {
           {children}
           <div className="flex-container align-center kids-card text-center justify-center">
             <h3 className="">Erstelle ein neues Profil</h3>
-            <Button variant="btn-rnd select" href="/childsignup" />
+            <Button
+              variant="btn-rnd select"
+              href="/childsignup"
+              animation="scale"
+            />
           </div>
         </div>
       </div>

@@ -9,11 +9,12 @@ $thickness: 0.5rem;
   $rad: $radius,
   $w: $size,
   $h: $size,
-  $bw: $thickness
+  $bw: $thickness,
+  $bg: $white
 ) {
   width: $w;
   height: $h;
-  background-color: $white;
+  background: $bg;
   border: $bw solid $color;
   border-radius: $rad;
   -webkit-border-radius: $rad;

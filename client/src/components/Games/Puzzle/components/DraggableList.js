@@ -63,7 +63,7 @@ export default ({ items, setCompleted, img }) => {
     const newOrder = swap(order.current, curIndex, curRow);
     setSprings(fn(newOrder, down, originalIndex, curIndex, y)); // Feed springs new style data, they'll animate the view without causing a single render
     if (!down) order.current = newOrder;
-    console.log(vars.event.type);
+    // console.log(vars.event.type);
     if (vars.event.type === "mouseup" || vars.event.type === "touchend") {
       if (isEqual(newOrder, [4, 1, 0, 3, 2])) {
         setCompleted(true);
