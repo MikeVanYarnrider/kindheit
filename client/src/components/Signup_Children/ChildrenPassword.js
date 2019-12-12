@@ -60,7 +60,6 @@ class ChildrenPassword extends Component {
 
   signupImageChange = event => {
     let changeImageNum = event.currentTarget.id;
-    console.log(changeImageNum);
     this.setState({
       changeImage: changeImageNum,
       [`buttonState${changeImageNum}`]: true
@@ -71,7 +70,6 @@ class ChildrenPassword extends Component {
   render() {
     let imageState = this.state.passwordImages;
     let passwordImageSize = "50px";
-    console.log(this.state.buttonState1);
     return (
       <div
         className="passwordWrapper"
