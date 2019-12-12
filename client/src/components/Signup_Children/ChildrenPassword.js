@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form } from "react-bootstrap";
+// import { Form } from "react-bootstrap";
 import "../../assets/stylesheet/components/ChildrenSignup/childrenPasswort.scss";
 
 import {
@@ -97,7 +97,7 @@ class ChildrenPassword extends Component {
                 type="button"
                 className="selected-btn"
                 onClick={this.signupImageChange}
-                style={{backgroundColor: "black"}}
+                style={{ backgroundColor: "black" }}
               >
                 <div
                   className="selectedField"
