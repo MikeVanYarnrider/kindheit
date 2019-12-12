@@ -51,7 +51,7 @@ class ParentsBackend extends React.Component {
               <ol>{time.slice(time.length - 5, time.length)}</ol>
             </div>
             <p>
-              {username} hat {(timeSum / 60).toFixed(0)} Miuten mit Spielen
+              {username} hat {(timeSum / 60).toFixed(0)} Minuten mit Spielen
               verbracht.
             </p>
           </div>
