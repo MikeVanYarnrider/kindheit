@@ -157,7 +157,11 @@ class ChildSignup extends Component {
               onClick={this.backwardClick}
             />
           ) : (
-            <Button variant="btn-rnd back" onClick={this.backwardClick} />
+            <Button
+              variant="btn-rnd back"
+              onClick={this.backwardClick}
+              animation="scale"
+            />
           )}
 
           <form onSubmit={this.handleSubmit} className="form">
@@ -222,7 +226,11 @@ class ChildSignup extends Component {
               onClick={this.forwardClick}
             />
           ) : (
-            <Button variant="btn-rnd forward" onClick={this.forwardClick} />
+            <Button
+              variant="btn-rnd forward"
+              onClick={this.forwardClick}
+              animation="scale"
+            />
           )}
         </div>
       </div>

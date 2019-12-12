@@ -18,14 +18,11 @@ class ParentsBackend extends React.Component {
   }
 
   render() {
-    const children = Object.values(this.state.children).map((child, index) => {
-      // console.log(child);
+    const children = Object.values(this.state.children).map(child => {
       let timeSum = 0;
       const time = child.sessionTimes.map(times => {
-        // console.log(times);
         const { time, timeStamp, game } = times;
         timeSum += time;
-        // console.log(timeSum);
 
         return (
           <li key={time} className="flex-container between">
@@ -61,7 +58,11 @@ class ParentsBackend extends React.Component {
           {children}
           <div className="flex-container align-center kids-card text-center justify-center">
             <h3 className="">Add your kid</h3>
-            <Button variant="btn-rnd select" href="/childsignup" />
+            <Button
+              variant="btn-rnd select"
+              href="/childsignup"
+              animation="scale"
+            />
           </div>
         </div>
       </div>

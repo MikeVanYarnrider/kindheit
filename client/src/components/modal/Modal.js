@@ -3,6 +3,8 @@ import Button from "../Button";
 
 import "../../assets/stylesheet/components/modal.scss";
 
+import { stars } from "../../images";
+
 class Modal extends React.Component {
   state = { fadeType: null };
 
@@ -44,6 +46,31 @@ class Modal extends React.Component {
             this.props.classCustom ? `-${this.props.classCustom}` : ""
           }`.trimRight()}
         >
+          {this.props.finished && (
+            <>
+              <img
+                src={stars}
+                alt={this.props.btnAction}
+                className={`image${
+                  this.props.classCustom ? `-${this.props.classCustom}` : ""
+                }`}
+              />
+              <h1
+                className={`title${
+                  this.props.classCustom ? `-${this.props.classCustom}` : ""
+                }`}
+              >
+                Geschaft!
+              </h1>
+              <p
+                className={`desc${
+                  this.props.classCustom ? `-${this.props.classCustom}` : ""
+                }`}
+              >
+                Nochmal spielen?
+              </p>
+            </>
+          )}
           {this.props.children}
           {this.props.onBtnClick && (
             <Button

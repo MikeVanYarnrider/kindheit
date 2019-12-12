@@ -1,4 +1,5 @@
 import logo from "./assets/images/layout/logo.png";
+import stars from "./assets/images/layout/stars.png";
 
 // Game types
 import handGames from "./assets/images/layout/cards/type/handgames_card.png";
@@ -9,6 +10,7 @@ import LegoImg from "./assets/images/layout/cards/list/lego_card.png";
 import TrainImg from "./assets/images/layout/cards/list/train_card.png";
 import PuzzleImg from "./assets/images/layout/cards/list/puzzle_card.png";
 import MemoryImg from "./assets/images/layout/cards/list/memory_card.png";
+import EnergyFlowImg from "./assets/images/layout/cards/list/energy_card.png";
 
 import pathImage1 from "./assets/images/games/puzzle/1.png";
 import pathImage2 from "./assets/images/games/puzzle/2.png";
@@ -28,13 +30,13 @@ import passwordImg3 from "./assets/images/authentification/signupChildren/3.png"
 import passwordImg4 from "./assets/images/authentification/signupChildren/4.png";
 
 //loginlogos
-import loginChildrenNotActive from "./assets/images/authentification/LoginIconChildren_notActive.png"
-import loginParentsNotActive from "./assets/images/authentification/LoginIconParents_notActive.png"
+import loginChildrenNotActive from "./assets/images/authentification/LoginIconChildren_notActive.png";
+import loginParentsNotActive from "./assets/images/authentification/LoginIconParents_notActive.png";
 
-import loginChildIcon from "./assets/images/authentification/loginChildIcon.png"
+import loginChildIcon from "./assets/images/authentification/loginChildIcon.png";
 
-//loginerror 
-import error from "./assets/images/authentification/error.png"
+//loginerror
+import error from "./assets/images/authentification/error.png";
 
 import profileImgDragon from "./assets/images/authentification/defaultProfileimages/old/dragon.png";
 import profileImgPrincess from "./assets/images/authentification/defaultProfileimages/old/princess.png";
@@ -73,12 +75,14 @@ import buildSomething from "./assets/images/restriction/handgames_card.png";
 
 export {
   logo,
+  stars,
   handGames,
   digitalGames,
   LegoImg,
   TrainImg,
   PuzzleImg,
   MemoryImg,
+  EnergyFlowImg,
   pathImage1,
   pathImage2,
   pathImage3,
@@ -121,5 +125,4 @@ export {
   error,
   loginChildIcon,
   buildSomething
-
 };

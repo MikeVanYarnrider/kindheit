@@ -38,7 +38,23 @@
       &-game {
         &-list {
           padding-bottom: $grid-indent-width * 2;
+          overflow: hidden;
           @include make-container-full-height();
+
+          &:before {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: -2rem;
+            width: 20rem;
+            height: 20rem;
+            background: url("../../images/layout/layout/locomotive.png");
+            background-position: 0 0;
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 0.2;
+            transform: rotate(-15deg);
+          }
         }
       }
     }
@@ -57,7 +73,7 @@
     @include make-round-item($red-light, $radius / 10, $size + 3rem, $size);
 
     img {
-      width: 90%;
+      height: 100%;
 
       &.scale {
         animation: #{scale-img-keyframes} $speed;
