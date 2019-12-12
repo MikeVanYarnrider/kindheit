@@ -6,7 +6,7 @@ import ChildrenPassword from "../components/Signup_Children/ChildrenPassword";
 import Button from "../../src/components/Button";
 import "../assets/stylesheet/components/ChildrenSignup/signupForm.scss";
 import "../assets/stylesheet/components/loginstyle.scss";
-import { error, loginChildIcon } from "../images";
+import { error } from "../images";
 
 import { profileImg_boy_brownHair } from "../images";
 import axios from "axios";
@@ -37,14 +37,14 @@ class ChildSignup extends Component {
   };
 
   handleDate = date => {
-    console.log(date)
+    console.log(date);
     this.setState({
       birthDate: date,
       nameDuplicat: false,
       nameEmpty: false,
       error: ""
-    })
-  }
+    });
+  };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -191,7 +191,9 @@ class ChildSignup extends Component {
                     marginLeft: "20px",
                     alignSelf: "flex-start"
                   }}
-                >Name des Kindes</label>
+                >
+                  Name des Kindes
+                </label>
                 <input
                   type="text"
                   className="inputField"
@@ -225,6 +227,7 @@ class ChildSignup extends Component {
                       <img
                         src={error}
                         style={{ height: "20px", marginRight: "10px" }}
+                        alt="Fehler"
                       />
                       <p>Bitte wählen Sie einen Namen aus!</p>
                     </div>
@@ -254,6 +257,7 @@ class ChildSignup extends Component {
                       <img
                         src={error}
                         style={{ height: "20px", marginRight: "10px" }}
+                        alt="Fehler"
                       />
                       <p>Der Name ist leider schon vergeben!</p>
                     </div>
@@ -303,6 +307,7 @@ class ChildSignup extends Component {
                       <img
                         src={error}
                         style={{ height: "20px", marginRight: "10px" }}
+                        alt="Fehler"
                       />
                       <p>{this.state.error}</p>
                     </div>
@@ -315,42 +320,45 @@ class ChildSignup extends Component {
                 <div>
                   {/*    <label htmlFor="birthdate">Birthdate:</label> */}
                   <section
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "300px",
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}
-              >
-                  <label
-                  htmlFor="childname"
-                  style={{
-                    color: "white",
-                    marginLeft: "50px",
-                    alignSelf: "flex-start"
-                  }}
-                >Geburtsdatum des Kindes</label>
-                  <DatePicker
-                    type="date"
-                    name="birthDate"
-                    id="birthdate"
                     style={{
-                      padding: "10px 15px 10px 15px",
-
-                      borderRadius: "30px",
-                      outline: "none",
-                      fontSize: "1.7em",
                       display: "flex",
-                      justifyContent: "center",
+                      flexDirection: "column",
+                      width: "300px",
                       alignItems: "center",
-                      color: "white",
-                      backgroundColor: "transparent",
-                      border: "3px solid white"
+                      justifyContent: "center"
                     }}
-                    onChange={this.handleDate}
-                    value={this.state.birthDate}
-                  /></section>
+                  >
+                    <label
+                      htmlFor="childname"
+                      style={{
+                        color: "white",
+                        marginLeft: "50px",
+                        alignSelf: "flex-start"
+                      }}
+                    >
+                      Geburtsdatum des Kindes
+                    </label>
+                    <DatePicker
+                      type="date"
+                      name="birthDate"
+                      id="birthdate"
+                      style={{
+                        padding: "10px 15px 10px 15px",
+
+                        borderRadius: "30px",
+                        outline: "none",
+                        fontSize: "1.7em",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        color: "white",
+                        backgroundColor: "transparent",
+                        border: "3px solid white"
+                      }}
+                      onChange={this.handleDate}
+                      value={this.state.birthDate}
+                    />
+                  </section>
 
                   {/*   <input
                     type="date"
@@ -396,6 +404,7 @@ class ChildSignup extends Component {
                       <img
                         src={error}
                         style={{ height: "20px", marginRight: "10px" }}
+                        alt="Fehler"
                       />
                       <p>{this.state.error}</p>
                     </div>

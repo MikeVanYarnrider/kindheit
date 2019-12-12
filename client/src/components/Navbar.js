@@ -5,8 +5,7 @@ import {
   loginChildrenNotActive,
   loginParentsNotActive,
   logoutIcon,
-  home,
-  signupChildren
+  home
 } from "../images";
 import "../assets/stylesheet/components/navbar.scss";
 import { logout } from "./services/auth";
@@ -40,7 +39,8 @@ const Navbar = props => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  color: "#33b6c6", marginRight: "10px"
+                  color: "#33b6c6",
+                  marginRight: "10px"
                 }}
               >
                 Hi {props.user.username}
