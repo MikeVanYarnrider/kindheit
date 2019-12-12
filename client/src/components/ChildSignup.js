@@ -280,10 +280,9 @@ class ChildSignup extends Component {
 
             {this.state.page === 2 && (
               <>
-                <p style={{ position: "absolute", marginTop: "-30px" }}>
-                  * Das Kind kann sich aus vier Bildern ein eigenes Passwort
-                  zusammenstellen.
-                </p>
+              
+                <p style={{ position: "absolute", marginTop: "-25px" }}>* Das Kind kann sich aus vier Bildern ein eigenes Passwort zusammenstellen.</p>
+
                 <ChildrenPassword
                   {...this.state}
                   setPassword={this.setPassword}

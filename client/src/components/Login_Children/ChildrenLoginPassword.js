@@ -19,7 +19,11 @@ const passWordImageArr = [
 class ChildrenPassword extends Component {
   state = {
     passwordImages: this.props.passwordImages,
-    changeImage: this.props.changeImage
+    changeImage: this.props.changeImage,
+    buttonState1: false,
+    buttonState2: false,
+    buttonState3: false,
+    buttonState4: false
   };
 
   signupImageSelect = event => {
@@ -31,7 +35,11 @@ class ChildrenPassword extends Component {
       imageState[imageToBeChanged] = url;
       this.setState({
         passwordImages: this.state.passwordImages,
-        changeImage: 0
+        changeImage: 0,
+        buttonState1: false,
+        buttonState2: false,
+        buttonState3: false,
+        buttonState4: false
       });
     } else if (imageState.length < 4) {
       this.state.passwordImages.push(url);
@@ -39,7 +47,11 @@ class ChildrenPassword extends Component {
     let selectNum = imageState.map(el => el.match(/media[/](\d)/)[1]);
     this.setState({
       passwordImages: this.state.passwordImages,
-      changeImage: 0
+      changeImage: 0,
+      buttonState1: false,
+      buttonState2: false,
+      buttonState3: false,
+      buttonState4: false
     });
 
     this.props.setPasswordImage(this.state.passwordImages);
@@ -48,7 +60,7 @@ class ChildrenPassword extends Component {
 
   signupImageChange = event => {
     let changeImageNum = event.currentTarget.id;
-    this.setState({ changeImage: changeImageNum });
+    this.setState({ changeImage: changeImageNum,  [`buttonState${changeImageNum}`]: true });
     this.props.setChangePassword(changeImageNum);
   };
 
@@ -59,41 +71,59 @@ class ChildrenPassword extends Component {
       <div
         className="passwordWrapper"
         style={{
-          height: "150px",
+          height: "170px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          alignItems: "center"
+          alignItems: "center",
+          marginTop: "-20px"
         }}
       >
-        <Form.Group
+        <section className="selectedImages"
           style={{
             width: "400px",
             display: "flex",
             justifyContent: "space-between"
           }}
         >
-          {[1, 2, 3, 4].map(passwordIndex => {
-            return (
-              <button
+         {[1, 2, 3, 4].map(passwordIndex => {
+            return (<div key={passwordIndex}>
+            {this.state[`buttonState${passwordIndex}`] ? (<button
+                key={passwordIndex}
+                id={passwordIndex}
+                type="button"
+                className="selected-btn active"
+                onClick={this.signupImageChange}
+                style={{backgroundColor: "black"}}
+              >
+              
+                <div
+                  className="selectedField active"
+                  style={{
+                    backgroundImage: `url(${imageState[passwordIndex - 1]})`
+                  }}
+                ></div>
+              </button>) : (<button
                 key={passwordIndex}
                 id={passwordIndex}
                 type="button"
                 className="selected-btn"
                 onClick={this.signupImageChange}
+                style={{backgroundColor: "black"}}
               >
+              
                 <div
-                id={passwordIndex}
                   className="selectedField"
                   style={{
                     backgroundImage: `url(${imageState[passwordIndex - 1]})`
                   }}
                 ></div>
-              </button>
+              </button>)}
+              </div>
             );
           })}
-        </Form.Group>
-        <Form.Group>
+        </section>
+        <section className="passwortChosing">
           {passWordImageArr.map((image, index) => {
             return (
               <button key={index} type="button" className="chosing-btn">
@@ -107,7 +137,7 @@ class ChildrenPassword extends Component {
               </button>
             );
           })}
-        </Form.Group>
+        </section>
       </div>
     );
   }
