@@ -5,8 +5,7 @@ import {
   loginChildrenNotActive,
   loginParentsNotActive,
   logoutIcon,
-  home,
-  signupChildren
+  home
 } from "../images";
 import "../assets/stylesheet/components/navbar.scss";
 import { logout } from "./services/auth";
@@ -16,7 +15,7 @@ const Navbar = props => {
   let childrenIcon = loginChildrenNotActive;
 
   let changeIconsStartScreen = () => {
-    console.log("");
+    // console.log("");
   };
 
   const handleLogout = () => {
@@ -40,7 +39,8 @@ const Navbar = props => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  color: "#33b6c6", marginRight: "10px"
+                  color: "#33b6c6",
+                  marginRight: "10px"
                 }}
               >
                 Hi {props.user.username}
@@ -67,7 +67,7 @@ const Navbar = props => {
                     <img
                       src={parentIcon}
                       style={{ height: "50px" }}
-                      onClickCapture={console.log("hex")}
+                      // onClickCapture={console.log("hex")}
                       alt=""
                     />
                   </Link>

@@ -25,13 +25,15 @@ class ParentsBackend extends React.Component {
         // console.log(times);
         const { time, timeStamp, game } = times;
         timeSum += time;
-        // console.log(timeSum);
 
+        const dateSplit = timeStamp.slice(4, 15).split(" ");
+        const date = `${dateSplit[1]}. ${dateSplit[0]}. ${dateSplit[2]}`;
+        // console.log(date.replace("c", "z"));
         return (
           <li key={time} className="flex-container between">
-            <span className="date">{timeStamp.slice(4, 15)}</span>
+            <span className="date">{date.replace("c", "z")}</span>
             <span className="text">{game}</span>
-            <span className="time"> {time.toFixed(0)} Sek.</span>
+            <span className="time"> {(time / 60).toFixed(0)} Min.</span>
           </li>
         );
       });
@@ -45,10 +47,13 @@ class ParentsBackend extends React.Component {
           <div className="height">
             <h2>{username}</h2>
             <div>
-              <h5>Last 5 played games:</h5>
+              <h5>Die letzten gespielten Spiele:</h5>
               <ol>{time.slice(time.length - 5, time.length)}</ol>
             </div>
-            <p>Overall screen time {(timeSum / 60).toFixed(0)} min.</p>
+            <p>
+              {username} hat {(timeSum / 60).toFixed(0)} Miuten mit Spielen
+              verbracht.
+            </p>
           </div>
         </div>
       );
@@ -56,11 +61,11 @@ class ParentsBackend extends React.Component {
 
     return (
       <div className="container">
-        <h1>Hello {this.props.parentUser.username}</h1>
+        <h1>Hallo {this.props.parentUser.username}</h1>
         <div className="flex-container between">
           {children}
           <div className="flex-container align-center kids-card text-center justify-center">
-            <h3 className="">Add your kid</h3>
+            <h3 className="">Erstelle ein neues Profil</h3>
             <Button variant="btn-rnd select" href="/childsignup" />
           </div>
         </div>
