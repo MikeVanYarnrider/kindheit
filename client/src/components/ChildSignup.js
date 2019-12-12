@@ -37,14 +37,14 @@ class ChildSignup extends Component {
   };
 
   handleDate = date => {
-    console.log(date)
+    console.log(date);
     this.setState({
       birthDate: date,
       nameDuplicat: false,
       nameEmpty: false,
       error: ""
-    })
-  }
+    });
+  };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -191,7 +191,9 @@ class ChildSignup extends Component {
                     marginLeft: "20px",
                     alignSelf: "flex-start"
                   }}
-                >Name des Kindes</label>
+                >
+                  Name des Kindes
+                </label>
                 <input
                   type="text"
                   className="inputField"
@@ -272,6 +274,7 @@ class ChildSignup extends Component {
 
             {this.state.page === 2 && (
               <>
+                <p style={{ position: "absolute", marginTop: "-30px" }}>* Das Kind kann sich aus vier Bildern ein eigenes Passwort zusammenstellen.</p>
                 <ChildrenPassword
                   {...this.state}
                   setPassword={this.setPassword}
@@ -315,42 +318,45 @@ class ChildSignup extends Component {
                 <div>
                   {/*    <label htmlFor="birthdate">Birthdate:</label> */}
                   <section
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "300px",
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}
-              >
-                  <label
-                  htmlFor="childname"
-                  style={{
-                    color: "white",
-                    marginLeft: "50px",
-                    alignSelf: "flex-start"
-                  }}
-                >Geburtsdatum des Kindes</label>
-                  <DatePicker
-                    type="date"
-                    name="birthDate"
-                    id="birthdate"
                     style={{
-                      padding: "10px 15px 10px 15px",
-
-                      borderRadius: "30px",
-                      outline: "none",
-                      fontSize: "1.7em",
                       display: "flex",
-                      justifyContent: "center",
+                      flexDirection: "column",
+                      width: "300px",
                       alignItems: "center",
-                      color: "white",
-                      backgroundColor: "transparent",
-                      border: "3px solid white"
+                      justifyContent: "center"
                     }}
-                    onChange={this.handleDate}
-                    value={this.state.birthDate}
-                  /></section>
+                  >
+                    <label
+                      htmlFor="childname"
+                      style={{
+                        color: "white",
+                        marginLeft: "50px",
+                        alignSelf: "flex-start"
+                      }}
+                    >
+                      Geburtsdatum des Kindes
+                    </label>
+                    <DatePicker
+                      type="date"
+                      name="birthDate"
+                      id="birthdate"
+                      style={{
+                        padding: "10px 15px 10px 15px",
+
+                        borderRadius: "30px",
+                        outline: "none",
+                        fontSize: "1.7em",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        color: "white",
+                        backgroundColor: "transparent",
+                        border: "3px solid white"
+                      }}
+                      onChange={this.handleDate}
+                      value={this.state.birthDate}
+                    />
+                  </section>
 
                   {/*   <input
                     type="date"
