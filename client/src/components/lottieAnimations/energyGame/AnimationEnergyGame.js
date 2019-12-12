@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import Lottie from "react-lottie";
+import Modal from "../../modal/Modal";
+
+//ANIMATIONS
 import animationBackground from "../energyGame/background.json";
 import cloudsBlowing from "../energyGame/clouds_blowing.json";
 import cloudsWaiting from "../energyGame/clouds_waiting.json";
@@ -97,6 +100,7 @@ class AnimationEnergyGame extends Component {
     cloudAnimation: cloudsWaiting,
     cloudsActivated: false,
     powerLineFirstTrack: "",
+    cloudsegments: [],
     powerLineSouthTrack: powerLineSouthTrackStatic,
     powerLineSouthClosed: false,
     powerLineNorthClosed: false,
@@ -112,7 +116,8 @@ class AnimationEnergyGame extends Component {
     trafficLightPedestrians: trafficLightOff,
     kidsAnimation: kidsStanding,
     positionBlitz: ["355px", "35px"],
-    blitzAnimation: blitz
+    blitzAnimation: blitz,
+    isFinished: false
   };
 
   cloudChange = event => {
@@ -120,6 +125,7 @@ class AnimationEnergyGame extends Component {
       this.setState({
         cloudAnimation: cloudsBlowing,
         cloudsActivated: true,
+        cloudsegments: [41, 78],
         powerLineFirstTrack: powerLineFirstTrack,
         positionBlitz: ["600px", "300px"]
       });
@@ -194,18 +200,66 @@ class AnimationEnergyGame extends Component {
         },
         () => {
           setTimeout(() => {
-            this.setState({
-              carAnimation: carLeaving
-            });
+            this.setState(
+              {
+                carAnimation: carLeaving
+              },
+              () => {
+                setTimeout(() => {
+                  this.setState({
+                    isFinished: true
+                  });
+                }, 7000);
+              }
+            );
           }, 1000);
         }
       );
     }
   };
 
+  //RESTART
+  restartGame = _ => {
+    this.setState({
+      cloudAnimation: cloudsWaiting,
+      cloudsActivated: false,
+      powerLineFirstTrack: "",
+      cloudsegments: [],
+      powerLineSouthTrack: powerLineSouthTrackStatic,
+      powerLineSouthClosed: false,
+      powerLineNorthClosed: false,
+      powerLineNorthTrack: powerLineNorthTrackStatic,
+      trainAnimation: trainArrive,
+      schrankeBackAnimation: schrankeBackStatic,
+      schrankeFrontAnimation: schrankeFrontStatic,
+      schrankeStopped: false,
+      carStationAnimation: loadingCarStationStatic,
+      carAnimation: carArrive,
+      trafficLightTrainAnimation: trafficLightOff,
+      trafficLightCarAnimation: trafficLightOff,
+      trafficLightPedestrians: trafficLightOff,
+      kidsAnimation: kidsStanding,
+      positionBlitz: ["355px", "35px"],
+      blitzAnimation: blitz,
+      isFinished: false
+    });
+  };
+
   render() {
     return (
       <React.Fragment>
+        {this.state.isFinished && (
+          <Modal
+            isOpen={this.state.isFinished}
+            btnAction="Restart"
+            variant="btn-pill btn-start"
+            onBtnClick={() => this.restartGame()}
+            onClose={this.handleInstructions}
+          >
+            <h1>Finished!</h1>
+          </Modal>
+        )}
+
         {/* BUTTONS */}
 
         {/* CARSTATION BUTTON */}
@@ -215,10 +269,10 @@ class AnimationEnergyGame extends Component {
             zIndex: "200",
             background: "transparent",
             position: "absolute",
-            height: "20px",
-            width: "40px",
-            marginTop: "235px",
-            marginLeft: "195px"
+            height: "45px",
+            width: "60px",
+            marginTop: "225px",
+            marginLeft: "170px"
           }}
           onClick={this.carStationChange}
         ></div>
@@ -378,7 +432,7 @@ class AnimationEnergyGame extends Component {
             }}
             isStopped={false}
             isPaused={false}
-            segments={[41, 78]}
+            segments={this.state.cloudsegments}
             forceSegments={true}
             height={200}
             width={850}

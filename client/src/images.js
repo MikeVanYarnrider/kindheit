@@ -27,14 +27,17 @@ import passwordImg2 from "./assets/images/authentification/signupChildren/2.png"
 import passwordImg3 from "./assets/images/authentification/signupChildren/3.png";
 import passwordImg4 from "./assets/images/authentification/signupChildren/4.png";
 
-//loginlogos
-import loginChildrenNotActive from "./assets/images/authentification/LoginIconChildren_notActive.png"
-import loginParentsNotActive from "./assets/images/authentification/LoginIconParents_notActive.png"
+//Navicons
+import loginChildrenNotActive from "./assets/images/authentification/LoginIconChildren_notActive.png";
+import loginParentsNotActive from "./assets/images/authentification/LoginIconParents_notActive.png";
+import signupChildren from "./assets/images/authentification/signupchild.png";
+import logoutIcon from "./assets/images/authentification/logout.png";
+import home from "./assets/images/authentification/home.png";
 
-import loginChildIcon from "./assets/images/authentification/loginChildIcon.png"
+import loginChildIcon from "./assets/images/authentification/loginChildIcon.png";
 
-//loginerror 
-import error from "./assets/images/authentification/error.png"
+//loginerror
+import error from "./assets/images/authentification/error.png";
 
 import profileImgDragon from "./assets/images/authentification/defaultProfileimages/old/dragon.png";
 import profileImgPrincess from "./assets/images/authentification/defaultProfileimages/old/princess.png";
@@ -120,6 +123,8 @@ export {
   loginParentsNotActive,
   error,
   loginChildIcon,
-  buildSomething
-
+  buildSomething,
+  logoutIcon,
+  home,
+  signupChildren
 };
