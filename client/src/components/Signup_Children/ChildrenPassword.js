@@ -66,7 +66,7 @@ class ChildrenPassword extends Component {
           alignItems: "center"
         }}
       >
-        <Form.Group>
+        <section>
           {passWordImageArr.map((image, index) => {
             return (
               <button key={index} type="button">
@@ -80,9 +80,9 @@ class ChildrenPassword extends Component {
               </button>
             );
           })}
-        </Form.Group>
+        </section>
 
-        <Form.Group
+        <section
           style={{
             width: "500px",
             display: "flex",
@@ -97,6 +97,7 @@ class ChildrenPassword extends Component {
                 type="button"
                 className="selected-btn"
                 onClick={this.signupImageChange}
+                style={{backgroundColor: "black"}}
               >
                 <div
                   className="selectedField"
@@ -107,7 +108,7 @@ class ChildrenPassword extends Component {
               </button>
             );
           })}
-        </Form.Group>
+        </section>
       </div>
     );
   }
