@@ -181,7 +181,7 @@ router.get("/getProfiles", (req, res, next) => {
 
 //LOGOUT
 router.delete("/logout", (req, res) => {
-  req.session.destroy();
+  req.logout();
   res.json(req.body);
 
   /*  res.json({ message: "Successfull logout!" }); */
