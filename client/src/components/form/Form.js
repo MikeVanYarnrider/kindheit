@@ -59,7 +59,6 @@ const FormGroup = props => {
                 borderRadius: "7px"
               }}
             >
-              {" "}
               <img
                 src={error}
                 style={{ height: "20px", marginRight: "10px" }}

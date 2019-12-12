@@ -18,6 +18,7 @@
   color: white;
   display: flex;
   justify-content: center;
+  margin-top: 30px
 }
 
 .mainWrapper {
@@ -58,7 +59,7 @@
 }
 
 .signupPage {
-  padding-top: 50%;
+  padding-top: calc(50% - 50px);
   height: 200px;
   display: flex;
   flex-direction: column;
