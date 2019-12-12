@@ -1,15 +1,40 @@
 @import "../variables";
 @import "../mixins/grid";
 
+$bg-rails: "../../images/layout/layout/railroad-curve-white.png";
+
 .welcome {
   justify-content: flex-end;
   align-items: center;
+  padding: $grid-indent-width * 2 0;
+  overflow: hidden;
 
   @include make-container-full-height();
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -2rem;
+    width: 110%;
+    height: 100%;
+    background-image: url($bg-rails);
+    background-repeat: no-repeat;
+    background-size: 120%;
+    background-position: -3rem -20rem;
+    z-index: -1;
+    opacity: 0.2;
+  }
 
   &-box {
     width: 100%;
     max-width: 530px;
+  }
+
+  &-game {
+    &-type {
+      max-width: 600px;
+    }
   }
 
   &-animation {

@@ -1,9 +1,9 @@
 @import "../variables";
 
-@mixin make-button($bg, $shadow, $bc: $white, $color: $white, $sb: 0.5em) {
+@mixin make-button($bg, $shadow, $bc: $white, $color: $white, $sblur: 0.5em) {
   background-color: $bg;
   border: 4px solid #{$bc};
-  box-shadow: 0 0 #{$sb} #{$shadow};
+  box-shadow: 0 0 #{$sblur} #{$shadow};
   color: $color;
 }
 @mixin make-button-type($br) {
@@ -32,4 +32,12 @@
   -moz-transform: scale($prop);
   -ms-transform: scale($prop);
   -o-transform: scale($prop);
+}
+
+@mixin make-button-rotate-scale($prop, $deg: 0) {
+  transform: rotate($deg) scale($prop);
+  -webkit-transform: rotate($deg) scale($prop);
+  -moz-transform: rotate($deg) scale($prop);
+  -ms-transform: rotate($deg) scale($prop);
+  -o-transform: rotate($deg) scale($prop);
 }

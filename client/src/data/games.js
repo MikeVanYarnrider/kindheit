@@ -13,7 +13,13 @@ import MemoryInstructions from "../components/Games/Memory/Instructions";
 import EnergyFlow from "../components/Games/EnergyFlow/EnergyFlow";
 import EnergyFlowInstructions from "../components/Games/EnergyFlow/Instructions";
 
-import { LegoImg, TrainImg, PuzzleImg, MemoryImg } from "../images";
+import {
+  LegoImg,
+  TrainImg,
+  PuzzleImg,
+  MemoryImg,
+  EnergyFlowImg
+} from "../images";
 
 const games = [
   {
@@ -52,7 +58,7 @@ const games = [
     title: "Energy Flow",
     link: "energyflow",
     type: "device",
-    image: PuzzleImg,
+    image: EnergyFlowImg,
     component: EnergyFlow,
     instructions: EnergyFlowInstructions
   }

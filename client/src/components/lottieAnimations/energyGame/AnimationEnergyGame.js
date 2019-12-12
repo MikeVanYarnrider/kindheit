@@ -251,13 +251,11 @@ class AnimationEnergyGame extends Component {
         {this.state.isFinished && (
           <Modal
             isOpen={this.state.isFinished}
-            btnAction="Restart"
-            variant="btn-pill btn-start"
+            classCustom="finished"
+            variant="btn-rnd btn-restart"
             onBtnClick={() => this.restartGame()}
-            onClose={this.handleInstructions}
-          >
-            <h1>Finished!</h1>
-          </Modal>
+            finished={true}
+          ></Modal>
         )}
 
         {/* BUTTONS */}
