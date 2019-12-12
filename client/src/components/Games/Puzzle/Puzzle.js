@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-/* import { disablePageScroll, enablePageScroll } from "scroll-lock"; */
 import axios from "axios";
 
 import { Game } from "./common/styles";
 import { GameContainer, WinContainer } from "./styles";
 
 import DraggableList from "./components/DraggableList";
+import Modal from "../../modal/Modal";
 
 import {
   pathImage1,
@@ -40,15 +40,12 @@ export default props => {
         game: gameId
       })
       .then(response => {
-        // console.log(response);
         props.getRestrictionTime(response.data.restricted);
       })
       .catch(err => console.log(err));
   };
-  // console.log("heree", gameStartTime);
 
   useEffect(() => {
-    // screen time tracking
     const date = new Date();
     setGameStartTime((gameStartTime = date));
     window.addEventListener("beforeunload", postGameTime);
@@ -126,6 +123,15 @@ export default props => {
           <div className="inner">{content}</div>
         </GameContainer>
       </div>
+      {completed && (
+        <Modal
+          isOpen={completed}
+          classCustom="finished"
+          variant="btn-rnd btn-restart"
+          onBtnClick={() => setCompleted(false)}
+          finished={true}
+        ></Modal>
+      )}
     </Game>
   );
 };
