@@ -132,7 +132,7 @@ class AnimationEnergyGame extends Component {
     }
   };
   southTrackChange = event => {
-    console.log("CLICK");
+    // console.log("CLICK");
     if (this.state.cloudsActivated && !this.state.powerLineSouthClosed) {
       this.setState(
         {
@@ -160,7 +160,7 @@ class AnimationEnergyGame extends Component {
                       trafficLightTrainAnimation: trafficLightToRed
                     },
                     () => {
-                      console.log("Hallo");
+                      // console.log("Hallo");
                     }
                   );
                 }, 4000);

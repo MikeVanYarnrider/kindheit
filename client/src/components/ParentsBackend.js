@@ -28,7 +28,7 @@ class ParentsBackend extends React.Component {
 
         const dateSplit = timeStamp.slice(4, 15).split(" ");
         const date = `${dateSplit[1]}. ${dateSplit[0]}. ${dateSplit[2]}`;
-        console.log(date.replace("c", "z"));
+        // console.log(date.replace("c", "z"));
         return (
           <li key={time} className="flex-container between">
             <span className="date">{date.replace("c", "z")}</span>

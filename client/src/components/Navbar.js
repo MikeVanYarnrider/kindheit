@@ -15,7 +15,7 @@ const Navbar = props => {
   let childrenIcon = loginChildrenNotActive;
 
   let changeIconsStartScreen = () => {
-    console.log("");
+    // console.log("");
   };
 
   const handleLogout = () => {
@@ -67,7 +67,7 @@ const Navbar = props => {
                     <img
                       src={parentIcon}
                       style={{ height: "50px" }}
-                      onClickCapture={console.log("hex")}
+                      // onClickCapture={console.log("hex")}
                       alt=""
                     />
                   </Link>
