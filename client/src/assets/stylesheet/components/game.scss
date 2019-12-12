@@ -1,29 +1,91 @@
 @import "../variables";
 @import "../mixins/card";
+@import "../mixins/button";
 
 .game {
   @include make-container-flex-center();
   @include make-container-full-height();
 
   &-type {
-    @include make-round-item();
+    margin: 0 $grid-indent-width/2;
+    @include make-round-item($yellow-light);
+
+    @at-root .container {
+      &-game {
+        &-type {
+          width: 100%;
+          @include make-container-flex();
+          @include make-container-flex-center();
+        }
+      }
+    }
+
+    img {
+      width: calc(100% + 2rem);
+      position: absolute;
+      top: -2rem;
+      left: -1rem;
+    }
   }
 
-  &-item {
-    @include make-round-item($radius / 10, $size + 5rem, $size - 3rem);
+  &-list {
+    width: 100%;
+    justify-content: space-between;
+
+    @include make-container-flex();
+
+    @at-root .container {
+      &-game {
+        &-list {
+          padding-bottom: $grid-indent-width * 2;
+          @include make-container-full-height();
+        }
+      }
+    }
   }
 
   &-wrapper {
     max-width: 745px;
     padding: 0 $grid-indent-width * 2;
 
-    @include make-round-item(30px, 100%, auto, 0);
+    @include make-round-item($yellow-light, 30px, 100%, auto, 0);
   }
 
-  &-list {
-    width: 100%;
-    justify-content: space-evenly;
+  &-item {
+    position: relative;
+    margin: 0 $grid-indent-width * 3 $grid-indent-width * 2;
+    @include make-round-item($red-light, $radius / 10, $size + 3rem, $size);
 
-    @include make-container-flex();
+    img {
+      width: 90%;
+
+      &.scale {
+        animation: #{scale-img-keyframes} $speed;
+        -webkit-animation: #{scale-img-keyframes} $speed;
+      }
+    }
+
+    & > .btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(50%, -50%);
+      -webkit-transform: translate(50%, -50%);
+      -moz-transform: translate(50%, -50%);
+      -ms-transform: translate(50%, -50%);
+      -o-transform: translate(50%, -50%);
+    }
+  }
+}
+
+@keyframes scale-img-keyframes {
+  0% {
+    @include make-button-scale(1);
+  }
+  50% {
+    @include make-button-scale(1.15);
+  }
+  100% {
+    @include make-button-scale(1);
   }
 }

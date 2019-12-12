@@ -30,12 +30,47 @@
 
   &-inner {
     flex-direction: column;
-    @include make-round-item($radius / 10, $size * 2);
+    @include make-round-item($red-light, $radius / 10, $size * 2);
 
     &-instructions {
-      @include make-round-item($radius / 10, $size * 3, $size * 2);
-      display: block;
-      flex-wrap: nowrap;
+      position: relative;
+      flex-direction: column;
+      @include make-round-item(
+        $yellow-light,
+        $radius / 10,
+        $size * 1.75,
+        $size * 1.75
+      );
+
+      .btn {
+        &.play {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          transform: translate(50%, 50%);
+          -webkit-transform: translate(50%, 50%);
+          -moz-transform: translate(50%, 50%);
+          -ms-transform: translate(50%, 50%);
+          -o-transform: translate(50%, 50%);
+        }
+
+        &.close {
+          position: absolute;
+          top: 0;
+          right: 0;
+          transform: translate(50%, -50%);
+          -webkit-transform: translate(50%, -50%);
+          -moz-transform: translate(50%, -50%);
+          -ms-transform: translate(50%, -50%);
+          -o-transform: translate(50%, -50%);
+        }
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
     }
   }
 }

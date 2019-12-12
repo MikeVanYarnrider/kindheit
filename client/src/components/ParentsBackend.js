@@ -3,7 +3,6 @@ import axios from "axios";
 import "../../src/assets/stylesheet/components/parent.scss";
 import "../../src/assets/stylesheet/components/button.scss";
 import Button from "../../src/components/Button";
-
 class ParentsBackend extends React.Component {
   state = {
     children: []
@@ -20,13 +19,19 @@ class ParentsBackend extends React.Component {
 
   render() {
     const children = Object.values(this.state.children).map((child, index) => {
+      // console.log(child);
       let timeSum = 0;
       const time = child.sessionTimes.map(times => {
+        // console.log(times);
         const { time, timeStamp, game } = times;
         timeSum += time;
+        // console.log(timeSum);
+
         return (
-          <li key={time}>
-            {game}: {time.toFixed(2)} sec on {timeStamp.slice(4, 15)}
+          <li key={time} className="flex-container between">
+            <span className="date">{timeStamp.slice(4, 15)}</span>
+            <span className="text">{game}</span>
+            <span className="time"> {time.toFixed(0)} Sek.</span>
           </li>
         );
       });
@@ -39,12 +44,11 @@ class ParentsBackend extends React.Component {
           </div>
           <div className="height">
             <h2>{username}</h2>
-
             <div>
               <h5>Last 5 played games:</h5>
               <ol>{time.slice(time.length - 5, time.length)}</ol>
             </div>
-            <p>Overall screen time {(timeSum / 60).toFixed(2)} min</p>
+            <p>Overall screen time {(timeSum / 60).toFixed(0)} min.</p>
           </div>
         </div>
       );

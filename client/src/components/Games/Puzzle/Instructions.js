@@ -1,7 +1,9 @@
 import React from "react";
 
-const Instructions = () => {
-  return <div>Puzzle instructions</div>;
+import { PuzzleImg } from "../../../images";
+
+const Instructions = props => {
+  return <img src={PuzzleImg} alt={props.title} />;
 };
 
 export default Instructions;

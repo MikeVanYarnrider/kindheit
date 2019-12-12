@@ -3,7 +3,7 @@
 // Color system
 $white: #fff;
 $teal-dark: #0a6073;
-$teal-light: #009dA5;
+$teal-light: #009da5;
 $blue-dark: #095c80;
 $blue-light: #33b6c6;
 $red-dark: #5d1736;
@@ -49,7 +49,12 @@ $grid-content-width:         1024px;
 // prettier-ignore
 $grid-indent-width:          1rem;
 // prettier-ignore
-$grid-nav-heigth:                 5rem;
+$grid-nav-heigth:            5rem;
+// prettier-ignore
+$grid-btn-size:              5rem;
 
 //Ratio z-index
 $z-modal: 9999;
+
+// Animation speed
+$speed: 0.5s;

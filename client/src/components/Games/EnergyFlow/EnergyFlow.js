@@ -50,7 +50,7 @@ class EnergyFlow extends Component {
         }}
       >
         <div
-          style={{ backgroundColor: "black", width: "850px", height: "580px" }}
+          style={{width: "850px", height: "580px" }}
         >
           <div style={{ borderRadius: "20px" }}>
             <AnimationEnergyGame />

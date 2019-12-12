@@ -36,13 +36,13 @@ export default class SignupForm extends Component {
   render() {
     const fields = [
       {
-        label: "Username:",
+        label: "Nutzername:",
         name: "username",
         type: "text",
         value: this.state.username
       },
       {
-        label: "Password:",
+        label: "Passwort:",
         name: "password",
         type: "password",
         value: this.state.password
@@ -57,13 +57,13 @@ export default class SignupForm extends Component {
 
     return (
       <div>
-        <h2>Signup</h2>
+        <h1 style={{ color: "white", margin: "0 0 20px 20px" }}>Anmelden</h1>
         <Form
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           fields={fields}
           error={this.state.error}
-          button="Parent signup"
+          button="Anmeldung"
         />
       </div>
     );

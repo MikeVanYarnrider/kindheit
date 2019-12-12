@@ -4,7 +4,7 @@
   position: relative;
   width: auto;
   margin: 0 auto;
-  height: 500px;
+  height: 590px;
   overflow: hidden;
   white-space: nowrap;
 }
@@ -13,7 +13,7 @@
   position: relative;
   width: auto;
   margin: 0 auto;
-  height: 500px;
+  height: 590px;
   overflow: hidden;
   white-space: nowrap;
 }
@@ -26,5 +26,5 @@
 
 .flex-slider {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }

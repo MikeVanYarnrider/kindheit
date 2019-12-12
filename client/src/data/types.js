@@ -1,11 +1,15 @@
+import { handGames, digitalGames } from "../images";
+
 const types = [
   {
     type: "Hands games",
-    link: "handsgames"
+    link: "handsgames",
+    image: handGames
   },
   {
     type: "Device games",
-    link: "device"
+    link: "device",
+    image: digitalGames
   }
 ];
 

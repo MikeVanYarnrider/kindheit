@@ -25,6 +25,14 @@
     }
   }
 
+  &.image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+  }
+
   &.back,
   &.forward {
     @include make-button($white, $teal-light, $teal-light, $teal-light);
@@ -76,10 +84,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
-    margin: 0.5em;
+    width: $grid-btn-size;
+    height: $grid-btn-size;
+    line-height: $grid-btn-size;
+    margin: $grid-indent-width / 2;
     box-sizing: border-box;
 
     @include make-button-type(50%);
@@ -115,9 +123,10 @@
 }
 
 .rotate {
-  svg {
-    animation: #{rotate-keyframes} 2s;
-    -webkit-animation: #{rotate-keyframes} 2s;
+  svg,
+  img {
+    animation: #{rotate-keyframes} $speed;
+    -webkit-animation: #{rotate-keyframes} $speed;
   }
 }
 
@@ -126,23 +135,40 @@
     @include make-button-rotate(0);
   }
   100% {
-    @include make-button-rotate(360, 2);
+    @include make-button-rotate(360, 1);
   }
 }
 
 .scale {
   svg {
-    animation: #{scale-keyframes} 2s;
-    -webkit-animation: #{scale-keyframes} 2s;
+    animation: #{scale-btn-keyframes} $speed;
+    -webkit-animation: #{scale-btn-keyframes} $speed;
+  }
+
+  img {
+    animation: #{scale-img-keyframes} $speed;
+    -webkit-animation: #{scale-img-keyframes} $speed;
   }
 }
 
-@keyframes scale-keyframes {
+@keyframes scale-btn-keyframes {
   0% {
     @include make-button-scale(1);
   }
   50% {
     @include make-button-scale(1.25);
+  }
+  100% {
+    @include make-button-scale(1);
+  }
+}
+
+@keyframes scale-img-keyframes {
+  0% {
+    @include make-button-scale(1);
+  }
+  50% {
+    @include make-button-scale(1.05);
   }
   100% {
     @include make-button-scale(1);

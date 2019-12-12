@@ -83,6 +83,7 @@ class ChildrenPassword extends Component {
                 onClick={this.signupImageChange}
               >
                 <div
+                id={passwordIndex}
                   className="selectedField"
                   style={{
                     backgroundImage: `url(${imageState[passwordIndex - 1]})`
