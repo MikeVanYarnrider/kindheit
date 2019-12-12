@@ -39,7 +39,7 @@ export default class DrawTrain extends Component {
   };
 
   componentDidMount = () => {
-    console.log(this.props);
+    console.log("PROPS", this.props);
     this.setState(
       {
         gameStartTime: new Date()

@@ -1,6 +1,6 @@
 import React from "react";
 import { FormField } from "./FormField";
-import { error, loginChildIcon } from "../../images";
+import { error } from "../../images";
 
 const FormGroup = props => {
   return (
@@ -27,26 +27,40 @@ const FormGroup = props => {
             justifyContent: "space-between"
           }}
         >
-          {props.fields.map(item => {
+          {props.fields.map((item, index) => {
             return (
-         <div style={{height: "90px"}}>
-              <FormField
-                key={item.name}
-                type={item.type}
-                label={item.label}
-                name={item.name}
-                value={item.value}
-                onChange={props.handleChange}
-              /></div>
+              <div key={index} style={{ height: "90px" }}>
+                <FormField
+                  key={item.name}
+                  type={item.type}
+                  label={item.label}
+                  name={item.name}
+                  value={item.value}
+                  onChange={props.handleChange}
+                />
+              </div>
             );
           })}
         </div>
-       
       </div>
 
-
-      <div style={{height: "150px", display: "flex", flexDirection: "column", justifyContent:"flex-end"}}> {props.error && (
-          <div style={{ backgroundColor: "white", borderRadius: "7px", marginTop: "35px" }}>
+      <div
+        style={{
+          height: "150px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end"
+        }}
+      >
+        {" "}
+        {props.error && (
+          <div
+            style={{
+              backgroundColor: "white",
+              borderRadius: "7px",
+              marginTop: "35px"
+            }}
+          >
             <div
               style={{
                 color: "red",
@@ -62,6 +76,7 @@ const FormGroup = props => {
               <img
                 src={error}
                 style={{ height: "20px", marginRight: "10px" }}
+                alt="Fehler"
               />
               <p
                 style={{
@@ -73,27 +88,27 @@ const FormGroup = props => {
             </div>
           </div>
         )}
-      <button
-        type="submit"
-        style={{
-          marginTop: "30px",
-          padding: "10px 15px 10px 15px",
-          width: "300px",
-          borderRadius: "30px",
-          outline: "none",
-          fontSize: "1.7em",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          color: "white",
-          backgroundColor: "transparent",
-          border: "none",
-          border: "3px solid white"
-        }}
-      >
-        {props.button}
-      </button></div>
-     
+        <button
+          type="submit"
+          style={{
+            marginTop: "30px",
+            padding: "10px 15px 10px 15px",
+            width: "300px",
+            borderRadius: "30px",
+            outline: "none",
+            fontSize: "1.7em",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "white",
+            backgroundColor: "transparent",
+            border: "none"
+            // border: "3px solid white"
+          }}
+        >
+          {props.button}
+        </button>
+      </div>
     </form>
   );
 };

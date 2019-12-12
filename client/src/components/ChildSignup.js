@@ -6,7 +6,7 @@ import ChildrenPassword from "../components/Signup_Children/ChildrenPassword";
 import Button from "../../src/components/Button";
 import "../assets/stylesheet/components/ChildrenSignup/signupForm.scss";
 import "../assets/stylesheet/components/loginstyle.scss";
-import { error, loginChildIcon } from "../images";
+import { error } from "../images";
 
 import { profileImg_boy_brownHair } from "../images";
 import axios from "axios";
@@ -227,6 +227,7 @@ class ChildSignup extends Component {
                       <img
                         src={error}
                         style={{ height: "20px", marginRight: "10px" }}
+                        alt="Fehler"
                       />
                       <p>Bitte wählen Sie einen Namen aus!</p>
                     </div>
@@ -256,6 +257,7 @@ class ChildSignup extends Component {
                       <img
                         src={error}
                         style={{ height: "20px", marginRight: "10px" }}
+                        alt="Fehler"
                       />
                       <p>Der Name ist leider schon vergeben!</p>
                     </div>
@@ -306,6 +308,7 @@ class ChildSignup extends Component {
                       <img
                         src={error}
                         style={{ height: "20px", marginRight: "10px" }}
+                        alt="Fehler"
                       />
                       <p>{this.state.error}</p>
                     </div>
@@ -402,6 +405,7 @@ class ChildSignup extends Component {
                       <img
                         src={error}
                         style={{ height: "20px", marginRight: "10px" }}
+                        alt="Fehler"
                       />
                       <p>{this.state.error}</p>
                     </div>
