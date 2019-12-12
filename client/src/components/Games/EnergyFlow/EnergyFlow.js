@@ -20,7 +20,6 @@ class EnergyFlow extends Component {
         game: gameId
       })
       .then(response => {
-        // console.log(response);
         this.props.getRestrictionTime(response.data.restricted);
       })
       .catch(err => console.log(err));
