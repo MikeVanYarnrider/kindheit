@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8e87c5dbb9ca12e303af9d2a21bd27ea",
+    "revision": "395513fdb94820739df3e3005cc3a01b",
     "url": "/index.html"
   },
   {
-    "revision": "20d04467196045451927",
+    "revision": "e681fe734b81c6e9de0e",
     "url": "/static/css/2.8826bdfc.chunk.css"
   },
   {
-    "revision": "0a8d792cb19d5113c0e9",
-    "url": "/static/css/main.7d7e991c.chunk.css"
+    "revision": "7e015fe08eb90f0e395f",
+    "url": "/static/css/main.f9a9d5a6.chunk.css"
   },
   {
-    "revision": "20d04467196045451927",
-    "url": "/static/js/2.1b197337.chunk.js"
+    "revision": "e681fe734b81c6e9de0e",
+    "url": "/static/js/2.c79752df.chunk.js"
   },
   {
-    "revision": "0a8d792cb19d5113c0e9",
-    "url": "/static/js/main.c7b9451b.chunk.js"
+    "revision": "7e015fe08eb90f0e395f",
+    "url": "/static/js/main.3e93a1b4.chunk.js"
   },
   {
     "revision": "1337678ae3301a2c8a7b",
@@ -152,6 +152,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/dragon.4a6b00d5.png"
   },
   {
+    "revision": "117f517a59ab258f6bcb3efd98b26cfb",
+    "url": "/static/media/energy_card.117f517a.png"
+  },
+  {
     "revision": "1b11f41bee1e1ccbdfa617bfde419a04",
     "url": "/static/media/error.1b11f41b.png"
   },
@@ -192,6 +196,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/lego_card.6ebb15ad.png"
   },
   {
+    "revision": "f99918716f3bc2fd7254faa5f5f566b0",
+    "url": "/static/media/locomotive.f9991871.png"
+  },
+  {
     "revision": "6fba3b08957800c1fc96af8ff5a5f31a",
     "url": "/static/media/loginChildIcon.6fba3b08.png"
   },
@@ -220,8 +228,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/puzzle_card.3e05ba52.png"
   },
   {
+    "revision": "f457c9c9244683de5f67c5158f1b2ddd",
+    "url": "/static/media/railroad-curve-white.f457c9c9.png"
+  },
+  {
+    "revision": "43b276953945a225509b249432f41445",
+    "url": "/static/media/railroad-white.43b27695.png"
+  },
+  {
     "revision": "9d3edcacc4866984077e6a11c4bcc9ef",
     "url": "/static/media/signupchild.9d3edcac.png"
+  },
+  {
+    "revision": "b173ae002e56c174a8866343c15abbc9",
+    "url": "/static/media/stars.b173ae00.png"
   },
   {
     "revision": "8d7779caf4b42fed9541995661181bc2",

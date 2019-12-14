@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.7d7e991c.chunk.css",
-    "main.js": "/static/js/main.c7b9451b.chunk.js",
-    "main.js.map": "/static/js/main.c7b9451b.chunk.js.map",
+    "main.css": "/static/css/main.f9a9d5a6.chunk.css",
+    "main.js": "/static/js/main.3e93a1b4.chunk.js",
+    "main.js.map": "/static/js/main.3e93a1b4.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.8eac158a.js",
     "runtime-main.js.map": "/static/js/runtime-main.8eac158a.js.map",
     "static/css/2.8826bdfc.chunk.css": "/static/css/2.8826bdfc.chunk.css",
-    "static/js/2.1b197337.chunk.js": "/static/js/2.1b197337.chunk.js",
-    "static/js/2.1b197337.chunk.js.map": "/static/js/2.1b197337.chunk.js.map",
+    "static/js/2.c79752df.chunk.js": "/static/js/2.c79752df.chunk.js",
+    "static/js/2.c79752df.chunk.js.map": "/static/js/2.c79752df.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.a0f65205abdef66b640490a4a0799cd8.js": "/precache-manifest.a0f65205abdef66b640490a4a0799cd8.js",
+    "precache-manifest.082da37d7e4627cdf903c580b5a7ec16.js": "/precache-manifest.082da37d7e4627cdf903c580b5a7ec16.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.8826bdfc.chunk.css.map": "/static/css/2.8826bdfc.chunk.css.map",
-    "static/css/main.7d7e991c.chunk.css.map": "/static/css/main.7d7e991c.chunk.css.map",
+    "static/css/main.f9a9d5a6.chunk.css.map": "/static/css/main.f9a9d5a6.chunk.css.map",
     "static/media/1.png": "/static/media/1.e6d7e181.png",
     "static/media/10706_Building_Instructions-26.jpg": "/static/media/10706_Building_Instructions-26.79246016.jpg",
     "static/media/10706_Building_Instructions-27.jpg": "/static/media/10706_Building_Instructions-27.c021cc28.jpg",
@@ -37,6 +37,7 @@
     "static/media/crocodile.png": "/static/media/crocodile.0e0f6732.png",
     "static/media/digitalgames_card.png": "/static/media/digitalgames_card.07d06ba5.png",
     "static/media/dragon.png": "/static/media/dragon.4a6b00d5.png",
+    "static/media/energy_card.png": "/static/media/energy_card.117f517a.png",
     "static/media/error.png": "/static/media/error.1b11f41b.png",
     "static/media/girl_blondeHair_2.png": "/static/media/girl_blondeHair_2.fab523b7.png",
     "static/media/girl_blueHair_2.png": "/static/media/girl_blueHair_2.981b4f3d.png",
@@ -46,6 +47,7 @@
     "static/media/home.png": "/static/media/home.f0144981.png",
     "static/media/img_0.png": "/static/media/img_0.380f30f9.png",
     "static/media/lego_card.png": "/static/media/lego_card.6ebb15ad.png",
+    "static/media/game.scss": "/static/media/locomotive.f9991871.png",
     "static/media/loginChildIcon.png": "/static/media/loginChildIcon.6fba3b08.png",
     "static/media/logo.png": "/static/media/logo.92895829.png",
     "static/media/logout.png": "/static/media/logout.77759c09.png",
@@ -53,15 +55,18 @@
     "static/media/pig.png": "/static/media/pig.c58a648e.png",
     "static/media/princess.png": "/static/media/princess.c9f987da.png",
     "static/media/puzzle_card.png": "/static/media/puzzle_card.3e05ba52.png",
+    "static/media/welcome.scss": "/static/media/railroad-curve-white.f457c9c9.png",
+    "static/media/modal.scss": "/static/media/railroad-white.43b27695.png",
     "static/media/signupchild.png": "/static/media/signupchild.9d3edcac.png",
+    "static/media/stars.png": "/static/media/stars.b173ae00.png",
     "static/media/train.png": "/static/media/train.8d7779ca.png",
     "static/media/train_card.png": "/static/media/train_card.65ff0ac0.png"
   },
   "entrypoints": [
     "static/js/runtime-main.8eac158a.js",
     "static/css/2.8826bdfc.chunk.css",
-    "static/js/2.1b197337.chunk.js",
-    "static/css/main.7d7e991c.chunk.css",
-    "static/js/main.c7b9451b.chunk.js"
+    "static/js/2.c79752df.chunk.js",
+    "static/css/main.f9a9d5a6.chunk.css",
+    "static/js/main.3e93a1b4.chunk.js"
   ]
 }
