@@ -93,6 +93,7 @@
     line-height: $grid-btn-size;
     margin: $grid-indent-width / 2;
     box-sizing: border-box;
+    padding: 0;
 
     @include make-button-type(50%);
   }

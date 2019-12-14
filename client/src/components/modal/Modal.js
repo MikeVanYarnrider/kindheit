@@ -60,7 +60,7 @@ class Modal extends React.Component {
                   this.props.classCustom ? `-${this.props.classCustom}` : ""
                 }`}
               >
-                Geschaft!
+                Geschafft!
               </h1>
               <p
                 className={`desc${

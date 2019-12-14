@@ -35,7 +35,8 @@ export const GameContainer = styled.div`
     }
     //margin-bottom: 3%;
     > img {
-      height: 100%;
+      width: 6rem;
+      height: 6rem;
       border: 2px solid #ffffff;
       padding: 0px;
       background: lightblue;

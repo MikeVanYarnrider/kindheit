@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Form } from "react-bootstrap";
 import "../../assets/stylesheet/components/ChildrenLogin/childrenLoginPasswort.scss";
 
 import {
@@ -60,7 +59,10 @@ class ChildrenPassword extends Component {
 
   signupImageChange = event => {
     let changeImageNum = event.currentTarget.id;
-    this.setState({ changeImage: changeImageNum,  [`buttonState${changeImageNum}`]: true });
+    this.setState({
+      changeImage: changeImageNum,
+      [`buttonState${changeImageNum}`]: true
+    });
     this.props.setChangePassword(changeImageNum);
   };
 
@@ -79,46 +81,50 @@ class ChildrenPassword extends Component {
           marginTop: "-20px"
         }}
       >
-        <section className="selectedImages"
+        <section
+          className="selectedImages"
           style={{
             width: "400px",
             display: "flex",
             justifyContent: "space-between"
           }}
         >
-         {[1, 2, 3, 4].map(passwordIndex => {
-            return (<div key={passwordIndex}>
-            {this.state[`buttonState${passwordIndex}`] ? (<button
-                key={passwordIndex}
-                id={passwordIndex}
-                type="button"
-                className="selected-btn active"
-                onClick={this.signupImageChange}
-                style={{backgroundColor: "black"}}
-              >
-              
-                <div
-                  className="selectedField active"
-                  style={{
-                    backgroundImage: `url(${imageState[passwordIndex - 1]})`
-                  }}
-                ></div>
-              </button>) : (<button
-                key={passwordIndex}
-                id={passwordIndex}
-                type="button"
-                className="selected-btn"
-                onClick={this.signupImageChange}
-                style={{backgroundColor: "black"}}
-              >
-              
-                <div
-                  className="selectedField"
-                  style={{
-                    backgroundImage: `url(${imageState[passwordIndex - 1]})`
-                  }}
-                ></div>
-              </button>)}
+          {[1, 2, 3, 4].map(passwordIndex => {
+            return (
+              <div key={passwordIndex}>
+                {this.state[`buttonState${passwordIndex}`] ? (
+                  <button
+                    key={passwordIndex}
+                    id={passwordIndex}
+                    type="button"
+                    className="selected-btn active"
+                    onClick={this.signupImageChange}
+                    style={{ backgroundColor: "black" }}
+                  >
+                    <div
+                      className="selectedField active"
+                      style={{
+                        backgroundImage: `url(${imageState[passwordIndex - 1]})`
+                      }}
+                    ></div>
+                  </button>
+                ) : (
+                  <button
+                    key={passwordIndex}
+                    id={passwordIndex}
+                    type="button"
+                    className="selected-btn"
+                    onClick={this.signupImageChange}
+                    style={{ backgroundColor: "black" }}
+                  >
+                    <div
+                      className="selectedField"
+                      style={{
+                        backgroundImage: `url(${imageState[passwordIndex - 1]})`
+                      }}
+                    ></div>
+                  </button>
+                )}
               </div>
             );
           })}
