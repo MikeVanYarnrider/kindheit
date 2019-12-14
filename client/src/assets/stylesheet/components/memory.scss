@@ -49,15 +49,16 @@ $indent: 1rem;
   }
 
   &-front {
-    transform: rotateY(-180deg) translateZ(1px);
-    -webkit-transform: rotateY(-180deg) translateZ(1px);
-    -moz-transform: rotateY(-180deg) translateZ(1px);
-    -ms-transform: rotateY(-180deg) translateZ(1px);
-    -o-transform: rotateY(-180deg) translateZ(1px);
+    transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 
     @include make-container-positioned(absolute);
+
     img {
       width: 100%;
       height: 100%;
