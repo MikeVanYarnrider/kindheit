@@ -70,7 +70,7 @@ export default class App extends Component {
             isOpen={this.state.modalOpen}
             onClose={this.handleInstructions}
           >
-            <h2>Hat du Lust etwas zu basteln? </h2>
+            <h2>Hast du Lust etwas zu basteln? </h2>
             <div>
               <img src={buildSomething} width="150px" alt="buildSomething" />
             </div>
