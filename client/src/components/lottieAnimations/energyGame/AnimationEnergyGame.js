@@ -6,6 +6,7 @@ import Modal from "../../modal/Modal";
 import animationBackground from "../energyGame/background.json";
 import cloudsBlowing from "../energyGame/clouds_blowing.json";
 import cloudsWaiting from "../energyGame/clouds_waiting.json";
+import windmillsWaiting from "../energyGame/windmills_still.json";
 import windmills from "../energyGame/windmills.json";
 import house from "../energyGame/house.json";
 import electricbox from "../energyGame/electricbox.json";
@@ -99,6 +100,7 @@ class AnimationEnergyGame extends Component {
   state = {
     cloudAnimation: cloudsWaiting,
     cloudsActivated: false,
+    windmillAnimation: windmillsWaiting,
     powerLineFirstTrack: "",
     cloudsegments: [],
     powerLineSouthTrack: powerLineSouthTrackStatic,
@@ -126,11 +128,13 @@ class AnimationEnergyGame extends Component {
         cloudAnimation: cloudsBlowing,
         cloudsActivated: true,
         cloudsegments: [41, 78],
+        windmillAnimation: windmills,
         powerLineFirstTrack: powerLineFirstTrack,
         positionBlitz: ["600px", "300px"]
       });
     }
   };
+
   southTrackChange = event => {
     // console.log("CLICK");
     if (this.state.cloudsActivated && !this.state.powerLineSouthClosed) {
@@ -223,6 +227,7 @@ class AnimationEnergyGame extends Component {
     this.setState({
       cloudAnimation: cloudsWaiting,
       cloudsActivated: false,
+      windmillAnimation: windmillsWaiting,
       powerLineFirstTrack: "",
       cloudsegments: [],
       powerLineSouthTrack: powerLineSouthTrackStatic,
@@ -393,7 +398,7 @@ class AnimationEnergyGame extends Component {
           <Lottie
             options={{
               direction: 1,
-              animationData: windmills,
+              animationData: this.state.windmillAnimation,
               autoplay: this.state.cloudsActivated,
               loop: true,
               rendererSettings: {
